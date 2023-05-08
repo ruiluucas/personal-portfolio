@@ -1,9 +1,11 @@
-import { useState, Children } from 'react'
+import { useState, Children, useRef } from 'react'
+import * as THREE from 'three'
 import { useTrail, a } from '@react-spring/web'
-import { Canvas } from '@react-three/fiber'
-import { Box, ContactShadows, Environment, Html, OrbitControls, Sky, useGLTF } from "@react-three/drei"
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Box, ContactShadows, Environment, Float, Html, OrbitControls, Sky, Stars, Trail, useGLTF } from "@react-three/drei"
+import { Bloom, EffectComposer } from '@react-three/postprocessing'
 
-const Trail = ({ open, children }) => {
+const TrailText = ({ open, children }) => {
   const items = Children.toArray(children)
   const trail = useTrail(items.length, {
     config: { mass: 7, tension: 300, friction: 100 },
@@ -27,10 +29,10 @@ function TextMain() {
   const [open, set] = useState(true)
   return (
     <div className="flex items-center justify-center md:justify-start md:m-40 md:mt-0 sm:m-0 sm:justify-center h-full">
-      <Trail open={open}>
+      <TrailText open={open}>
         <span className='text-white'>Let's</span>
         <span className='text-white'>Program!</span>
-      </Trail>
+      </TrailText>
     </div>
   )
 }
@@ -39,7 +41,7 @@ function NotebookContent() {
   const { nodes, materials } = useGLTF("./notebook.glb")
 
   return (
-      <group position={[0, 0, 0]} rotation={[0.3, 0, 0]}>
+      <group position={[0, -1.5, -1.8]} rotation={[0.3, -0.3, 0]}>
         <group rotation-x={-0.425} position={[0, -0.04, 0.41]}>
           <group position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
             <mesh material={materials.aluminium} geometry={nodes['Cube008'].geometry} />
@@ -63,24 +65,48 @@ function NotebookContent() {
 }
 
 export default function Main() {
-
   return (
-    <main className='pb-60 flex-1'>
+    <main className='pb-60 bg-black flex-1'>
+      <div className="h-full">
+        <TextMain />
+      </div>
       <div style={{ zIndex: 1 }} className="absolute h-screen w-full top-0">
-        <Canvas camera={{ position: [0, -2, 20], fov: 55 }}>
-          <color attach="background" args={['black']} />
+        <Canvas camera={{ position: [0, 0, 20], fov: 55 }}>
           <pointLight position={[10, 10, 10]} intensity={1.5} />
           <ContactShadows position={[0, -4.5, 0]} scale={20} blur={2} far={4.5} />
           <Environment preset="city" />
-          <NotebookContent />
-          <Html position={[0, 0, 10]} transform={false}>
-            <div>
-              <TextMain />
-            </div>
-          </Html>
+          <Float speed={1} rotationIntensity={1} floatIntensity={5}>
+            <NotebookContent />
+          </Float>
+          <Electron position={[0, 0, 0.5]} rotation={[3.14 / 1.5 - 0.2, 0, 0]} speed={1.8} />
+          <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
+          <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
           <OrbitControls />
+          <Stars saturation={0} count={400} speed={0.5} />
+          <EffectComposer>
+            <Bloom mipmapBlur luminanceThreshold={1} radius={0.7} />
+          </EffectComposer>
         </Canvas>
       </div>
     </main>
   )
 }
+
+function Electron({ radius = 6.5, speed = 0.5, ...props }) {
+  const ref = useRef()
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime() * speed
+    ref.current.position.set(Math.sin(t) * radius, (Math.cos(t) * radius * Math.atan(t)) / Math.PI / 0.5, 0)
+  })
+  return (
+    <group {...props}>
+      <Trail width={5} length={3} color={new THREE.Color(2, 1, 10)} attenuation={(t) => t * t}>
+        <mesh ref={ref}>
+          <sphereGeometry args={[0.25]} />
+          <meshBasicMaterial color={[10, 1, 10]} toneMapped={false} />
+        </mesh>
+      </Trail>
+    </group>
+  )
+}
+
