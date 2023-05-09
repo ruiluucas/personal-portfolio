@@ -2,7 +2,7 @@ import { useState, Children, useRef } from 'react'
 import * as THREE from 'three'
 import { useTrail, a } from '@react-spring/web'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Box, ContactShadows, Environment, Float, Html, OrbitControls, Sky, Stars, Trail, useGLTF } from "@react-three/drei"
+import { Box, ContactShadows, Environment, Float, Html, MeshReflectorMaterial, OrbitControls, Sky, Stars, Trail, useGLTF } from "@react-three/drei"
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import MatrixScreen from './MatrixScreen'
 
@@ -40,6 +40,7 @@ function TextMain() {
 
 function NotebookContent() {
   const { nodes, materials } = useGLTF("./notebook.glb")
+  const a = useRef()
 
   return (
       <group position={[0, -1.5, -1.8]} rotation={[0.3, -0.3, 0]}>
@@ -48,9 +49,9 @@ function NotebookContent() {
             <mesh material={materials.aluminium} geometry={nodes['Cube008'].geometry} />
             <mesh material={materials['matte.001']} geometry={nodes['Cube008_1'].geometry} />
             <mesh geometry={nodes['Cube008_2'].geometry}>
-              <Html scale={0.275} className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} transform occlude zIndexRange={[0, 0]}>
-                <div className="wrapper" style={{ width: "1250px" }} onPointerDown={(e) => e.stopPropagation()}>
-                  <MatrixScreen />
+              <MeshReflectorMaterial color="black" />
+              <Html portal={a} scale={0.275} className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} zIndexRange={[0, 0]} transform occlude >
+                <div className="wrapper" style={{ width: "1250px",  height: "100%", background: "black" }} onPointerDown={(e) => e.stopPropagation()}>
                 </div>
               </Html>
             </mesh>
@@ -79,10 +80,10 @@ export default function Main() {
           <Environment preset="city" />
           <Float speed={1} rotationIntensity={1} floatIntensity={5}>
             <NotebookContent />
+            <Electron position={[0, 0, 0.5]} rotation={[3.14 / 1.5 - 0.2, 0, 0]} speed={1.8} />
+            <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
+            <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
           </Float>
-          <Electron position={[0, 0, 0.5]} rotation={[3.14 / 1.5 - 0.2, 0, 0]} speed={1.8} />
-          <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
-          <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
           <OrbitControls />
           <Stars saturation={0} count={400} speed={0.5} />
           <EffectComposer>
@@ -102,10 +103,10 @@ function Electron({ radius = 6.5, speed = 0.5, ...props }) {
   })
   return (
     <group {...props}>
-      <Trail width={5} length={3} color={new THREE.Color(2, 1, 10)} attenuation={(t) => t * t}>
+      <Trail width={5} length={3} color={new THREE.Color(0, 10, 0)} attenuation={(t) => t * t}>
         <mesh ref={ref}>
           <sphereGeometry args={[0.25]}  />
-          <meshBasicMaterial color={[10, 1, 10]} toneMapped={false} />
+          <meshBasicMaterial color={[0, 10, 0]} toneMapped={false} />
         </mesh>
       </Trail>
     </group>
