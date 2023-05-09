@@ -4,6 +4,7 @@ import { useTrail, a } from '@react-spring/web'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Box, ContactShadows, Environment, Float, Html, OrbitControls, Sky, Stars, Trail, useGLTF } from "@react-three/drei"
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
+import MatrixScreen from './MatrixScreen'
 
 const TrailText = ({ open, children }) => {
   const items = Children.toArray(children)
@@ -47,8 +48,9 @@ function NotebookContent() {
             <mesh material={materials.aluminium} geometry={nodes['Cube008'].geometry} />
             <mesh material={materials['matte.001']} geometry={nodes['Cube008_1'].geometry} />
             <mesh geometry={nodes['Cube008_2'].geometry}>
-              <Html className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} transform occlude>
-                <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
+              <Html scale={0.275} className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} transform occlude zIndexRange={[0, 0]}>
+                <div className="wrapper" style={{ width: "1250px" }} onPointerDown={(e) => e.stopPropagation()}>
+                  <MatrixScreen />
                 </div>
               </Html>
             </mesh>
@@ -102,7 +104,7 @@ function Electron({ radius = 6.5, speed = 0.5, ...props }) {
     <group {...props}>
       <Trail width={5} length={3} color={new THREE.Color(2, 1, 10)} attenuation={(t) => t * t}>
         <mesh ref={ref}>
-          <sphereGeometry args={[0.25]} />
+          <sphereGeometry args={[0.25]}  />
           <meshBasicMaterial color={[10, 1, 10]} toneMapped={false} />
         </mesh>
       </Trail>
