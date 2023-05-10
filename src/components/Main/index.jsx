@@ -6,7 +6,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Box, ContactShadows, Environment, Float, Html, MeshReflectorMaterial, OrbitControls, Sky, Stars, Trail, useGLTF } from "@react-three/drei"
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import MatrixScreen from './MatrixScreen'
-import { Physics, useSphere } from '@react-three/cannon'
+import { Physics, useBox, useSphere } from '@react-three/cannon'
 
 const TrailText = ({ open, children }) => {
   const items = Children.toArray(children)
@@ -42,10 +42,14 @@ function TextMain() {
 
 function NotebookContent() {
   const { nodes, materials } = useGLTF("./notebook.glb")
-  const a = useRef()
+  const [ref] = useBox(() => ({
+    type: "Static",
+    position: [0, 0, 0],
+    args: [10, 1, 10],
+  }));const a = useRef()
 
   return (
-      <group position={[0, -1.5, -1.8]} rotation={[0.3, -0.3, 0]}>
+      <group ref={ref} position={[0, -1.5, -1.8]} rotation={[0.3, -0.3, 0]}>
         <group rotation-x={-0.425} position={[0, -0.04, 0.41]}>
         <Suspense fallback={null}>
           <group position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
@@ -72,9 +76,6 @@ function NotebookContent() {
 }
 
 export default function Main() {
-  const [ref, api] = useSphere(() => ({ mass: 1, args: [0.5], position: [0, 5, 0] }))
-
-  
   return (
     <main className='pb-60 bg-black flex-1'>
       <div className="h-full">
@@ -86,7 +87,9 @@ export default function Main() {
           <ContactShadows position={[0, -4.5, 0]} scale={20} blur={2} far={4.5} />
           <Environment preset="city" />
           <Float speed={1} rotationIntensity={1} floatIntensity={5} position={[5, 0, 0]}>
-            <Physics>
+            <Physics iterations={20}
+            tolerance={0.0001}
+            gravity={[5, 0, 0]}>
               <NotebookContent />
               <Electron position={[0, 0, 0.5]} rotation={[3.14 / 1.5 - 0.2, 0, 0]} speed={1.8} />
               <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
@@ -105,19 +108,19 @@ export default function Main() {
 }
 
 function Electron({ radius = 6.5, speed = 0.1, ...props }) {
-  const ball = useRef()
+  const [ref, api] = useBox(() => ({
+    type: "Dynamic"
+    position: [0, 5, 0],
+    args: [2, 2, 4, 16],
+  }));
   const [spring, setSpring] = useSpring(() => ({
-    position: [-50, -10, -10],
-    config: {
-      mass: 5,
-      friction: 10,
-    }
+    position: [-50, -10, -10]
   }))
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime() * speed
 
-    if(ball.current.position.y < -15) {
+    if(ref.current.position.y < -15) {
       setTimeout(() => {
         setSpring({
           position: [0, -10, -10]
@@ -133,7 +136,7 @@ function Electron({ radius = 6.5, speed = 0.1, ...props }) {
   return (
     <group {...props}>
       <Trail width={5} length={5} color={new THREE.Color(0, 1, 0)} attenuation={(t) => t * t}>
-        <a.mesh ref={ball} position={spring.position}>
+        <a.mesh ref={ref} position={spring.position}>
           <sphereGeometry args={[0.25]} />
           <meshBasicMaterial color={[0, 10, 0]} toneMapped={false} />
         </a.mesh>
