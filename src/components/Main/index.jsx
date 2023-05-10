@@ -49,7 +49,7 @@ function NotebookContent() {
   }));const a = useRef()
 
   return (
-      <group ref={ref} position={[0, -1.5, -1.8]} rotation={[0.3, -0.3, 0]}>
+      <group position={[0, -1.5, -1.8]} rotation={[0.3, -0.3, 0]}>
         <group rotation-x={-0.425} position={[0, -0.04, 0.41]}>
         <Suspense fallback={null}>
           <group position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
@@ -107,14 +107,14 @@ export default function Main() {
   )
 }
 
-function Electron({ radius = 6.5, speed = 0.1, ...props }) {
+function Electron({ radius = 10, speed = 0.1, ...props }) {
   const [ref, api] = useBox(() => ({
     type: "Dynamic",
-    position: [0, 5, 0],
+    position: [0, 10, 0],
     args: [2, 2, 4, 16],
   }));
   const [spring, setSpring] = useSpring(() => ({
-    position: [-50, -10, -10]
+    position: [-60, -20, -10]
   }))
 
   useFrame((state) => {
@@ -136,7 +136,7 @@ function Electron({ radius = 6.5, speed = 0.1, ...props }) {
   return (
     <group {...props}>
       <Trail width={5} length={5} color={new THREE.Color(0, 1, 0)} attenuation={(t) => t * t}>
-        <a.mesh ref={ref} position={spring.position}>
+        <a.mesh position={spring.position}>
           <sphereGeometry args={[0.25]} />
           <meshBasicMaterial color={[0, 10, 0]} toneMapped={false} />
         </a.mesh>
