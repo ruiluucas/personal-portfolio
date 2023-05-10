@@ -1,6 +1,6 @@
 import { useState, Children, useRef, Suspense } from 'react'
 import * as THREE from 'three'
-import { useTrail, animated, useSpring } from '@react-spring/web'
+import { useTrail, animated, useSpring, easings } from '@react-spring/web'
 import { a } from "@react-spring/three"
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Box, ContactShadows, Environment, Float, Html, MeshReflectorMaterial, OrbitControls, Sky, Stars, Trail, useGLTF } from "@react-three/drei"
@@ -42,36 +42,41 @@ function TextMain() {
 
 function NotebookContent() {
   const { nodes, materials } = useGLTF("./notebook.glb")
-  const [ref] = useBox(() => ({
-    type: "Static",
-    position: [0, 0, 0],
-    args: [10, 1, 10],
-  }));const a = useRef()
+  const [{ position, rotation }] = useSpring(() => ({
+    from: { position: [0, -20, -10], rotation: [1, 0.3, -3] },
+    to: { position: [0, -1.5, -1.8], rotation: [0.3, -0.3, 0] },
+    config: {
+      duration: 3000,
+      tension: 170, 
+      friction: 26,
+      easing: easings.easeOutExpo	
+    }
+  }))
 
   return (
-      <group position={[0, -1.5, -1.8]} rotation={[0.3, -0.3, 0]}>
-        <group rotation-x={-0.425} position={[0, -0.04, 0.41]}>
+    <a.group position={position} rotation={rotation}>
+      <group rotation-x={-0.425} position={[0, -0.04, 0.41]}>
         <Suspense fallback={null}>
-          <group position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
-            <mesh material={materials.aluminium} geometry={nodes['Cube008'].geometry} />
-            <mesh material={materials['matte.001']} geometry={nodes['Cube008_1'].geometry} />
-            <mesh geometry={nodes['Cube008_2'].geometry}>
-              <MeshReflectorMaterial color="black" />
-              <Html portal={a} scale={0.275} className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} zIndexRange={[0, 0]} transform occlude >
-                <div className="wrapper" style={{ width: "1250px",  height: "100%", background: "black" }} onPointerDown={(e) => e.stopPropagation()}>
-                </div>
-              </Html>
-            </mesh>
-          </group>
-          </Suspense>
+        <group position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
+          <mesh material={materials.aluminium} geometry={nodes['Cube008'].geometry} />
+          <mesh material={materials['matte.001']} geometry={nodes['Cube008_1'].geometry} />
+          <mesh geometry={nodes['Cube008_2'].geometry}>
+            <MeshReflectorMaterial color="black" />
+            <Html portal={a} scale={0.275} className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} zIndexRange={[0, 0]} transform occlude >
+              <div className="wrapper" style={{ width: "1250px",  height: "100%", background: "black" }} onPointerDown={(e) => e.stopPropagation()}>
+              </div>
+            </Html>
+          </mesh>
         </group>
-        <mesh material={materials.keys} geometry={nodes.keyboard.geometry} position={[1.79, 0, 3.45]} />
-        <group position={[0, -0.1, 3.39]}>
-          <mesh material={materials.aluminium} geometry={nodes['Cube002'].geometry} />
-          <mesh material={materials.trackpad} geometry={nodes['Cube002_1'].geometry} />
-        </group>
-        <mesh material={materials.touchbar} geometry={nodes.touchbar.geometry} position={[0, -0.03, 1.2]} />
+        </Suspense>
       </group>
+      <mesh material={materials.keys} geometry={nodes.keyboard.geometry} position={[1.79, 0, 3.45]} />
+      <group position={[0, -0.1, 3.39]}>
+        <mesh material={materials.aluminium} geometry={nodes['Cube002'].geometry} />
+        <mesh material={materials.trackpad} geometry={nodes['Cube002_1'].geometry} />
+      </group>
+      <mesh material={materials.touchbar} geometry={nodes.touchbar.geometry} position={[0, -0.03, 1.2]} />
+    </a.group>
   )
 }
 
@@ -107,12 +112,7 @@ export default function Main() {
   )
 }
 
-function Electron({ radius = 10, speed = 0.1, ...props }) {
-  const [ref, api] = useBox(() => ({
-    type: "Dynamic",
-    position: [0, 10, 0],
-    args: [2, 2, 4, 16],
-  }));
+function Electron({ radius = 7, speed = 0.1, ...props }) {
   const [spring, setSpring] = useSpring(() => ({
     position: [-60, -20, -10]
   }))
@@ -120,17 +120,9 @@ function Electron({ radius = 10, speed = 0.1, ...props }) {
   useFrame((state) => {
     const t = state.clock.getElapsedTime() * speed
 
-    if(ref.current.position.y < -15) {
-      setTimeout(() => {
-        setSpring({
-          position: [0, -10, -10]
-        })
-      }, 5000)
-    } else {
-      setSpring({
-        position: [Math.sin(t) * radius, (Math.cos(t) * radius * Math.atan(t)) / Math.PI / 0.5, 0]
-      })
-    }
+    setSpring({
+      position: [Math.sin(t) * radius, (Math.cos(t) * radius * Math.atan(t)) / Math.PI / 0.5, 0]
+    })
   })
 
   return (
