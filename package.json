@@ -12,7 +12,9 @@
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",
+    "@react-spring/three": "^9.7.2",
     "@react-spring/web": "^9.7.2",
+    "@react-three/cannon": "^6.5.2",
     "@react-three/drei": "^9.66.4",
     "@react-three/fiber": "^8.13.0",
     "@react-three/postprocessing": "^2.10.0",
