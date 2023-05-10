@@ -109,7 +109,7 @@ export default function Main() {
 
 function Electron({ radius = 6.5, speed = 0.1, ...props }) {
   const [ref, api] = useBox(() => ({
-    type: "Dynamic"
+    type: "Dynamic",
     position: [0, 5, 0],
     args: [2, 2, 4, 16],
   }));
