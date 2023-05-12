@@ -1,12 +1,12 @@
-import { useState, Children, useRef, Suspense } from 'react'
+import { useState, Children, Suspense } from 'react'
 import * as THREE from 'three'
 import { useTrail, animated, useSpring, easings } from '@react-spring/web'
 import { a } from "@react-spring/three"
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { Box, ContactShadows, Environment, Float, Html, MeshReflectorMaterial, OrbitControls, Sky, Stars, Trail, useGLTF } from "@react-three/drei"
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import MatrixScreen from './MatrixScreen'
-import { Physics, useBox, useSphere } from '@react-three/cannon'
+import { Physics } from '@react-three/cannon'
 
 const TrailText = ({ open, children }) => {
   const items = Children.toArray(children)
@@ -101,7 +101,6 @@ export default function Main() {
               <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} /> 
             </Physics> 
           </Float>
-          <OrbitControls />
           <Stars saturation={0} count={400} speed={0.5} />
           <EffectComposer>
             <Bloom mipmapBlur luminanceThreshold={1} radius={0.7} />
