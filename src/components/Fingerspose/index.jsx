@@ -8,13 +8,12 @@ import '@tensorflow/tfjs-backend-webgl';
 import { GestureEstimator } from 'fingerpose'
 import { RockGesture, PaperGesture, ScissorsGesture } from './gestures';
 import { useDispatch, useSelector } from "react-redux";
-import { increment } from "../../contexts/styleSlice";
+import { showInformationOnComputer } from "../../contexts/styleSlice";
 
-function FingersposeComponent() {
+function Fingerspose() {
   const webCam = useRef()
-  const estimationConfig = {flipHorizontal: false}
+  const estimationConfig = { flipHorizontal: false }
 
-  const count = useSelector((state) => state.style.value)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -28,14 +27,9 @@ function FingersposeComponent() {
         if(hands.length != 0) {
           const estimatedGestures = await gestureEstimator.estimate(hands[0].landmarks, 8.5)
           if (estimatedGestures.gestures[0] && estimatedGestures.gestures[0].name === "paper") {
-            dispatch(increment())
-            console.log(count)
-          }  else {
-            //setIsPaper(false)
+            dispatch(showInformationOnComputer())
           }
-        } else {
-          //setIsPaper(false)
-        }
+        } 
       }
   
       setInterval(() => {
@@ -49,5 +43,5 @@ function FingersposeComponent() {
   )
 }
 
-export default FingersposeComponent
+export default Fingerspose
 
