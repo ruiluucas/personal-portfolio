@@ -25,17 +25,17 @@ export default function Header() {
   }))
 
   return (
-    <header className="absolute left-0 right-0 z-10">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 " aria-label="Global">
-        <ul className="hidden lg:flex lg:gap-x-12">
+    <header className="absolute left-0 right-0 z-20">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 text-white font-semibold" aria-label="Global">
+        <ul className="flex gap-x-12">
           { trailAnchor.map((props, index) => (
-            <animated.a style={props} href="#" key={index} className='text-sm font-semibold leading-6 text-white'>
+            <animated.a style={props} href="#" key={index} className='text-sm leading-6 '>
               <WordAnimation>{characters[index]}</WordAnimation>
             </animated.a>
           )) }
         </ul>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <animated.a style={props} href="#" className="text-sm font-semibold leading-6 text-white">
+          <animated.a style={props} href="#" className="text-sm leading-6">
             Tutorial <span aria-hidden="true">&rarr;</span>
           </animated.a>
         </div>

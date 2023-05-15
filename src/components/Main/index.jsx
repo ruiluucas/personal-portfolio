@@ -11,17 +11,19 @@ function TextMain() {
   };
 
   return (
-    <div className="flex flex-col items-start justify-center md:justify-center md:m-40 md:mt-0 sm:m-0 sm:justify-center h-full">
-      <motion.div {...animation} className="text-black text-7xl md:text-8xl tracking-tight font-extrabold leading-10 h-10 md:h-20">
-        <motion.span initial={{ height: 110 }} animate={{ height: 0 }} transition={{ ...animation.transition }} className='text-white'>
-          Let's
-        </motion.span>
-      </motion.div>
-      <motion.div {...animation} transition={{ ...animation.transition, delay: 0.3 }} className="text-black text-7xl md:text-8xl tracking-tight font-extrabold leading-10 h-10 md:h-20">
-        <motion.span initial={{ height: 110 }} animate={{ height: 0 }} transition={{ ...animation.transition, delay: 0.3 }} className='text-white'>
-          Program!
-        </motion.span>
-      </motion.div>
+    <div className="flex flex-col z-10 h-full w-full items-start justify-center text-8xl text-white font-extrabold">
+      <div className='pl-32'>
+        <motion.div {...animation} className="tracking-tight leading-10 h-20">
+          <motion.span initial={{ height: 110 }} animate={{ height: 0 }} transition={{ ...animation.transition }}>
+            Let's
+          </motion.span>
+        </motion.div>
+        <motion.div {...animation} transition={{ ...animation.transition, delay: 0.3 }} className="tracking-tight leading-10 h-20">
+          <motion.span initial={{ height: 110 }} animate={{ height: 0 }} transition={{ ...animation.transition, delay: 0.3 }}>
+            Program!
+          </motion.span>
+        </motion.div>
+      </div>
     </div>
   )
 }
@@ -30,10 +32,10 @@ export default function Main() {
   const activeCanvas = useSelector((state) => state.style.activeCanvas)
 
   return (
-    <main className='pb-60 bg-black flex-1'>
+    <>
       <Header />
-      <div className="h-full z-10"><TextMain /></div>
-      { activeCanvas && <div style={{ zIndex: 1 }} className="absolute h-screen w-full top-0"><Space /></div> }
-    </main>
+      <TextMain />
+      { activeCanvas && <div className="absolute h-screen w-full top-0 z-0"><Space /></div> }
+    </>
   )
 }
