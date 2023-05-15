@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <header className="absolute left-0 right-0 z-10">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 " aria-label="Global">
         <ul className="hidden lg:flex lg:gap-x-12">
           { trailAnchor.map((props, index) => (
             <animated.a style={props} href="#" key={index} className='text-sm font-semibold leading-6 text-white'>
