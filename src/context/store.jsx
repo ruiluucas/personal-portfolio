@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import styleReducer from './styleSlice'
+import sliceReducer from './slice'
 
 export default configureStore({
   reducer: {
-    style: styleReducer,
+    slice: sliceReducer,
   },
 })

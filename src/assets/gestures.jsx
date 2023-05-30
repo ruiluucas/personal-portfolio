@@ -24,7 +24,7 @@ for(let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
   
 // no finger should be curled
 for(let finger of Finger.all) {
-    PaperGesture.addDirection(finger, FingerDirection.VerticalUp, 1.0)
+    PaperGesture.addDirection(finger, FingerDirection.VerticalUp, 0.9)
     PaperGesture.addCurl(finger, FingerCurl.NoCurl, 1.0);
 }
 
