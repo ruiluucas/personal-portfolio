@@ -26,6 +26,7 @@
     "@tensorflow/tfjs-converter": "^4.6.0",
     "@tensorflow/tfjs-core": "^4.6.0",
     "autoprefixer": "10.4.14",
+    "encoding": "^0.1.13",
     "fingerpose": "^0.1.0",
     "framer-motion": "^10.12.16",
     "next": "13.4.4",
