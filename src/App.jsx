@@ -4,8 +4,8 @@ import { easeInOut, motion } from 'framer-motion'
 import { easings, useSpring, useTrail } from '@react-spring/core'
 import { animated } from '@react-spring/web'
 import TrailLength from './assets/animations/TrailLength'
-import About from './pages/about'
-import Turing from './pages/turing'
+import About from './pages/About'
+import Turing from './pages/Turing'
 
 export default function App() {
   return (
