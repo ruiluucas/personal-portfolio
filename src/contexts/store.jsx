@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import sliceReducer from './slice'
+import homeReducer from './homeSlice'
 
 export default configureStore({
   reducer: {
-    slice: sliceReducer,
+    home: homeReducer,
   },
 })
