@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Webcam from 'react-webcam'
 import { GestureEstimator } from 'fingerpose'
 import { RockGesture, PaperGesture, ScissorsGesture } from '../assets/gestures'
@@ -15,7 +15,17 @@ function Fingerspose() {
   const webCam = useRef()
   const intervalRef = useRef(null)
   const [location, setLocation] = useLocation()
-  const pages = ['/', '/about', '/turing', '/turing-machine']
+  const pages = [
+    '/',
+    '/about',
+    '/turing',
+    '/turing-machine',
+    '/binary-to-letters',
+    '/programmer',
+    '/pros-cons',
+    '/market',
+    '/salary',
+  ]
   const [page, setPage] = useState(0)
 
   useEffect(() => {
@@ -25,16 +35,12 @@ function Fingerspose() {
       }
     })
 
-    if (location !== pages[page]) {
-      setLocation(pages[page])
-    }
-
     setTimeout(() => {
-      if (location !== pages[page]) {
+      if (location !== pages[page] && pages.indexOf(location) <= page) {
         setLocation(pages[page])
       }
-    }, 1000)
-  }, [page, setLocation, pages])
+    }, 500)
+  }, [page])
 
   useEffect(() => {
     const knownGestures = [RockGesture, PaperGesture, ScissorsGesture]
@@ -53,7 +59,20 @@ function Fingerspose() {
             estimatedGestures.gestures[0] &&
             estimatedGestures.gestures[0].name === 'paper'
           ) {
-            setPage(page + 1)
+            console.log(page, location)
+            setTimeout(() => {
+              setPage(page + 1)
+            }, 500)
+          } else if (
+            estimatedGestures.gestures[0] &&
+            estimatedGestures.gestures[0].name === 'scissors'
+          ) {
+            setTimeout(() => {
+              window.open(
+                'https://www.youtube.com/watch?v=G4MvFT8TGII&t=680s',
+                '_blank',
+              )
+            }, 1000)
           }
         }
       }

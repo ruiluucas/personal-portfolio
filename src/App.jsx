@@ -7,6 +7,11 @@ import TrailLength from './assets/animations/TrailLength'
 import About from './pages/About'
 import Turing from './pages/Turing'
 import TuringMachine from './pages/TuringMachine'
+import BinaryToLetters from './pages/BinaryToLetters'
+import Salary from './pages/Salary'
+import Market from './pages/Market'
+import ProsCons from './pages/ProsCons'
+import Programmer from './pages/Programmer'
 
 export default function App() {
   return (
@@ -30,6 +35,31 @@ export default function App() {
         <Route path="/turing-machine">
           <div className="absolute top-0 z-30">
             <TuringMachine />
+          </div>
+        </Route>
+        <Route path="/binary-to-letters">
+          <div className="absolute top-0 z-30">
+            <BinaryToLetters />
+          </div>
+        </Route>
+        <Route path="/programmer">
+          <div className="absolute top-0 z-30">
+            <Programmer />
+          </div>
+        </Route>
+        <Route path="/pros-cons">
+          <div className="absolute top-0 z-30">
+            <ProsCons />
+          </div>
+        </Route>
+        <Route path="/market">
+          <div className="absolute top-0 z-30">
+            <Market />
+          </div>
+        </Route>
+        <Route path="/salary">
+          <div className="absolute top-0 z-30">
+            <Salary />
           </div>
         </Route>
       </div>
