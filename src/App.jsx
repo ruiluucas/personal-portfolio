@@ -6,6 +6,7 @@ import { animated } from '@react-spring/web'
 import TrailLength from './assets/animations/TrailLength'
 import About from './pages/About'
 import Turing from './pages/Turing'
+import TuringMachine from './pages/TuringMachine'
 
 export default function App() {
   return (
@@ -24,6 +25,11 @@ export default function App() {
         <Route path="/turing">
           <div className="absolute top-0 z-30">
             <Turing />
+          </div>
+        </Route>
+        <Route path="/turing-machine">
+          <div className="absolute top-0 z-30">
+            <TuringMachine />
           </div>
         </Route>
       </div>

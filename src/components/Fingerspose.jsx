@@ -15,7 +15,7 @@ function Fingerspose() {
   const webCam = useRef()
   const intervalRef = useRef(null)
   const [location, setLocation] = useLocation()
-  const pages = ['/', '/about', '/turing']
+  const pages = ['/', '/about', '/turing', '/turing-machine']
   const [page, setPage] = useState(0)
 
   useEffect(() => {
@@ -28,6 +28,12 @@ function Fingerspose() {
     if (location !== pages[page]) {
       setLocation(pages[page])
     }
+
+    setTimeout(() => {
+      if (location !== pages[page]) {
+        setLocation(pages[page])
+      }
+    }, 1000)
   }, [page, setLocation, pages])
 
   useEffect(() => {
