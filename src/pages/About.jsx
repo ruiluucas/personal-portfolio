@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Route, useLocation } from 'wouter'
 import { easings, useTrail } from '@react-spring/core'
 import { animated } from '@react-spring/web'
-import TrailLength from '../../assets/animations/TrailLength'
+import TrailLength from '../assets/animations/TrailLength'
 
 export default function About() {
   const [location] = useLocation()

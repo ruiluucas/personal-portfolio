@@ -1,8 +1,7 @@
 import { easings, useSpring, useTrail, animated } from '@react-spring/web'
-import TrailLength from '../../assets/animations/TrailLength'
+import TrailLength from '../assets/animations/TrailLength'
 import React, { useEffect, useState } from 'react'
 import * as THREE from 'three'
-import { Head, Machine, Printer, Tape } from './machine'
 
 export default function Turing() {
   const characters = ['Bruno', 'Jordan', 'Renan', 'Rui']
