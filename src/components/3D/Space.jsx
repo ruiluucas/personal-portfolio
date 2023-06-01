@@ -11,6 +11,7 @@ import {
   MeshReflectorMaterial,
   Html,
   Trail,
+  Detailed,
 } from '@react-three/drei'
 import { Route, useLocation, Switch } from 'wouter'
 import { useState, useEffect } from 'react'
@@ -18,6 +19,16 @@ import { useSelector } from 'react-redux'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 
 export default function Space() {
+  const [location] = useLocation()
+  const [activeCanvas, setActiveCanvas] = useState(true)
+
+  useEffect(() => {
+    location !== '/' &&
+      setTimeout(() => {
+        setActiveCanvas(!activeCanvas)
+      }, 3000)
+  }, [location])
+
   return (
     <Canvas camera={{ position: [0, 0, 20], fov: 55 }}>
       <pointLight position={[10, 10, 10]} intensity={1.5} />
@@ -29,19 +40,24 @@ export default function Space() {
         position={[5, 0, 0]}
       >
         <Notebook />
-
-        <Electron
-          position={[0, 0, 0.5]}
-          rotation={[3.14 / 1.5 - 0.2, 0, 0]}
-          speed={1.8}
-        />
-        <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
-        <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
+        {activeCanvas && (
+          <>
+            <Electron
+              position={[0, 0, 0.5]}
+              rotation={[3.14 / 1.5 - 0.2, 0, 0]}
+              speed={1.8}
+            />
+            <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
+            <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
+          </>
+        )}
       </Float>
       <Stars />
-      <EffectComposer>
-        <Bloom mipmapBlur luminanceThreshold={1} radius={0.7} />
-      </EffectComposer>
+      {activeCanvas && (
+        <EffectComposer>
+          <Bloom mipmapBlur luminanceThreshold={1} radius={0.7} />
+        </EffectComposer>
+      )}
     </Canvas>
   )
 }

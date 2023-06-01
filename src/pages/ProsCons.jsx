@@ -28,18 +28,21 @@ export default function ProsCons() {
           <h1 className="text-bold flex-1 font-mono text-5xl">
             Prós e contras de trabalhar na área de TI
           </h1>
-          <div className="flex max-w-3xl flex-1 flex-row gap-2 gap-6 text-justify text-xl">
+          <div className="flex max-w-3xl flex-1 flex-row gap-6 text-justify text-xl">
             <p>
-              Nesta página, você pode destacar os benefícios de se trabalhar na
-              área de TI, como a alta demanda por profissionais, as
-              oportunidades de aprendizado contínuo, a possibilidade de
-              trabalhar em projetos desafiadores e inovadores, e a remuneração
-              competitiva.
+              Existem vários benefícios em trabalhar na área de TI. Os
+              profissionais de TI geralmente desfrutam de uma demanda constante
+              por seus serviços, o que significa uma maior estabilidade no
+              mercado de trabalho. Além disso, a tecnologia está sempre
+              evoluindo, o que oferece oportunidades contínuas de aprendizado e
+              crescimento profissional.
             </p>
             <p>
-              Ao mesmo tempo, você pode abordar os desafios da profissão, como a
-              necessidade de se manter atualizado com as constantes mudanças
-              tecnológicas, os prazos apertados, a pressão por resultados e o
+              No entanto, é importante estar ciente dos desafios que vêm com
+              essa área. Os profissionais de TI muitas vezes enfrentam prazos
+              apertados, pressão por resultados e a necessidade de se manter
+              atualizados com as últimas tendências e tecnologias. Além disso, a
+              natureza da profissão pode exigir longas horas de trabalho e
               equilíbrio entre vida pessoal e profissional.
             </p>
           </div>

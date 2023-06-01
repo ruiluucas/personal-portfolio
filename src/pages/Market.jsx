@@ -28,15 +28,18 @@ export default function Market() {
           <h1 className="text-bold flex-1 font-mono text-5xl">Mercado de TI</h1>
           <div className="flex max-w-3xl flex-1 flex-row gap-2 gap-6 text-justify text-xl">
             <p>
-              Nesta página, você pode fornecer informações sobre o mercado de
-              TI, como a demanda por profissionais qualificados, as
-              oportunidades de carreira, as tendências tecnológicas e as áreas
-              em crescimento dentro do setor de TI.
+              O mercado de TI é extremamente dinâmico e em constante
+              crescimento. A demanda por profissionais de tecnologia da
+              informação está em alta, com uma ampla gama de oportunidades de
+              carreira disponíveis.
             </p>
             <p>
-              Fale sobre a importância da tecnologia em várias indústrias, a
-              evolução das demandas do mercado e como os profissionais de TI
-              estão contribuindo para a transformação digital das organizações.
+              Com a rápida evolução da tecnologia, novas áreas surgem
+              constantemente, como inteligência artificial, aprendizado de
+              máquina, segurança cibernética, computação em nuvem e Internet das
+              Coisas. Essas tendências impulsionam a demanda por profissionais
+              qualificados que possam impulsionar a inovação e fornecer soluções
+              tecnológicas eficazes.
             </p>
           </div>
         </div>

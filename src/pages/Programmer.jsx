@@ -30,17 +30,19 @@ export default function Programmer() {
           </h1>
           <div className="flex max-w-3xl flex-1 flex-row gap-2 gap-6 text-justify text-xl">
             <p>
-              Aqui você pode descrever as atividades e responsabilidades de um
-              profissional de TI. Por exemplo, desenvolvimento de software,
-              administração de redes e sistemas, suporte técnico, gerenciamento
-              de banco de dados, segurança da informação, entre outros aspectos
-              relevantes da área.
+              Um profissional de TI é responsável por uma ampla gama de
+              atividades relacionadas à tecnologia da informação. Eles podem
+              estar envolvidos no desenvolvimento de software, manutenção de
+              redes e sistemas, suporte técnico aos usuários, gerenciamento de
+              banco de dados, segurança da informação e muito mais.
             </p>
             <p>
-              Sinta-se à vontade para adicionar mais detalhes sobre as tarefas
-              comuns de um profissional de TI e como essas atividades contribuem
-              para o funcionamento eficiente dos sistemas de informação de uma
-              organização.
+              Esses profissionais são especialistas em solucionar problemas
+              tecnológicos e garantir que os sistemas e infraestruturas de uma
+              organização estejam funcionando de forma eficiente. Eles podem
+              trabalhar em empresas de diversos setores, desde startups de
+              tecnologia até grandes corporações, desempenhando um papel
+              fundamental no suporte e no avanço das operações comerciais.
             </p>
           </div>
         </div>

@@ -30,15 +30,17 @@ export default function Salary() {
           </h1>
           <div className="flex max-w-3xl flex-1 flex-row gap-2 gap-6 text-justify text-xl">
             <p>
-              Nesta página, você pode abordar a faixa salarial de profissionais
-              de TI, levando em consideração fatores como experiência,
-              especialização, localização geográfica e porte da empresa.
+              O salário de um profissional de TI pode variar dependendo de
+              vários fatores, como nível de experiência, especialização,
+              localização geográfica e tamanho da empresa.
             </p>
             <p>
-              Fale sobre as perspectivas de crescimento salarial na área, bem
-              como os fatores que podem influenciar os ganhos de um profissional
-              de TI, como certificações adicionais, pós-graduação e experiência
-              internacional.
+              Geralmente, profissionais de TI têm um bom potencial de ganhos,
+              especialmente aqueles com habilidades altamente demandadas, como
+              desenvolvimento de software, análise de dados, segurança da
+              informação e gerenciamento de projetos. Além disso, a obtenção de
+              certificações adicionais e a educação contínua podem abrir portas
+              para melhores oportunidades salariais.
             </p>
           </div>
         </div>
