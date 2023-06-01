@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Webcam from 'react-webcam'
 import { GestureEstimator } from 'fingerpose'
-import { RockGesture, PaperGesture, ScissorsGesture } from '../assets/gestures'
+import { PaperGesture, ScissorsGesture } from '../assets/gestures'
 import { Route, useLocation, Switch } from 'wouter'
 
 import { useDispatch } from 'react-redux'
@@ -26,24 +26,23 @@ function Fingerspose() {
     '/market',
     '/salary',
   ]
-  const [page, setPage] = useState(0)
-
   useEffect(() => {
     window.addEventListener('keypress', (event) => {
       if (event.code === 'Space') {
-        setPage(page + 1)
+        setTimeout(() => {
+          setLocation(pages[pages.indexOf(location) + 1])
+        }, 1000)
+      }
+      if (event.key === 'z' && pages[pages.indexOf(location)] !== 0) {
+        setTimeout(() => {
+          setLocation(pages[pages.indexOf(location) - 1])
+        }, 1000)
       }
     })
-
-    setTimeout(() => {
-      if (location !== pages[page] && pages.indexOf(location) <= page) {
-        setLocation(pages[page])
-      }
-    }, 500)
-  }, [page])
+  }, [location])
 
   useEffect(() => {
-    const knownGestures = [RockGesture, PaperGesture, ScissorsGesture]
+    const knownGestures = [PaperGesture, ScissorsGesture]
     const gestureEstimator = new GestureEstimator(knownGestures)
     let data = null
 
@@ -59,9 +58,9 @@ function Fingerspose() {
             estimatedGestures.gestures[0] &&
             estimatedGestures.gestures[0].name === 'paper'
           ) {
-            console.log(page, location)
+            console.log()
             setTimeout(() => {
-              setPage(page + 1)
+              setLocation(pages[pages.indexOf(location) + 1])
             }, 500)
           } else if (
             estimatedGestures.gestures[0] &&

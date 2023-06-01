@@ -1,5 +1,6 @@
 import { easings, useSpring, animated } from '@react-spring/web'
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export default function Programmer() {
   const [props] = useSpring(() => ({
@@ -15,20 +16,28 @@ export default function Programmer() {
 
   return (
     <main className="absolute left-0 right-0 z-20 flex w-screen items-center justify-center overflow-hidden">
+      <motion.img
+        className="transparent absolute z-10 object-center opacity-30"
+        src="/scriptcode.png"
+        alt=""
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.15 }}
+        transition={{ ease: 'easeOut', duration: 2 }}
+      />
       <animated.div
         style={props}
-        className="flex h-screen flex-1 items-center justify-center gap-6"
+        className="z-20 flex h-screen flex-1 items-center justify-center gap-6"
       >
         <img
           className="w-5/4 h-80 rounded-xl object-cover"
-          src="https://example.com/image2.jpg"
+          src="https://preview.redd.it/llco6ox2nxnz.jpg?auto=webp&s=c88eaaba3fd4a5c9044c9f32c286cc1326e5670b"
           alt=""
         />
         <div className="flex flex-col gap-2">
           <h1 className="text-bold flex-1 font-mono text-5xl">
             O que um profissional de TI faz
           </h1>
-          <div className="flex max-w-3xl flex-1 flex-row gap-2 gap-6 text-justify text-xl">
+          <div className="flex max-w-3xl flex-1 flex-row gap-6 text-justify text-xl">
             <p>
               Um profissional de TI é responsável por uma ampla gama de
               atividades relacionadas à tecnologia da informação. Eles podem

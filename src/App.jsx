@@ -1,7 +1,7 @@
-import { Route, useLocation } from 'wouter'
+import { Route, Switch, useLocation } from 'wouter'
 import Space from './components/3D/Space'
 import { easeInOut, motion } from 'framer-motion'
-import { easings, useSpring, useTrail } from '@react-spring/core'
+import { easings, useTrail } from '@react-spring/core'
 import { animated } from '@react-spring/web'
 import TrailLength from './assets/animations/TrailLength'
 import About from './pages/About'
@@ -12,56 +12,71 @@ import Salary from './pages/Salary'
 import Market from './pages/Market'
 import ProsCons from './pages/ProsCons'
 import Programmer from './pages/Programmer'
+import { useEffect, useState } from 'react'
 
 export default function App() {
+  const [location] = useLocation()
+
+  const [activeCanvas, setActiveCanvas] = useState(true)
+
+  useEffect(() => {
+    if (location !== '/') {
+      setTimeout(() => {
+        setActiveCanvas(!activeCanvas)
+      }, 3000)
+    }
+  }, [location])
+
   return (
     <main className="flex h-screen w-screen flex-col bg-black text-white ">
       <div className="absolute bottom-0 left-0 right-0 top-0">
         <Space />
       </div>
       <div className="absolute z-10 h-screen w-screen">
-        <Header />
-        <Text />
-        <Route path="/about">
-          <div className="absolute top-0 z-30">
-            <About />
-          </div>
-        </Route>
-        <Route path="/turing">
-          <div className="absolute top-0 z-30">
-            <Turing />
-          </div>
-        </Route>
-        <Route path="/turing-machine">
-          <div className="absolute top-0 z-30">
-            <TuringMachine />
-          </div>
-        </Route>
-        <Route path="/binary-to-letters">
-          <div className="absolute top-0 z-30">
-            <BinaryToLetters />
-          </div>
-        </Route>
-        <Route path="/programmer">
-          <div className="absolute top-0 z-30">
-            <Programmer />
-          </div>
-        </Route>
-        <Route path="/pros-cons">
-          <div className="absolute top-0 z-30">
-            <ProsCons />
-          </div>
-        </Route>
-        <Route path="/market">
-          <div className="absolute top-0 z-30">
-            <Market />
-          </div>
-        </Route>
-        <Route path="/salary">
-          <div className="absolute top-0 z-30">
-            <Salary />
-          </div>
-        </Route>
+        {activeCanvas && <Header />}
+        {activeCanvas && <Text />}
+        <Switch location={location}>
+          <Route path="/about">
+            <div className="absolute top-0 z-30">
+              <About />
+            </div>
+          </Route>
+          <Route path="/turing">
+            <div className="absolute top-0 z-30">
+              <Turing />
+            </div>
+          </Route>
+          <Route path="/turing-machine">
+            <div className="absolute top-0 z-30">
+              <TuringMachine />
+            </div>
+          </Route>
+          <Route path="/binary-to-letters">
+            <div className="absolute top-0 z-30">
+              <BinaryToLetters />
+            </div>
+          </Route>
+          <Route path="/programmer">
+            <div className="absolute top-0 z-30">
+              <Programmer />
+            </div>
+          </Route>
+          <Route path="/pros-cons">
+            <div className="absolute top-0 z-30">
+              <ProsCons />
+            </div>
+          </Route>
+          <Route path="/market">
+            <div className="absolute top-0 z-30">
+              <Market />
+            </div>
+          </Route>
+          <Route path="/salary">
+            <div className="absolute top-0 z-30">
+              <Salary />
+            </div>
+          </Route>
+        </Switch>
       </div>
     </main>
   )
