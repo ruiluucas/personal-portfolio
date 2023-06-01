@@ -2,6 +2,7 @@ import { easings, useSpring, useTrail, animated } from '@react-spring/web'
 import TrailLength from '../assets/animations/TrailLength'
 import React, { useEffect, useState } from 'react'
 import * as THREE from 'three'
+import { motion } from 'framer-motion'
 
 export default function TuringMachine() {
   const characters = ['Bruno', 'Jordan', 'Renan', 'Rui']
@@ -29,16 +30,24 @@ export default function TuringMachine() {
 
   return (
     <main className="absolute left-0 right-0 z-20 flex w-screen items-center justify-center overflow-hidden">
+      <motion.img
+        className="transparent absolute z-10 object-center opacity-30"
+        src="https://www.einerd.com.br/wp-content/uploads/2019/08/O-que-%C3%A9-a-Matrix-capa-890x466.jpg"
+        alt=""
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.15 }}
+        transition={{ ease: 'easeOut', duration: 2 }}
+      />
       <animated.div
         style={props}
-        className="flex h-screen w-1/2 flex-1 flex-col items-center justify-center gap-2 text-justify"
+        className="z-30 flex h-screen w-1/2 flex-1 flex-col items-center justify-center gap-2 text-justify"
       >
         <img
           className="my-5 h-64 w-96 rounded-xl object-cover"
           src="https://cdn-wordpress-info.futurelearn.com/info/wp-content/uploads/Turing_machines_06-1.gif"
           alt=""
         />
-        <h1 className="w-4/5 text-3xl">Máquina de Turing</h1>
+        <h1 className="w-4/5 font-mono text-3xl">Máquina de Turing</h1>
         <div className="flex w-4/5 gap-10">
           <p>
             A maior contribuição de Turing para a ciência da computação foi o

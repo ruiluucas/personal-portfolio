@@ -38,8 +38,8 @@ export default function Turing() {
           src="https://www.elcorreo.com/xlsemanal/wp-content/uploads/sites/5/2023/04/alan-turing-inventor-informatica-espia-codigo-enigma-segunda-guerra-mundial.jpg"
           alt=""
         />
-        <h1 className="text-3xl">Alan Turing</h1>
-        <div className="flex w-1/2 flex-col gap-2 text-center text-justify text-xl">
+        <h1 className="my-6 font-mono text-3xl">Alan Turing</h1>
+        <div className="flex w-4/5 flex-col gap-2 text-center text-xl">
           <p>
             Alan Turing foi um matemático, cientista da computação e
             criptoanalista britânico. Ele é amplamente conhecido por seu
