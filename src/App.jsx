@@ -170,7 +170,9 @@ export default function App() {
     setLocation(pages[pageId])
 
     const setCommand = async () => {
-      const data = await handpose.load()
+      const data = await handpose.load({
+        detectionConfidence: 0.9, // Definir a confiança mínima para detecção de mão
+      })
 
       intervalRef.current = setInterval(async () => {
         const hands = await data.estimateHands(webCam.current.video, true)
@@ -202,7 +204,7 @@ export default function App() {
             }
           }
         }
-      }, 200)
+      }, 1000)
     }
 
     setCommand()
