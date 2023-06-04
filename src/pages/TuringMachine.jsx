@@ -1,22 +1,7 @@
-import { easings, useSpring, useTrail, animated } from '@react-spring/web'
-import TrailLength from '../assets/animations/TrailLength'
-import React, { useEffect, useState } from 'react'
-import * as THREE from 'three'
+import { easings, useSpring, animated } from '@react-spring/web'
 import { motion } from 'framer-motion'
 
 export default function TuringMachine() {
-  const characters = ['Bruno', 'Jordan', 'Renan', 'Rui']
-  const trailAnchor = useTrail(characters.length, {
-    from: { opacity: 0, y: -5 },
-    to: { opacity: 1, y: 0 },
-    config: {
-      duration: 1500,
-      mass: 5,
-      tension: 2000,
-      friction: 200,
-      easing: easings.easeOutBack,
-    },
-  })
   const [props] = useSpring(() => ({
     from: { x: 20, opacity: 0 },
     to: { x: 0, opacity: 1 },

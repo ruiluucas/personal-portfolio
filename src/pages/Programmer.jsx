@@ -1,5 +1,4 @@
 import { easings, useSpring, animated } from '@react-spring/web'
-import React from 'react'
 import { motion } from 'framer-motion'
 
 export default function Programmer() {

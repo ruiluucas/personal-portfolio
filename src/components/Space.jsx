@@ -1,38 +1,27 @@
+/* eslint-disable react/no-unknown-property */
 import * as THREE from 'three'
-import { easings, useTransition } from '@react-spring/core'
+import { easings } from '@react-spring/core'
 import { a, useSpring } from '@react-spring/three'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
   Environment,
   Float,
   Stars as InnerStars,
-  Box,
   useGLTF,
   MeshReflectorMaterial,
   Html,
   Trail,
-  Detailed,
 } from '@react-three/drei'
-import { Route, useLocation, Switch } from 'wouter'
-import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useLocation } from 'wouter'
+import { useState, useMemo } from 'react'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 
-export default function Space() {
-  const [location] = useLocation()
-  const [activeCanvas, setActiveCanvas] = useState(true)
-
-  useEffect(() => {
-    location !== '/' &&
-      setTimeout(() => {
-        setActiveCanvas(!activeCanvas)
-      }, 3000)
-  }, [location])
-
+export default function Space({ activeCanvas }) {
   return (
     <Canvas camera={{ position: [0, 0, 20], fov: 55 }}>
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <Environment preset="city" />
+      {activeCanvas && <Stars />}
       <Float
         speed={1}
         rotationIntensity={0.5}
@@ -52,12 +41,9 @@ export default function Space() {
           </>
         )}
       </Float>
-      <Stars />
-      {activeCanvas && (
-        <EffectComposer>
-          <Bloom mipmapBlur luminanceThreshold={1} radius={0.7} />
-        </EffectComposer>
-      )}
+      <EffectComposer>
+        <Bloom mipmapBlur luminanceThreshold={1} radius={0.7} />
+      </EffectComposer>
     </Canvas>
   )
 }
@@ -67,7 +53,7 @@ function Stars() {
 
   const { position, opacity, ...props } = useSpring({
     from: {
-      position: [500, 500, -20],
+      position: [500, 500, -10],
       rotation: [0, Math.PI, 0],
       scale: 16,
       opacity: 0,
@@ -207,24 +193,3 @@ function Electron({ radius = 7, speed = 0.1, ...props }) {
     </group>
   )
 }
-/* 
-<pointLight position={[10, 10, 10]} intensity={1.5} />
-      <Environment preset="city" />
-      <Float
-        speed={1}
-        rotationIntensity={0.5}
-        floatIntensity={0.8}
-        position={[5, 0, 0]}
-      >
-        
-        <Electron
-          position={[0, 0, 0.5]}
-          rotation={[3.14 / 1.5 - 0.2, 0, 0]}
-          speed={1.8}
-        />
-        <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
-        <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
-      </Float> 
-
-      
-      */
