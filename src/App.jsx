@@ -171,7 +171,7 @@ export default function App() {
 
     const setCommand = async () => {
       const data = await handpose.load({
-        detectionConfidence: 0.9, // Definir a confiança mínima para detecção de mão
+        detectionConfidence: 0.9,
       })
 
       intervalRef.current = setInterval(async () => {
