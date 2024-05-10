@@ -1,6 +1,7 @@
 import { animated, easings, useTrail } from '@react-spring/web'
+import members from '../assets/members'
 
-export default function Members({ members }) {
+export default function Members() {
   const trailAnchor = useTrail(members.length, {
     from: { opacity: 0, y: -5 },
     to: { opacity: 1, y: 0 },
