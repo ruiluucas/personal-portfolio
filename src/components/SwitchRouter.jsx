@@ -11,14 +11,26 @@ import Market from '../slides/Market'
 import Salary from '../slides/Salary'
 
 import ChangePage from "./ChangePage"
+import Apresentation from '../slides/Apresentation'
+import { useState } from 'react'
 
 export default function SwitchRouter() {
     const [location, setLocation] = useLocation()
+    const [delayChangeLocation, setDelayChangeLocation] = useState()
+
+    const getDelayChange = (data) => {
+        setDelayChangeLocation(data)
+    }
 
     return (
         <>
-        <ChangePage location={location} setLocation={setLocation} />
+        <ChangePage location={location} setLocation={setLocation} onChangeLocation={getDelayChange} />
         <Switch location={location}>
+            <Route path="/">
+                <section>
+                    <Apresentation delayChangeLocation={delayChangeLocation} />
+                </section>
+            </Route>
             <Route path="/members">
                 <section>
                     <Members />

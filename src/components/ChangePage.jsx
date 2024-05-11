@@ -5,6 +5,7 @@ import { GestureEstimator } from 'fingerpose';
 import { PaperGesture } from '../assets/gestures';
 import '@tensorflow/tfjs-backend-webgl';
 import pages from "../assets/pages";
+import delayChange from "../assets/delayChange";
 
 class ChangePage extends React.Component {
     constructor(props) {
@@ -14,7 +15,9 @@ class ChangePage extends React.Component {
         location: props.location,
         detectionDelay: false
       };
+      this.onChangeLocation = props.onChangeLocation
       this.setLocation = props.setLocation
+      this.delayChange = delayChange
       this.webCam = React.createRef();
       this.detectionInterval = React.createRef();
     }
@@ -41,8 +44,16 @@ class ChangePage extends React.Component {
     handleKeyboard = (event) => {
       const key = event.key;
       if (pages[key - 1]) {
-        this.setState({ location: pages[key - 1] });
-        this.setLocation(pages[key - 1])
+        this.setState({ location: pages[key - 1] })
+        if (Object.keys(this.delayChange).includes(this.state.location)) {
+          this.onChangeLocation(true)
+          setTimeout(() => {
+            this.setLocation(pages[key - 1])
+            this.onChangeLocation(false)
+          }, this.delayChange[this.state.location])
+        } else {
+          this.setLocation(pages[key - 1])
+        }
       }
     }
 
@@ -71,7 +82,15 @@ class ChangePage extends React.Component {
                     return
                   }
                   this.setState({ location: pages[currentIndex + 1] })
-                  this.setLocation(pages[currentIndex + 1])
+                  if (Object.keys(this.delayChange).includes(this.state.location)) {
+                    this.onChangeLocation(true)
+                    setTimeout(() => {
+                      this.setLocation(pages[currentIndex + 1])
+                      this.onChangeLocation(false)
+                    }, this.delayChange[this.state.location])
+                  } else {
+                    this.setLocation(pages[currentIndex + 1])
+                  }
                   this.setState({ detectionDelay: true })
                 }
               }
