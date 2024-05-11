@@ -9,7 +9,7 @@ import {
 } from '@react-three/drei'
 
 export default function Notebook({delayChangeLocation}) {
-    const { nodes, materials } = useGLTF('./src/assets/notebook.glb')
+    const { nodes, materials } = useGLTF('./notebook.glb')
 
     const { position, rotation } = useSpring({
       from: {
