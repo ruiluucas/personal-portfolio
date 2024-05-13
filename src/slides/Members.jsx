@@ -12,7 +12,6 @@ export default function Members() {
       friction: 200,
       easing: easings.easeOutBack,
     },
-    delay: 1000,
   })
 
   return (
