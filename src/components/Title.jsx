@@ -21,10 +21,10 @@ export default function Title({ delayChangeLocation }) {
   
     return (
       <main className="flex flex-1 items-center font-extrabold">
-        <div className="m-32 flex flex-col">
+        <div className="md:m-12 m-4 flex flex-col">
           {trailAnchor.map((props, index) => (
             <div key={index} className="flex">
-              <animated.p style={props} className="text-7xl tracking-tight">
+              <animated.p style={props} className="md:text-7xl tracking-tight text-5xl">
                 {lines[index]}
               </animated.p>
             </div>

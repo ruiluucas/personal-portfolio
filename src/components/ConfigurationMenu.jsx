@@ -62,18 +62,15 @@ export default function ConfigurationMenu() {
 
   return (
     <div className='absolute top-0 left-0 m-5' style={{ zIndex: 99 }}>
+      
       <Button
         id="demo-customized-button"
-        aria-controls={open ? 'demo-customized-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        color='success'
         variant="contained"
-        disableElevation
         onClick={handleClick}
-        disableRipple
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Options
+        About
       </Button>
       <StyledMenu
         id="demo-customized-menu"

@@ -9,8 +9,11 @@ import {
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import Notebook from './Notebook'
 import Electron from './Electron'
+import useScreenSize from '../../hooks/useScreenSize'
 
 export default function Space({ activeCanvas, delayChangeLocation }) {
+  const { width, height } = useScreenSize();
+
   return (
     <Canvas camera={{ position: [0, 0, 20], fov: 55 }}>
       <pointLight position={[10, 10, 10]} intensity={1.5} />
@@ -19,7 +22,7 @@ export default function Space({ activeCanvas, delayChangeLocation }) {
         speed={1}
         rotationIntensity={1}
         floatIntensity={1}
-        position={[5, 0, 0]}
+        position={[8, 0, 0]}
       >
       <Stars delayChangeLocation={delayChangeLocation} />
       </Float>
@@ -27,7 +30,7 @@ export default function Space({ activeCanvas, delayChangeLocation }) {
         speed={1}
         rotationIntensity={0.5}
         floatIntensity={1}
-        position={[5, 0, 0]}
+        position={(width / height) < 1.3 ? [1, 0, -10] : [7, 0, 0]}
       >
         <Notebook delayChangeLocation={delayChangeLocation} />
         {activeCanvas && (

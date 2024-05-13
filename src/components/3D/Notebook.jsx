@@ -7,6 +7,8 @@ import {
   MeshReflectorMaterial,
   Html,
 } from '@react-three/drei'
+import useScreenSize from '../../hooks/useScreenSize'
+import { useEffect } from 'react'
 
 export default function Notebook({delayChangeLocation}) {
     const { nodes, materials } = useGLTF('./notebook.glb')
@@ -17,7 +19,7 @@ export default function Notebook({delayChangeLocation}) {
         rotation: [1, 0.3, -3],
       },
       to: {
-        position: !delayChangeLocation ? [0, -1.5, -1.8] : [-4.6, -2.8, 17],
+        position: !delayChangeLocation ? [0, -1.5, -1.8] : [-7.6, -2.8, 17],
         rotation: !delayChangeLocation ? [0.3, -0.3, 0] : [0.4, 0, 0],
       },
       config: {
