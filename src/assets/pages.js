@@ -1,6 +1,6 @@
 const pages = [
     '/',
-    '/members',
+    '/about-me',
     '/alan-turing',
     '/turing-machine',
     '/von-neumann',

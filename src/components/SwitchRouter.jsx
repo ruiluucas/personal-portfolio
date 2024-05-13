@@ -1,6 +1,5 @@
 import { Route, Switch, useLocation } from 'wouter'
 
-import Members from '../slides/Members'
 import AlanTuring from '../slides/AlanTuring'
 import TuringMachine from '../slides/TuringMachine'
 import VonNeumann from '../slides/VonNeumann'
@@ -14,6 +13,7 @@ import ChangePage from "./ChangePage"
 import Apresentation from '../slides/Apresentation'
 import React, { useState } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
+import AboutMe from '../slides/AboutMe'
 
 export default function SwitchRouter() {
     const [location, setLocation] = useLocation()
@@ -33,9 +33,9 @@ export default function SwitchRouter() {
                     <Apresentation delayChangeLocation={delayChangeLocation} />
                 </section>
             </Route>
-            <Route path="/members">
+            <Route path="/about-me">
                 <section>
-                    <Members />
+                    <AboutMe />
                 </section>
             </Route>
             <Route path="/alan-turing">

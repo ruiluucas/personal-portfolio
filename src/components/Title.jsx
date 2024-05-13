@@ -1,34 +1,31 @@
-import {
-    useTransition as Transition,
-    animated,
-    easings,
-    useTrail,
-  } from '@react-spring/web'
+import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
 
 export default function Title({ delayChangeLocation }) {
-    const lines = ['Let be', 'a Programmer!']
-    const trailAnchor = useTrail(lines.length, {
-      from: { opacity: 0, x: 80 },
-      to: { opacity: !delayChangeLocation ? 1 : 0, x: 20 },
-      config: {
-        duration: 1500,
-        mass: 5,
-        tension: 2000,
-        friction: 200,
-        easing: easings.easeOutBack,
-      },
-    })
-  
     return (
-      <main className="flex flex-1 items-center font-extrabold">
+      <main style={{ fontFamily: '"Poetsen One", sans-serif' }} className="flex flex-1 items-center font-extrabold">
         <div className="md:m-12 m-4 flex flex-col">
-          {trailAnchor.map((props, index) => (
-            <div key={index} className="flex">
-              <animated.p style={props} className="md:text-7xl tracking-tight text-5xl">
-                {lines[index]}
-              </animated.p>
-            </div>
-          ))}
+          <div className="flex flex-col">
+          <AnimatePresence>
+            <MotionConfig transition={{ duration: 2, ease: 'easeOut' }}>
+              <motion.p 
+              initial={{ opacity: 0, x: 80 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              exit={{ opacity: 0 }} 
+              className="md:text-7xl tracking-tight text-5xl">
+                Rui Lucas
+              </motion.p>
+            </MotionConfig>
+            <MotionConfig transition={{ duration: 2, ease: 'circOut' }}>
+              <motion.p 
+              initial={{ opacity: 0, x: 80 }} 
+              animate={{ opacity: 1, x: 0, }} 
+              exit={{ opacity: 0 }} 
+              className="md:text-5xl tracking-tight text-5xl">
+                Software Developer
+              </motion.p>
+            </MotionConfig>
+            </AnimatePresence>
+          </div>
         </div>
       </main>
     )

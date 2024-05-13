@@ -50,7 +50,6 @@ const StyledMenu = styled((props) => (
 
 export default function ConfigurationMenu() {
   const { state, dispatch } = React.useContext(GlobalContext)
-  
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -62,16 +61,12 @@ export default function ConfigurationMenu() {
 
   return (
     <div className='absolute top-0 left-0 m-5' style={{ zIndex: 99 }}>
-      
       <Button
         id="demo-customized-button"
-        color='success'
-        variant="contained"
+        color='info'
+        variant="text"
         onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
-      >
-        About
-      </Button>
+      ><KeyboardArrowDownIcon /></Button>
       <StyledMenu
         id="demo-customized-menu"
         MenuListProps={{
