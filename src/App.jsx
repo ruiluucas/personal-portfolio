@@ -1,8 +1,13 @@
-import SwitchRouter from './components/SwitchRouter'
+import React from 'react';
+import ConfigurationMenu from './components/ConfigurationMenu';
+import SwitchRouter from './components/SwitchRouter';
+import GlobalContextProvider from './context/GlobalContext';
 
 export default function App() {
-  
   return (
-    <SwitchRouter />
-  )
+    <GlobalContextProvider >
+      <ConfigurationMenu />
+      <SwitchRouter />
+    </GlobalContextProvider>
+  );
 }

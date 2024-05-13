@@ -12,11 +12,13 @@ import Salary from '../slides/Salary'
 
 import ChangePage from "./ChangePage"
 import Apresentation from '../slides/Apresentation'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { GlobalContext } from '../context/GlobalContext'
 
 export default function SwitchRouter() {
     const [location, setLocation] = useLocation()
     const [delayChangeLocation, setDelayChangeLocation] = useState()
+    const { state } = React.useContext(GlobalContext)
 
     const getDelayChange = (data) => {
         setDelayChangeLocation(data)
@@ -24,7 +26,7 @@ export default function SwitchRouter() {
 
     return (
         <>
-        <ChangePage location={location} setLocation={setLocation} onChangeLocation={getDelayChange} />
+        <ChangePage location={location} activeHandDetection={state.activeHandDetection} setLocation={setLocation} onChangeLocation={getDelayChange} />
         <Switch location={location}>
             <Route path="/">
                 <section>

@@ -9,36 +9,39 @@ import delayChange from "../assets/delayChange";
 
 class ChangePage extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
       this.state = {
-        activeHandDetection: false,
+        activeHandDetection: props.activeHandDetection,
         location: props.location,
         detectionDelay: false
-      };
+      }
       this.onChangeLocation = props.onChangeLocation
       this.setLocation = props.setLocation
       this.delayChange = delayChange
-      this.webCam = React.createRef();
-      this.detectionInterval = React.createRef();
+      this.webCam = React.createRef()
+      this.detectionInterval = React.createRef()
     }
 
     componentDidMount() {
       document.addEventListener('keyup', this.handleKeyboard)
-      this.state.activeHandDetection && this.handleDetection()
     }
 
     componentDidUpdate() {
+      this.state.activeHandDetection && this.handleDetection()
+      if(this.state.activeHandDetection != this.props.activeHandDetection) {
+        this.setState({ activeHandDetection: this.props.activeHandDetection })
+      }
       if (this.state.detectionDelay) {
         setTimeout(() => {
           this.setState({ detectionDelay: false })
-        }, 2000);
+        }, 2000)
         return
       }
     }
 
     componentWillUnmount() {
-      document.removeEventListener('keyup', this.handleKeyboard);
-      clearInterval(this.detectionInterval.current);
+      document.removeEventListener('keyup', this.handleKeyboard)
+      clearInterval(this.detectionInterval.current)
     }
 
     handleKeyboard = (event) => {
@@ -65,7 +68,7 @@ class ChangePage extends React.Component {
       });
 
       this.detectionInterval.current = setInterval(async () => {
-
+        if(this.state.activeHandDetection) {
           const hands = await data.estimateHands(this.webCam.current.video, true);
           if (hands.length !== 0) {
             const estimatedGestures = await gestureEstimator.estimate(
@@ -96,27 +99,25 @@ class ChangePage extends React.Component {
               }
             }
           }
+        }
       }, 1000);
     }
 
     render() {
         return (
           <>
-            {
-              !this.state.activeHandDetection && 
-              <article className="bg-black absolute z-40 left-0 bottom-0 flex h-80 w-50 flex-col items-center justify-center  text-white">
-                <h2 className="text-center text-xl font-extrabold">
-                    Could like enable HandPose control?
-                </h2>
-                <button onClick={ () => { 
-                  this.setState({ activeHandDetection: true } )
-                  this.handleDetection()
-                  } }>Yes</button>
-                <button>Something Keyboard</button>
-              </article>
-            }
             { 
-              this.state.activeHandDetection && 
+              this.state.activeHandDetection &&
+              <>
+                  <div style={{
+                    height: '100px',
+                    width: '100px',
+                    position: 'absolute',
+                    zIndex: -1,
+                    background: 'black'
+                }} >
+
+                  </div>
                   <Webcam
                   ref={this.webCam}
                   videoConstraints={{ frameRate: { max: 5 } }}
@@ -126,9 +127,10 @@ class ChangePage extends React.Component {
                       height: '100px',
                       width: '100px',
                       position: 'absolute',
-                      zIndex: -1,
+                      zIndex: -2,
                   }} 
               />
+              </>
             } 
           </>
         );
