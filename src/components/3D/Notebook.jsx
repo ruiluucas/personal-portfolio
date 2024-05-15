@@ -43,27 +43,7 @@ export default function Notebook({delayChangeLocation}) {
               geometry={nodes.Cube008_1.geometry}
             />
             <mesh geometry={nodes.Cube008_2.geometry}>
-              <MeshReflectorMaterial color="black" />
-              <Html
-                portal={a}
-                scale={0.275}
-                className="content"
-                rotation-x={-Math.PI / 2}
-                position={[0, 0.05, -0.09]}
-                zIndexRange={[0, 0]}
-                transform
-                occlude
-              >
-                <div
-                  className="wrapper"
-                  style={{
-                    width: '1250px',
-                    height: '100%',
-                    background: 'black',
-                  }}
-                  onPointerDown={(e) => e.stopPropagation()}
-                ></div>
-              </Html>
+              <MeshReflectorMaterial color="black" roughness={0.5} />
             </mesh>
           </group>
         </group>

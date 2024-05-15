@@ -2,7 +2,7 @@ import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
 
 export default function Title({ delayChangeLocation }) {
     return (
-      <main style={{ fontFamily: '"Poetsen One", sans-serif' }} className="flex flex-1 items-center font-extrabold">
+      <main style={{ fontFamily: '"Instrument Serif", sans-serif' }} className="flex flex-1 items-center font-extrabold">
         <div className="md:m-12 m-4 flex flex-col">
           <div className="flex flex-col">
           <AnimatePresence>

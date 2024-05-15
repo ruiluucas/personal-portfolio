@@ -19,7 +19,7 @@ export default function Header({ members, delayChangeLocation }) {
     })
   
     return (
-      <header style={{ fontFamily: '"Poetsen One", sans-serif' }} className="absolute flex w-full justify-center overflow-hidden font-semibold">
+      <header style={{ fontFamily: '"Instrument Serif", sans-serif' }} className="absolute flex w-full justify-center overflow-hidden font-semibold">
         <ul className="m-6 flex gap-x-12">
           {trailAnchor.map((props, index) => (
             <animated.p style={props} key={index} className="text-sm">

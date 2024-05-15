@@ -31,7 +31,7 @@ export default function Stars({ delayChangeLocation }) {
   
     return (
       <a.group opacity={opacity} position={position} {...props}>
-        <InnerStars count={200} />
+        <InnerStars saturation={10} fade depth={12} count={200} />
       </a.group>
     )
   }
