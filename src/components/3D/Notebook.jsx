@@ -1,17 +1,18 @@
 /* eslint-disable react/no-unknown-property */
-import * as THREE from 'three'
 import { easings } from '@react-spring/core'
 import { a, useSpring } from '@react-spring/three'
 import {
   useGLTF,
   MeshReflectorMaterial,
 } from '@react-three/drei'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 
 export default function Notebook() {
     const { nodes, materials } = useGLTF('./notebook.glb')
-    const { state } = useContext(GlobalContext) 
+    const { state } = useContext(GlobalContext)
+
+    useEffect(() => { console.log(state) }, [state])
 
     const { position, rotation } = useSpring({
       from: {
@@ -19,8 +20,8 @@ export default function Notebook() {
         rotation: [1, 0.3, -3],
       },
       to: {
-        position: !state.delayChangeLocation ? [0, -1.5, -1.8] : [-7.6, -2.8, 17],
-        rotation: !state.delayChangeLocation ? [0.3, -0.3, 0] : [0.4, 0, 0],
+        position: state.notebookZoomIn ? [-8, -3, 20] : [0, -1.5, -1.8],
+        rotation: state.notebookZoomIn ? [0, 0, 0] : [0.3, -0.3, 0],
       },
       config: {
         duration: 3000,

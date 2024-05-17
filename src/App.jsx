@@ -1,13 +1,15 @@
-import React from 'react';
-import ConfigurationMenu from './components/ConfigurationMenu';
-import SwitchRouter from './components/SwitchRouter';
+import React, { useEffect } from 'react';
 import GlobalContextProvider from './context/GlobalContext';
+import Header from './components/Header';
+import Apresentation from './components/Apresentation';
+import Content from './components/Content';
 
 export default function App() {
   return (
     <GlobalContextProvider >
-      <ConfigurationMenu />
-      <SwitchRouter />
+      <Header />
+      <Apresentation />
+      <Content />
     </GlobalContextProvider>
   );
 }

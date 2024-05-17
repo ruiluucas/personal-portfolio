@@ -7,7 +7,6 @@ import {
 } from '@react-three/drei'
 
 export default function Stars() {
-  
     const { position, opacity, ...props } = useSpring({
       from: {
         position: [500, 500, -10],
