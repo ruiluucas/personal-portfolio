@@ -1,7 +1,7 @@
 import { easings, useSpring, useTrail, animated } from '@react-spring/web'
 import React, { useEffect, useState } from 'react'
 
-export default function BinaryToLetters() {
+export default function Process() {
   const [props] = useSpring(() => ({
     from: { x: 20, opacity: 0 },
     to: { x: 0, opacity: 1 },

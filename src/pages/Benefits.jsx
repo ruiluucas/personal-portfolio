@@ -1,7 +1,7 @@
 import { easings, useSpring, animated } from '@react-spring/web'
 import React from 'react'
 
-export default function Salary() {
+export default function Benefits() {
   const [props] = useSpring(() => ({
     from: { x: 20, opacity: 0 },
     to: { x: 0, opacity: 1 },
@@ -21,26 +21,25 @@ export default function Salary() {
       >
         <img
           className="w-5/4 h-80 rounded-xl object-cover"
-          src="https://example.com/image4.jpg"
+          src="https://example.com/image3.jpg"
           alt=""
         />
         <div className="flex flex-col gap-2">
-          <h1 className="text-bold flex-1 font-mono text-5xl">
-            Salário de um profissional de TI
-          </h1>
+          <h1 className="text-bold flex-1 font-mono text-5xl">Mercado de TI</h1>
           <div className="flex max-w-3xl flex-1 flex-row gap-2 gap-6 text-justify text-xl">
             <p>
-              O salário de um profissional de TI pode variar dependendo de
-              vários fatores, como nível de experiência, especialização,
-              localização geográfica e tamanho da empresa.
+              O mercado de TI é extremamente dinâmico e em constante
+              crescimento. A demanda por profissionais de tecnologia da
+              informação está em alta, com uma ampla gama de oportunidades de
+              carreira disponíveis.
             </p>
             <p>
-              Geralmente, profissionais de TI têm um bom potencial de ganhos,
-              especialmente aqueles com habilidades altamente demandadas, como
-              desenvolvimento de software, análise de dados, segurança da
-              informação e gerenciamento de projetos. Além disso, a obtenção de
-              certificações adicionais e a educação contínua podem abrir portas
-              para melhores oportunidades salariais.
+              Com a rápida evolução da tecnologia, novas áreas surgem
+              constantemente, como inteligência artificial, aprendizado de
+              máquina, segurança cibernética, computação em nuvem e Internet das
+              Coisas. Essas tendências impulsionam a demanda por profissionais
+              qualificados que possam impulsionar a inovação e fornecer soluções
+              tecnológicas eficazes.
             </p>
           </div>
         </div>

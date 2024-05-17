@@ -5,13 +5,13 @@ import { a, useSpring } from '@react-spring/three'
 import {
   useGLTF,
   MeshReflectorMaterial,
-  Html,
 } from '@react-three/drei'
-import useScreenSize from '../../hooks/useScreenSize'
-import { useEffect } from 'react'
+import { useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 
-export default function Notebook({delayChangeLocation}) {
+export default function Notebook() {
     const { nodes, materials } = useGLTF('./notebook.glb')
+    const { state } = useContext(GlobalContext) 
 
     const { position, rotation } = useSpring({
       from: {
@@ -19,8 +19,8 @@ export default function Notebook({delayChangeLocation}) {
         rotation: [1, 0.3, -3],
       },
       to: {
-        position: !delayChangeLocation ? [0, -1.5, -1.8] : [-7.6, -2.8, 17],
-        rotation: !delayChangeLocation ? [0.3, -0.3, 0] : [0.4, 0, 0],
+        position: !state.delayChangeLocation ? [0, -1.5, -1.8] : [-7.6, -2.8, 17],
+        rotation: !state.delayChangeLocation ? [0.3, -0.3, 0] : [0.4, 0, 0],
       },
       config: {
         duration: 3000,

@@ -7,9 +7,7 @@ import {
   Float,
   Stars,
   Effects,
-  PerspectiveCamera
 } from '@react-three/drei'
-import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import Notebook from './Notebook'
 import Electron from './Electron'
 import useScreenSize from '../../hooks/useScreenSize'
@@ -82,44 +80,49 @@ function Postpro() {
   )
 }
 
-export default function Space({ activeCanvas, delayChangeLocation }) {
+export default function Space() {
   const { width, height } = useScreenSize();
 
   return (
     <Canvas flat legacy dpr={1} camera={{ position: [0, 0, 20], fov: 50 }}>
       <ambientLight intensity={0.01} />
-      <pointLight distance={60} intensity={4} color="lightblue" />
-      <spotLight intensity={1.5} position={[0, 0, 2000]} penumbra={1} color="green" />
-      <pointLight position={[10, 10, 10]} intensity={1.5} />
       <Environment preset="city" />
-      <Swarm count={100} />
       <Postpro />
+      
+      <Swarm count={100} />
+      
+      <Float
+        speed={1}
+        rotationIntensity={5}
+        floatIntensity={6}
+        position={[5, 0, 0]}
+      >
+        <pointLight distance={60} intensity={4} color="lightblue" />
+        <spotLight intensity={1.5} position={[0, 0, 2000]} penumbra={1} color="green" />
+        <pointLight position={[10, 10, 10]} intensity={1.5} />
+      </Float>
+
       <Float
         speed={1}
         rotationIntensity={1}
         floatIntensity={1}
         position={[8, 0, 0]}
       >
-      <Stars delayChangeLocation={delayChangeLocation} />
+        <Stars />
       </Float>
+
       <Float
         speed={1}
         rotationIntensity={0.5}
         floatIntensity={1}
         position={(width / height) < 1.3 ? [1, 0, -10] : [7, 0, 0]}
       >
-        <Notebook delayChangeLocation={delayChangeLocation} />
-        {activeCanvas && (
-          <>
-            <Electron
-              position={[0, 0, 0.5]}
-              rotation={[3.14 / 1.5 - 0.2, 0, 0]}
-              speed={1.8}
-            />
-            <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
-            <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
-          </>
-        )}
+        <Notebook />
+        <>
+          <Electron position={[0, 0, 0.5]} rotation={[3.14 / 1.5 - 0.2, 0, 0]} speed={1.8} />
+          <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
+          <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
+        </>
       </Float>
     </Canvas>
   )

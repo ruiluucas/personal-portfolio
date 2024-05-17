@@ -1,31 +1,25 @@
-import {
-    useTransition as Transition,
-    animated,
-    easings,
-    useTrail,
-  } from '@react-spring/web'
+import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
+import { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalContext'
 
-export default function Header({ members, delayChangeLocation }) {
-    const trailAnchor = useTrail(members.length, {
-      from: { opacity: 0, y: -5 },
-      to: { opacity: !delayChangeLocation ? 1 : 0, y: 0 },
-      config: {
-        duration: 900,
-        mass: 5,
-        tension: 2000,
-        friction: 200,
-        easing: easings.easeOutBack,
-      },
-    })
-  
+export default function Header() {
+  const { state, dispatch } = useContext(GlobalContext)
+
     return (
       <header style={{ fontFamily: '"Instrument Serif", sans-serif' }} className="absolute flex w-full justify-center overflow-hidden font-semibold">
         <ul className="m-6 flex gap-x-12">
-          {trailAnchor.map((props, index) => (
-            <animated.p style={props} key={index} className="text-sm">
-              {members[index].name}
-            </animated.p>
-          ))}
+            <motion.a onClick={() => { dispatch({ type: 'HANDLE_DELAY_CHANGE_LOCATION' }) }} className="text-sm cursor-pointer">
+              About
+            </motion.a>
+            <motion.a className="text-sm cursor-pointer">
+              Work
+            </motion.a>
+            <motion.a className="text-sm cursor-pointer">
+              Process
+            </motion.a>
+            <motion.a className="text-sm cursor-pointer">
+              Benefits
+            </motion.a>
         </ul>
       </header>
     )

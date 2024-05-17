@@ -1,86 +1,45 @@
 import { Route, Switch, useLocation } from 'wouter'
 
-import AlanTuring from '../slides/AlanTuring'
-import TuringMachine from '../slides/TuringMachine'
-import VonNeumann from '../slides/VonNeumann'
-import BinaryToLetters from '../slides/BinaryToLetters'
-import Programmer from '../slides/Programmer'
-import ProsCons from '../slides/ProsCons'
-import Market from '../slides/Market'
-import Salary from '../slides/Salary'
-
 import ChangePage from "./ChangePage"
-import Apresentation from '../slides/Apresentation'
 import React, { useState } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
-import AboutMe from '../slides/AboutMe'
+import Apresentation from '../pages/Apresentation'
+import About from '../pages/About'
+import Benefits from '../pages/Benefits'
+import Process from '../pages/Process'
+import Work from '../pages/Work'
 
 export default function SwitchRouter() {
     const [location, setLocation] = useLocation()
-    const [delayChangeLocation, setDelayChangeLocation] = useState()
-    const { state } = React.useContext(GlobalContext)
-
-    const getDelayChange = (data) => {
-        setDelayChangeLocation(data)
-    }
+    const { state, dispatch } = React.useContext(GlobalContext)
 
     return (
         <>
-        <ChangePage location={location} activeHandDetection={state.activeHandDetection} setLocation={setLocation} onChangeLocation={getDelayChange} />
+        <ChangePage location={location} context={{ state, dispatch }} setLocation={setLocation} />
         <Switch location={location}>
             <Route path="/">
                 <section>
-                    <Apresentation delayChangeLocation={delayChangeLocation} />
+                    <Apresentation context={{ state, dispatch }} />
                 </section>
             </Route>
-            <Route path="/about-me">
+            <Route path="/about">
                 <section>
-                    <AboutMe />
+                    <About />
                 </section>
             </Route>
-            <Route path="/alan-turing">
+            <Route path="/work">
                 <section>
-                    <AlanTuring />
+                    <Work />
                 </section>
             </Route>
-            <Route path="/turing-machine">
+            <Route path="/benefits">
                 <section>
-                    <TuringMachine />
+                    <Benefits />
                 </section>
             </Route>
-            <Route path="/turing-machine">
+            <Route path="/process">
                 <section>
-                    <TuringMachine />
-                </section>
-            </Route>
-            <Route path="/von-neumann">
-                <section>
-                    <VonNeumann />
-                </section>
-            </Route>
-            <Route path="/binary-to-letters">
-                  <section>
-                    <BinaryToLetters />
-                  </section>
-            </Route>
-            <Route path="/programmer">
-                <section>
-                    <Programmer />
-                </section>
-            </Route>
-            <Route path="/pros-cons">
-                <section>
-                    <ProsCons />
-                </section>
-            </Route>
-            <Route path="/market">
-                <section>
-                    <Market />
-                </section>
-            </Route>
-            <Route path="/salary">
-                <section>
-                    <Salary />
+                    <Process />
                 </section>
             </Route>
         </Switch>

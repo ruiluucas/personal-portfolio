@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 
-export default function AlanTuring() {
+export default function Work() {
   return (
     <div className="absolute z-20 flex flex-col h-screen w-screen justify-center font-bold">
         <AnimatePresence>

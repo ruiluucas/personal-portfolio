@@ -6,7 +6,7 @@ import {
   Stars as InnerStars,
 } from '@react-three/drei'
 
-export default function Stars({ delayChangeLocation }) {
+export default function Stars() {
   
     const { position, opacity, ...props } = useSpring({
       from: {

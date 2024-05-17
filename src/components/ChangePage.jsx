@@ -13,9 +13,9 @@ class ChangePage extends React.Component {
       this.state = {
         activeHandDetection: props.activeHandDetection,
         location: props.location,
+        onChangeLocation: props.context.state.delayChangeLocation,
         detectionDelay: false
       }
-      this.onChangeLocation = props.onChangeLocation
       this.setLocation = props.setLocation
       this.delayChange = delayChange
       this.webCam = React.createRef()
@@ -137,4 +137,4 @@ class ChangePage extends React.Component {
     }
 }
 
-export default ChangePage;
+export default ChangePage

@@ -2,7 +2,7 @@ import { animated, easings, useTrail } from '@react-spring/web'
 import members from '../assets/members'
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
 
-export default function AboutMe() {
+export default function About() {
   return (
     <div 
     style={{ fontFamily: '"Instrument Serif", sans-serif' }} 

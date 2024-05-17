@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
 
-export default function Title({ delayChangeLocation }) {
+export default function Title() {
     return (
       <main style={{ fontFamily: '"Instrument Serif", sans-serif' }} className="flex flex-1 items-center font-extrabold">
         <div className="md:m-12 m-4 flex flex-col">
