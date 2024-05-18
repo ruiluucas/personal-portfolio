@@ -11,8 +11,11 @@ import Notebook from './Notebook'
 import Electron from './Electron'
 import Swarm from './Swarm'
 import PostEffects from './PostEffects'
+import useScreenSize from '../../hooks/useScreenSize'
 
 export default function Space() {
+  const { width, height } = useScreenSize()
+  
   return (
     <Canvas flat legacy dpr={1} camera={{ position: [0, 0, 20], fov: 50 }}>
       { /* FX */ }
@@ -50,7 +53,7 @@ export default function Space() {
         speed={1}
         rotationIntensity={0.5}
         floatIntensity={1}
-        position={[7, 0, 0]}
+        position={[-(width / height) + (width < 768 ? 1.5 : width / 350), (height / width) - (width < 768 ? 3 : 1), (height / width) - (width < 768 ? 12 : 2)]}
       >
         <Notebook />
         <>

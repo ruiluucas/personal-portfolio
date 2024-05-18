@@ -7,10 +7,12 @@ import {
 } from '@react-three/drei'
 import { useContext, useEffect } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
+import useScreenSize from '../../hooks/useScreenSize'
 
 export default function Notebook() {
     const { nodes, materials } = useGLTF('./notebook.glb')
     const { state } = useContext(GlobalContext)
+    const { width, height } = useScreenSize()
 
     useEffect(() => { console.log(state) }, [state])
 
@@ -20,7 +22,7 @@ export default function Notebook() {
         rotation: [1, 0.3, -3],
       },
       to: {
-        position: state.notebookZoomIn ? [-8, -3, 20] : [0, -1.5, -1.8],
+        position: state.notebookZoomIn ? [(height / width) - (width < 768 ? 2 : 2.5), (height / width) - (width < 768 ? 5 : 2.7), (height / width) + (width < 768 ? 28 : 19)] : [0, -1.5, -1.8],
         rotation: state.notebookZoomIn ? [0, 0, 0] : [0.3, -0.3, 0],
       },
       config: {
