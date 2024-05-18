@@ -14,7 +14,7 @@ export default function Content() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    style={{ zIndex: 101 }}
+                    style={{ zIndex: 40 }}
                     className="w-screen h-screen absolute bg-black">
                         
                     </motion.main>
