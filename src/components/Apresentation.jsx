@@ -10,7 +10,7 @@ export default function Apresentation() {
         </div>
         <AnimatePresence>
             <div 
-            style={{ fontFamily: '"Instrument Serif", sans-serif' }} 
+            style={{ fontFamily: '"Sedan SC", sans-serif' }} 
             className="absolute z-30 flex h-full w-full text-white">
                 <div className="flex justify-center items-end sm:items-center">
                     <div className="flex flex-col leading-3 m-10 mb-20 sm:m-20">
@@ -21,7 +21,7 @@ export default function Apresentation() {
                             animate={{ opacity: 1, x: 0 }} 
                             exit={{ opacity: 0 }} 
                             className="tracking-tight sm:text-7xl text-4xl">
-                            @rui_luucas
+                            Rui Lucas
                             </motion.p>
                         </MotionConfig>
                         <MotionConfig transition={{ duration: 2, ease: 'circOut' }}>
@@ -31,7 +31,7 @@ export default function Apresentation() {
                             animate={{ opacity: 1, x: 0, }} 
                             exit={{ opacity: 0 }} 
                             className="tracking-tight sm:text-7xl text-4xl">
-                            software developer
+                            Software Developer
                             </motion.p>
                         </MotionConfig>
                     </div>

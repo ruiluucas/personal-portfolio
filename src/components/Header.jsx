@@ -41,7 +41,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.4, ease: 'circOut' }}
-              >about</motion.a>
+              >About</motion.a>
               <motion.a
               onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
               className='cursor-pointer p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
@@ -50,7 +50,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.6, ease: 'circOut' }}
-              >work</motion.a>
+              >Work</motion.a>
               <motion.a
               onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
               className='cursor-pointe p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
@@ -59,7 +59,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.8, ease: 'circOut' }}
-              >process</motion.a>
+              >Process</motion.a>
               <motion.a
               onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
               className='cursor-pointer p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
@@ -68,7 +68,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 2, ease: 'circOut' }}
-              >benefits</motion.a>
+              >Benefits</motion.a>
             </>
           }
         </AnimatePresence>
