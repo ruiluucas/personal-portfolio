@@ -1,17 +1,20 @@
 /* eslint-disable react/no-unknown-property */
-import * as THREE from 'three'
 import { easings } from '@react-spring/core'
 import { a, useSpring } from '@react-spring/three'
 import {
   useGLTF,
   MeshReflectorMaterial,
-  Html,
 } from '@react-three/drei'
+import { useContext, useEffect } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 import useScreenSize from '../../hooks/useScreenSize'
-import { useEffect } from 'react'
 
-export default function Notebook({delayChangeLocation}) {
+export default function Notebook() {
     const { nodes, materials } = useGLTF('./notebook.glb')
+    const { state } = useContext(GlobalContext)
+    const { width, height } = useScreenSize()
+
+    useEffect(() => { console.log(state) }, [state])
 
     const { position, rotation } = useSpring({
       from: {
@@ -19,8 +22,8 @@ export default function Notebook({delayChangeLocation}) {
         rotation: [1, 0.3, -3],
       },
       to: {
-        position: !delayChangeLocation ? [0, -1.5, -1.8] : [-7.6, -2.8, 17],
-        rotation: !delayChangeLocation ? [0.3, -0.3, 0] : [0.4, 0, 0],
+        position: state.notebookZoomIn ? [(height / width) - (width < 768 ? 2 : 2.5), (height / width) - (width < 768 ? 5 : 2.7), (height / width) + (width < 768 ? 28 : 19)] : [0, -1.5, -1.8],
+        rotation: state.notebookZoomIn ? [0, 0, 0] : [0.3, -0.3, 0],
       },
       config: {
         duration: 3000,
