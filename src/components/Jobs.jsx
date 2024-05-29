@@ -1,9 +1,9 @@
 export default function Jobs() {
     return (
         <div className="flex flex-wrap gap-3 justify-center">
-            <div className="bg-white max-w-80 p-5 text-black rounded-md">
-                <img className="rounded-md" src="./gtavsetup.png" alt="" />
-                <h3 className="font-bold my-2 text-3xl">GTA 5 Setup</h3>
+            <div style={{ backdropFilter: "blur(5px)" }} className="max-w-80 p-5 bg-opacity-25 bg-green-500 text-white rounded-xl">
+                <img className="rounded-lg" src="./gtavsetup.png" alt="" />
+                <h3 className="font-bold my-2 text-xl">GTA 5 Setup</h3>
                 <p className="leading-5 text-base">
                     Ao recriar a inicialização e o menu do jogo, 
                     esta aplicação oferece uma plataforma interativa 
@@ -18,9 +18,9 @@ export default function Jobs() {
                     na comunidade.
                 </p>
             </div>
-            <div className="bg-white max-w-80 p-5 text-black rounded-md">
-                <img className="rounded-md" src="./hackerbet.png" alt="" />
-                <h3 className="font-bold my-2 text-3xl">Plataforma de Apostas</h3>
+            <div style={{ backdropFilter: "blur(5px)" }} className="max-w-80 p-5 bg-opacity-25 bg-green-500 text-white rounded-xl">
+                <img className="rounded-lg" src="./hackerbet.png" alt="" />
+                <h3 className="font-bold my-2 text-xl">Plataforma de Apostas</h3>
                 <p className="leading-5 text-base">
                     A interface oferece uma experiência de apostas online com 
                     uma interface elegante e fácil de usar. Destacando-se por 
@@ -30,9 +30,9 @@ export default function Jobs() {
                     e símbolos da sorte para realizar suas apostas.
                 </p>
             </div>
-            <div className="bg-white max-w-80 p-5 text-black rounded-md">
-                <img className="rounded-md" src="./hackerbet.png" alt="" />
-                <h3 className="font-bold my-2 text-3xl">Plataforma de Apostas</h3>
+            <div style={{ backdropFilter: "blur(5px)" }} className="max-w-80 p-5 bg-opacity-25 bg-green-500 text-white rounded-xl">
+                <img className="rounded-lg" src="./hackerbet.png" alt="" />
+                <h3 className="font-bold my-2 text-xl">Plataforma de Apostas</h3>
                 <p className="leading-5 text-base">
                     A interface oferece uma experiência de apostas online com 
                     uma interface elegante e fácil de usar. Destacando-se por 
@@ -42,9 +42,9 @@ export default function Jobs() {
                     e símbolos da sorte para realizar suas apostas.
                 </p>
             </div>
-            <div className="bg-white max-w-80 p-5 text-black rounded-md">
-                <img className="rounded-md" src="./hackerbet.png" alt="" />
-                <h3 className="font-bold my-2 text-3xl">Plataforma de Apostas</h3>
+            <div style={{ backdropFilter: "blur(5px)" }} className="max-w-80 p-5 bg-opacity-25 bg-green-500 text-white rounded-xl">
+                <img className="rounded-lg" src="./hackerbet.png" alt="" />
+                <h3 className="font-bold my-2 text-xl">Plataforma de Apostas</h3>
                 <p className="leading-5 text-base">
                     A interface oferece uma experiência de apostas online com 
                     uma interface elegante e fácil de usar. Destacando-se por 
@@ -54,9 +54,9 @@ export default function Jobs() {
                     e símbolos da sorte para realizar suas apostas.
                 </p>
             </div>
-            <div className="bg-white max-w-80 p-5 text-black rounded-md">
-                <img className="rounded-md" src="./hackerbet.png" alt="" />
-                <h3 className="font-bold my-2 text-3xl">Plataforma de Apostas</h3>
+            <div style={{ backdropFilter: "blur(5px)" }} className="max-w-80 p-5 bg-opacity-25 bg-green-500 text-white rounded-xl">
+                <img className="rounded-lg" src="./hackerbet.png" alt="" />
+                <h3 className="font-bold my-2 text-xl">Plataforma de Apostas</h3>
                 <p className="leading-5 text-base">
                     A interface oferece uma experiência de apostas online com 
                     uma interface elegante e fácil de usar. Destacando-se por 
