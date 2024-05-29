@@ -3,5 +3,17 @@
 @tailwind utilities;
 
 body {
-    background-color: black;
+    background: black;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+html {
+    overflow-x: hidden;
 }

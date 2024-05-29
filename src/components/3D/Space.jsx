@@ -12,12 +12,15 @@ import Electron from './Electron'
 import Swarm from './Swarm'
 import PostEffects from './PostEffects'
 import useScreenSize from '../../hooks/useScreenSize'
+import { useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 
 export default function Space() {
   const { width, height } = useScreenSize()
-  
+  const { state, dispatch } = useContext(GlobalContext)
+
   return (
-    <Canvas flat legacy dpr={1} camera={{ position: [0, 0, 20], fov: 50 }}>
+    <Canvas flat legacy dpr={0.6} camera={{ position: [0, 0, 20], fov: 50 }}>
       { /* FX */ }
       <ambientLight intensity={0.01} />
       <Environment preset="city" />
