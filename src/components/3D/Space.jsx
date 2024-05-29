@@ -12,12 +12,15 @@ import Electron from './Electron'
 import Swarm from './Swarm'
 import PostEffects from './PostEffects'
 import useScreenSize from '../../hooks/useScreenSize'
+import { useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 
 export default function Space() {
   const { width, height } = useScreenSize()
-  
+  const { state, dispatch } = useContext(GlobalContext)
+
   return (
-    <Canvas flat legacy dpr={1} camera={{ position: [0, 0, 20], fov: 50 }}>
+    <Canvas flat legacy dpr={0.6} camera={{ position: [0, 0, 20], fov: 50 }}>
       { /* FX */ }
       <ambientLight intensity={0.01} />
       <Environment preset="city" />
@@ -51,8 +54,8 @@ export default function Space() {
       { /* Notebook and Particles */ }
       <Float
         speed={1}
-        rotationIntensity={0.5}
-        floatIntensity={1}
+        rotationIntensity={state.notebookZoomIn ? 0 : 0.5}
+        floatIntensity={state.notebookZoomIn ? 0 : 1}
         position={[-(width / height) + (width < 768 ? 1.5 : width / 350), (height / width) - (width < 768 ? 3 : 1), (height / width) - (width < 768 ? 12 : 2)]}
       >
         <Notebook />

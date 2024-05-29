@@ -1,43 +1,57 @@
 import Space from "./3D/Space"
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
-import React from "react"
+import React, { useContext } from "react"
+import { GlobalContext } from "../context/GlobalContext"
 
 export default function Apresentation() {
+    const { state, dispatch } = useContext(GlobalContext)
+
     return (
         <>
-        <div className="absolute z-0 h-full w-full">
+        <div className="fixed z-0 h-full w-full">
             <Space />
         </div>
-        <AnimatePresence>
+        <div 
+        style={{ fontFamily: '"Platypi"', fontWeight: 900 }} 
+        className="fixed z-30 flex h-full w-full text-white"
+        onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+        >
             <div 
-            style={{ fontFamily: '"Sedan SC", sans-serif' }} 
-            className="absolute z-30 flex h-full w-full text-white">
-                <div className="flex justify-center items-end sm:items-center">
-                    <div className="flex flex-col leading-3 m-10 mb-20 sm:m-20">
-                        <MotionConfig transition={{ duration: 1.6, ease: 'circOut' }}>
-                            <motion.p 
-                            key="name" 
-                            initial={{ opacity: 0, x: 80 }} 
-                            animate={{ opacity: 1, x: 0 }} 
-                            exit={{ opacity: 0 }} 
-                            className="tracking-tight sm:text-7xl text-4xl">
-                            Rui Lucas
-                            </motion.p>
-                        </MotionConfig>
-                        <MotionConfig transition={{ duration: 2, ease: 'circOut' }}>
-                            <motion.p 
-                            key="title" 
-                            initial={{ opacity: 0, x: 80 }} 
-                            animate={{ opacity: 1, x: 0, }} 
-                            exit={{ opacity: 0 }} 
-                            className="tracking-tight sm:text-7xl text-4xl">
-                            Software Developer
-                            </motion.p>
-                        </MotionConfig>
-                    </div>
+            className="flex justify-center items-end sm:items-center"
+            onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+            >
+                <div className="flex flex-col leading-3 m-10 mb-20 sm:m-20">
+                    <AnimatePresence>
+                        {
+                            !state.notebookZoomIn &&
+                            <>
+                                <MotionConfig>
+                                    <motion.p 
+                                    key="name" 
+                                    initial={{ opacity: 0, x: 80 }} 
+                                    animate={{ opacity: 1, x: 0, transition: { duration: 2, ease: 'circOut', delay: 1 } }} 
+                                    exit={{ opacity: 0, transition: { duration: 1.4 } }} 
+                                    className="tracking-tight sm:text-7xl text-4xl">
+                                    Rui Lucas
+                                    </motion.p>
+                                </MotionConfig>
+                                <MotionConfig>
+                                    <motion.p 
+                                    key="title" 
+                                    initial={{ opacity: 0, x: 80 }} 
+                                    animate={{ opacity: 1, x: 0, transition: { duration: 2.4, ease: 'circOut', delay: 1 } }} 
+                                    exit={{ opacity: 0, transition: { duration: 1 } }} 
+                                    className="tracking-tight sm:text-5xl text-1xl">
+                                    Software Developer
+                                    </motion.p>
+                                </MotionConfig>
+                            </>
+                        }
+                    </AnimatePresence>
+
                 </div>
             </div>
-        </AnimatePresence>
+        </div>
         </>
     )
 }

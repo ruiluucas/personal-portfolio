@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
+import { motion, AnimatePresence, MotionConfig, useScroll } from 'framer-motion'
 import { useContext, useEffect } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
 import useScreenSize from '../hooks/useScreenSize'
@@ -6,13 +6,21 @@ import Nav from './Nav'
 
 export default function Header() {
   const { state, dispatch } = useContext(GlobalContext)
+  const { scrollY } = useScroll()
+
+  useEffect(() => {
+    console.log(scrollY)
+  }, [scrollY])
 
   return (
     <header 
-    style={{ fontFamily: '"Instrument Serif", sans-serif', color: 'white' }} 
-    className="z-50 flex text-xl md:text-3xl absolute w-full justify-between"
+    style={{ fontFamily: '"Platypi"', fontWeight: 100, color: 'white' }} 
+    className="z-50 flex text-lg text-white sm:text-3xl fixed w-full justify-between overflow-hidden"
     >
-      <div className='w-full h-full flex justify-start'>
+      <div
+      style={{ position: !state.notebookZoomIn ? "absolute" : "relative" }}
+      className='w-full h-full flex justify-start'
+      >
         <AnimatePresence>
           {
             state.notebookZoomIn &&
@@ -23,57 +31,15 @@ export default function Header() {
             initial={{ opacity: 0, y: -80 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.4, ease: 'circInOut', delay: 1 }}
+            transition={{ duration: 2.4, ease: 'circInOut' }}
             >{ '<' }</motion.a>
           }
         </AnimatePresence>
       </div>
-      <ul style={{ position: state.notebookZoomIn ? "absolute" : "relative" }} className="my-6 w-full flex justify-center gap-5 md:gap-10">
-        <AnimatePresence>
-          {
-            !state.notebookZoomIn &&
-            <>
-              <motion.a
-              onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
-              className='cursor-pointer p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
-              key="about"
-              initial={{ opacity: 0, y: -80 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.4, ease: 'circOut' }}
-              >About</motion.a>
-              <motion.a
-              onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
-              className='cursor-pointer p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
-              key="work"
-              initial={{ opacity: 0, y: -80 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.6, ease: 'circOut' }}
-              >Work</motion.a>
-              <motion.a
-              onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
-              className='cursor-pointe p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
-              key="process"
-              initial={{ opacity: 0, y: -80 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.8, ease: 'circOut' }}
-              >Process</motion.a>
-              <motion.a
-              onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
-              className='cursor-pointer p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
-              key="benefits"
-              initial={{ opacity: 0, y: -80 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 2, ease: 'circOut' }}
-              >Benefits</motion.a>
-            </>
-          }
-        </AnimatePresence>
-      </ul>
-      <div className='w-full flex justify-end'>
+      
+      <div 
+      style={{ position: !state.notebookZoomIn ? "absolute" : "relative" }} 
+      className='w-full flex justify-end'>
         <AnimatePresence>
           {
             state.notebookZoomIn &&
@@ -83,7 +49,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -80 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.8, ease: 'circInOut', delay: 1 }}
+            transition={{ duration: 2.8, ease: 'circInOut'}}
             >
               <Nav />
             </motion.div>
