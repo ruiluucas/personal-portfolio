@@ -14,7 +14,11 @@ export default function Header() {
 
   return (
     <header 
-    style={{ fontFamily: '"Platypi"', fontWeight: 100, color: 'white' }} 
+    style={{ 
+      fontFamily: '"Platypi"', 
+      fontWeight: 100, color: 'white',
+      backdropFilter: "blur(10px)"
+    }} 
     className="z-50 flex text-lg text-white sm:text-3xl fixed w-full justify-between overflow-hidden"
     >
       <div
@@ -36,7 +40,57 @@ export default function Header() {
           }
         </AnimatePresence>
       </div>
-      
+      <ul className="m-6 sm:flex font-black text-base hidden gap-x-12">
+        {
+        state.notebookZoomIn &&
+        <AnimatePresence>
+          <MotionConfig transition={{ duration: 1.4, ease: 'circOut' }}>
+            <motion.a
+            onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+            className='cursor-pointer p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
+            key="contact"
+            initial={{ opacity: 0, y: -80 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            href='#contact'
+            >Contact</motion.a>
+          </MotionConfig>
+          <MotionConfig transition={{ duration: 1.6, ease: 'circOut' }}>
+            <motion.a
+            onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+            className='cursor-pointer p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
+            key="about"
+            initial={{ opacity: 0, y: -80 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            href='#about'
+            >About</motion.a>
+          </MotionConfig>
+          <MotionConfig transition={{ duration: 1.8, ease: 'circOut' }}>
+            <motion.a
+            onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+            className='cursor-pointe p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
+            key="jobs"
+            initial={{ opacity: 0, y: -80 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            href='#jobs'
+            >Jobs</motion.a>
+          </MotionConfig>
+          <MotionConfig transition={{ duration: 2, ease: 'circOut' }}>
+            <motion.a
+            onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+            className='cursor-pointer p-1 px-2 rounded-md border-x-2 hover:border-white border-transparent'
+            key="benefits"
+            initial={{ opacity: 0, y: -80 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            href='#benefits'
+            >Benefits</motion.a>
+          </MotionConfig>
+        </AnimatePresence>
+        }
+      </ul>
       <div 
       style={{ position: !state.notebookZoomIn ? "absolute" : "relative" }} 
       className='w-full flex justify-end'>

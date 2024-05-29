@@ -6,7 +6,9 @@ export default function About() {
         initial={{ opacity: 0, transition: { duration: 2, delay: 1 }}}
         whileInView={{ opacity: 1, transition: { duration: 2 } }}
         exit={{ opacity: 0, transition: { duration: 2, delay: 2 } }}
-        className="h-screen md:h-min flex items-start">
+        className="h-screen md:h-min flex items-start"
+        id="about"
+        >
             <div className="mx-auto flex flex-col">
                 <div className="mb-3">
                     <h1 className="text-3xl text-green-500 font-bold">Full Stack Developer </h1>

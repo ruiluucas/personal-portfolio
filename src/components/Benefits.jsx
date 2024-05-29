@@ -19,7 +19,10 @@ export default function Benefits() {
 
     return (
         <AnimatePresence>
-            <div className="mt-20 flex flex-col items-center">
+            <div 
+            className="mt-20 flex flex-col p-28 items-center"
+            id="benefits"
+            >
             <h1 className="text-4xl font-black">Benefícios</h1>
                 <div 
                 className="gap-5 rounded-md flex flex-col md:flex-row text-white p-5 [&>div>div]:mx-5 [&>div>div]:max-w-80 [&>div>div]:h-min md:[&>div>div]:h-80 [&>div>div]:my-5 [&>div>div>h4]:font-semibold [&>div>div>p]:font-extralight [&>div>div>p]:text-base [&>div>div>p]:sm:text-lg [&>div>div>h4]:text-1xl [&>div>div>h4]:sm:text-2xl [&>div>div>h4]:text-green-500"
