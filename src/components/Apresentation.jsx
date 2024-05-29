@@ -8,12 +8,12 @@ export default function Apresentation() {
 
     return (
         <>
-        <div className="absolute z-0 h-full w-full">
+        <div className="fixed z-0 h-full w-full">
             <Space />
         </div>
         <div 
         style={{ fontFamily: '"Platypi"', fontWeight: 900 }} 
-        className="absolute z-30 flex h-full w-full text-white"
+        className="fixed z-30 flex h-full w-full text-white"
         onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
         >
             <div 

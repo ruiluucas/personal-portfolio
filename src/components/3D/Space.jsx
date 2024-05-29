@@ -54,8 +54,8 @@ export default function Space() {
       { /* Notebook and Particles */ }
       <Float
         speed={1}
-        rotationIntensity={0.5}
-        floatIntensity={1}
+        rotationIntensity={state.notebookZoomIn ? 0 : 0.5}
+        floatIntensity={state.notebookZoomIn ? 0 : 1}
         position={[-(width / height) + (width < 768 ? 1.5 : width / 350), (height / width) - (width < 768 ? 3 : 1), (height / width) - (width < 768 ? 12 : 2)]}
       >
         <Notebook />

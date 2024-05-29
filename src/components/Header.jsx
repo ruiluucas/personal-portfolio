@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
+import { motion, AnimatePresence, MotionConfig, useScroll } from 'framer-motion'
 import { useContext, useEffect } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
 import useScreenSize from '../hooks/useScreenSize'
@@ -6,11 +6,16 @@ import Nav from './Nav'
 
 export default function Header() {
   const { state, dispatch } = useContext(GlobalContext)
+  const { scrollY } = useScroll()
+
+  useEffect(() => {
+    console.log(scrollY)
+  }, [scrollY])
 
   return (
     <header 
     style={{ fontFamily: '"Platypi"', fontWeight: 100, color: 'white' }} 
-    className="z-50 flex text-lg text-white sm:text-3xl absolute w-full justify-between overflow-hidden"
+    className="z-50 flex text-lg text-white sm:text-3xl fixed w-full justify-between overflow-hidden"
     >
       <div
       style={{ position: !state.notebookZoomIn ? "absolute" : "relative" }}

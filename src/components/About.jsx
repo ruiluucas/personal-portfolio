@@ -9,8 +9,8 @@ export default function About() {
         className="h-screen md:h-min flex items-start">
             <div className="mx-auto flex flex-col">
                 <div className="mb-3">
-                    <h1 className="text-3xl text-green-500 font-semibold">Full Stack Developer </h1>
-                    <h1 className="text-3xl text-green-500 font-semibold">e Data Analist</h1>
+                    <h1 className="text-3xl text-green-500 font-bold">Full Stack Developer </h1>
+                    <h1 className="text-3xl text-green-500 font-bold">e Data Analist</h1>
                 </div>
                 <p className="font-light max-w-72 [&>span]:transition-all [&>span]:font-semibold">
                     Tenho mais de <span className="hover:text-green-500">3 anos</span> de experiência no desenvolvimento 

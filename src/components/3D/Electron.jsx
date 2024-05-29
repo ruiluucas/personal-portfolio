@@ -5,8 +5,11 @@ import { useFrame } from '@react-three/fiber'
 import {
   Trail,
 } from '@react-three/drei'
+import { useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 
 export default function Electron({ radius = 7, speed = 0.1, ...props }) {
+    const { state } = useContext(GlobalContext)
     const [spring, setSpring] = useSpring(() => ({
       position: [-60, -20, -10],
     }))

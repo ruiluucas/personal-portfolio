@@ -5,6 +5,7 @@ import Contact from "./Contact"
 import About from "./About"
 import Jobs from "./Jobs"
 import Benefits from "./Benefits"
+import Footer from "./Footer"
 
 export default function Content() {
     const { state } = useContext(GlobalContext)
@@ -27,37 +28,22 @@ export default function Content() {
                     animate={{ opacity: 1, transition: { duration: 2, delay: 1 } }}
                     exit={{ opacity: 0, transition: { duration: 1 } }}
                     style={{ zIndex: 40 }}
-                    className="w-screen h-screen absolute bg-black">
+                    className="w-screen h-screen absolute">
                         <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0, transition: { duration: 0.5 } }}
                         className="h-screen bg-cover bg-bottom bg-no-repeat"
-                        style={{ backgroundImage: 'linear-gradient(to bottom, rgb(0 0 0 / 70%), rgb(0 0 0 / 100%)), url("./profile.jpg")' }}
                         >
                             <>
                                 <img 
-                                style={{ WebkitMaskImage: "linear-gradient(to bottom, transparent 25%, black 100%)" }} 
-                                src="./space.jpg" 
-                                className="h-screen w-screen object-cover absolute opacity-15"
+                                style={{ WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 100%)" }} 
+                                src="./profile.jpg" 
+                                className="h-screen w-screen object-cover absolute opacity-40"
                                 />
-                                <img 
-                                style={{ top: '100vh' }} 
-                                src="./space.jpg" 
-                                className="h-screen w-screen object-right-bottom rotate-180 object-cover absolute opacity-15"
-                                />
-                                <img 
-                                style={{ top: '200vh' }} 
-                                src="./space.jpg" 
-                                className="h-screen w-screen object-right-bottom object-cover absolute opacity-15"
-                                />
-                                <img 
-                                style={{ WebkitMaskImage: "linear-gradient(to bottom, transparent 25%, black 100%)", top: '300vh' }} 
-                                src="./space.jpg" 
-                                className="h-screen w-screen rotate-180 object-right-bottom object-cover absolute opacity-15"
-                                />
+                                
                             </>
-                            <div className="absolute overflow-visible w-screen">
+                            <div className="absolute overflow-visible bg-black bg-opacity-40 w-screen">
                                 <div id="content" style={{ zIndex: 70, fontFamily: '"Platypi"' }} className="transition-all items-center flex flex-col overflow-y-visible text-white w-full">
                                     <div className="flex sm:mb-52 gap-32 mt-28 mx-10 sm:mx-16 flex-col sm:gap-14 md:gap-28 md:flex-row-reverse">
                                         <Contact />
@@ -65,6 +51,7 @@ export default function Content() {
                                     </div>
                                     <Jobs />
                                     <Benefits />
+                                    <Footer />
                                 </div>
                             </div>
                         </motion.div>
