@@ -1,11 +1,11 @@
 import { motion, AnimatePresence, MotionConfig } from "framer-motion"
-import { useContext, useEffect, useState } from "react"
-import { GlobalContext } from "../context/GlobalContext"
-import Contact from "./Contact"
-import About from "./About"
-import Jobs from "./Jobs"
-import Benefits from "./Benefits"
-import Footer from "./Footer"
+import { useContext, useState } from "react"
+import { GlobalContext } from "../../context/GlobalContext"
+import Contact from "./components/Contact"
+import About from "./components/About"
+import Jobs from "./components/Jobs"
+import Benefits from "./components/Benefits"
+import Footer from "./components/Footer"
 
 export default function Content() {
     const { state } = useContext(GlobalContext)
@@ -35,17 +35,14 @@ export default function Content() {
                         exit={{ opacity: 0, transition: { duration: 0.5 } }}
                         className="h-screen bg-cover bg-bottom bg-no-repeat"
                         >
-                            <>
-                                <img 
-                                style={{ WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 100%)" }} 
-                                src="./profile.jpg" 
-                                className="h-screen w-screen object-cover absolute opacity-40"
-                                />
-                                
-                            </>
+                            <img 
+                            style={{ WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 100%)" }} 
+                            src="./profile.jpg" 
+                            className="h-screen w-screen object-cover absolute opacity-40"
+                            />
                             <div className="absolute overflow-visible bg-black bg-opacity-40 w-screen">
                                 <div id="content" style={{ zIndex: 70, fontFamily: '"Platypi"' }} className="transition-all items-center flex flex-col overflow-y-visible text-white w-full">
-                                    <div className="flex sm:mb-52 gap-32 mt-28 mx-10 sm:mx-16 flex-col sm:gap-14 md:gap-28 md:flex-row-reverse">
+                                    <div className="flex sm:mb-52 gap-32 mx-10 sm:mx-16 flex-col sm:gap-14 md:gap-28 md:flex-row-reverse">
                                         <Contact />
                                         <About />
                                     </div>

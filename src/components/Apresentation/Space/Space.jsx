@@ -4,20 +4,19 @@ import { Canvas } from '@react-three/fiber'
 import {
   Environment,
   Float,
-  Html,
   Stars,
 } from '@react-three/drei'
-import Notebook from './Notebook'
-import Electron from './Electron'
-import Swarm from './Swarm'
-import PostEffects from './PostEffects'
-import useScreenSize from '../../hooks/useScreenSize'
+import Notebook from './component/Notebook'
+import Electron from './component/Electron'
+import Swarm from './component/Swarm'
+import PostEffects from './component/PostEffects'
+import useScreenSize from '../../../hooks/useScreenSize'
 import { useContext } from 'react'
-import { GlobalContext } from '../../context/GlobalContext'
+import { GlobalContext } from '../../../context/GlobalContext'
 
 export default function Space() {
   const { width, height } = useScreenSize()
-  const { state, dispatch } = useContext(GlobalContext)
+  const { state } = useContext(GlobalContext)
 
   return (
     <Canvas flat legacy dpr={0.6} camera={{ position: [0, 0, 20], fov: 50 }}>

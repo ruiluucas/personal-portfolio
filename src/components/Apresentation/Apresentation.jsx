@@ -1,7 +1,7 @@
-import Space from "./3D/Space"
+import Space from "./Space/Space"
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
 import React, { useContext } from "react"
-import { GlobalContext } from "../context/GlobalContext"
+import { GlobalContext } from "../../context/GlobalContext"
 
 export default function Apresentation() {
     const { state, dispatch } = useContext(GlobalContext)

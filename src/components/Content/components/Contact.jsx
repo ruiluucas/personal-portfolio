@@ -7,7 +7,7 @@ export default function Contact() {
         initial={{ opacity: 0, transition: { duration: 2, delay: 1 }}}
         whileInView={{ opacity: 1, transition: { duration: 2 } }}
         exit={{ opacity: 0, transition: { duration: 2, delay: 2 } }}
-        className="flex flex-col h-1/3 sm:h-min"
+        className="flex pt-32 flex-col h-1/3 sm:h-min"
         id="contact"
         >
             <span className="text-2xl">Entre em contato e faça um</span>

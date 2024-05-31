@@ -6,7 +6,7 @@ import {
   Trail,
 } from '@react-three/drei'
 import { useContext } from 'react'
-import { GlobalContext } from '../../context/GlobalContext'
+import { GlobalContext } from '../../../../context/GlobalContext'
 
 export default function Electron({ radius = 7, speed = 0.1, ...props }) {
     const { state } = useContext(GlobalContext)
