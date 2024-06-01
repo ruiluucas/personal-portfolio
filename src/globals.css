@@ -4,6 +4,19 @@
 
 * {
     scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+}
+
+.MuiPaper-root {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.20) !important;
+    backdrop-filter: blur(5px);
+    border-radius: 1em !important;
+    width: 90vw;
+}
+
+.MuiMenuItem-root > a {
+    font-family: "Platypi";
 }
 
 body {

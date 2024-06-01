@@ -1,5 +1,5 @@
 import Space from "./Space/Space"
-import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
+import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion'
 import React, { useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 
@@ -24,14 +24,15 @@ export default function Apresentation() {
                     <AnimatePresence>
                         {
                             !state.notebookZoomIn &&
-                            <>
+                            <LayoutGroup>
                                 <MotionConfig>
                                     <motion.p 
                                     key="name" 
                                     initial={{ opacity: 0, x: 80 }} 
-                                    animate={{ opacity: 1, x: 0, transition: { duration: 2, ease: 'circOut', delay: 1 } }} 
-                                    exit={{ opacity: 0, transition: { duration: 1.4 } }} 
-                                    className="tracking-tight sm:text-7xl text-4xl">
+                                    animate={{ textShadow: "0 0 10px #FFF, 0 0 100px #FFF", opacity: 1, x: 0, transition: { duration: 2, ease: 'circOut', delay: 0.6 } }} 
+                                    exit={{ opacity: 0, transition: { duration: 1 } }} 
+                                    className="tracking-tight sm:text-7xl text-4xl cursor-pointer"
+                                    >
                                     Rui Lucas
                                     </motion.p>
                                 </MotionConfig>
@@ -39,13 +40,14 @@ export default function Apresentation() {
                                     <motion.p 
                                     key="title" 
                                     initial={{ opacity: 0, x: 80 }} 
-                                    animate={{ opacity: 1, x: 0, transition: { duration: 2.4, ease: 'circOut', delay: 1 } }} 
-                                    exit={{ opacity: 0, transition: { duration: 1 } }} 
-                                    className="tracking-tight sm:text-5xl text-1xl">
+                                    animate={{ textShadow: "0 0 10px #FFF, 0 0 100px #FFF", opacity: 1, x: 0, transition: { duration: 2.4, ease: 'circOut', delay: 1 } }} 
+                                    exit={{ opacity: 0, transition: { duration: 0.6 } }}
+                                    className="tracking-tight sm:text-5xl text-1xl cursor-pointer"
+                                    >
                                     Software Developer
                                     </motion.p>
                                 </MotionConfig>
-                            </>
+                            </LayoutGroup>
                         }
                     </AnimatePresence>
 

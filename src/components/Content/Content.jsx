@@ -42,7 +42,7 @@ export default function Content() {
                             />
                             <div className="absolute overflow-visible bg-black bg-opacity-40 w-screen">
                                 <div id="content" style={{ zIndex: 70, fontFamily: '"Platypi"' }} className="transition-all items-center flex flex-col overflow-y-visible text-white w-full">
-                                    <div className="flex sm:mb-52 gap-32 mx-10 sm:mx-16 flex-col sm:gap-14 md:gap-28 md:flex-row-reverse">
+                                    <div className="flex sm:mb-52 sm:gap-32 mx-10 sm:mx-16 flex-col sm:gap-14 md:gap-28 md:flex-row-reverse">
                                         <Contact />
                                         <About />
                                     </div>

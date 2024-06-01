@@ -1,7 +1,7 @@
 export default function Jobs() {
     return (
         <div id="jobs" className="flex flex-col py-28 items-center">
-            <h1 className="text-4xl mx-auto font-black">Trabalhos</h1>
+            <h1 style={{ textShadow: "0 0 5px #FFF, 0 0 100px #FFF" }} className="text-4xl mx-auto font-black">Trabalhos</h1>
             <div className="flex mx-auto justify-center flex-wrap gap-5 py-10">
                 <div style={{ backdropFilter: "blur(5px)" }} className="w-80 p-5 [&>img]:hover:scale-105 bg-black hover:bg-neutral-950 transition-all text-white rounded-xl">
                     <img className="rounded-lg object-contain transition-all" src="./gtavsetup.png" alt="" />

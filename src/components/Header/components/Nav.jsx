@@ -40,46 +40,18 @@ export default function Nav() {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            '&::before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-          About
+          <a className=' text-white font-bold text-xl' href="#contact">Contato</a>
         </MenuItem>
         <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-          Work
+          <a className=' text-white font-bold text-xl' href="#about">Sobre</a>
         </MenuItem>
         <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-          Process
+          <a className=' text-white font-bold text-xl' href="#jobs">Trabalhos</a>
         </MenuItem>
         <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-          Benefits
+          <a className=' text-white font-bold text-xl' href="#benefits">Benefícios</a>
         </MenuItem>
       </Menu>
     </>
