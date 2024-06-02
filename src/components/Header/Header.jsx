@@ -77,7 +77,7 @@ export default function Header() {
                 key="contact"
                 initial={{ opacity: 0, y: -80 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
+                exit={{ opacity: 0, transition: { duration: 1 } }}
                 whileHover={{
                   textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",
                   transition: { duration: 0.2 }
@@ -91,7 +91,7 @@ export default function Header() {
                 key="about"
                 initial={{ opacity: 0, y: -80 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
+                exit={{ opacity: 0, transition: { duration: 1.2 } }}
                 whileHover={{
                   textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",
                   transition: { duration: 0.2 }
@@ -105,7 +105,7 @@ export default function Header() {
                 key="jobs"
                 initial={{ opacity: 0, y: -80 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
+                exit={{ opacity: 0, transition: { duration: 1.4 } }}
                 whileHover={{
                   textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",
                   transition: { duration: 0.2 }
@@ -119,7 +119,7 @@ export default function Header() {
                 key="benefits"
                 initial={{ opacity: 0, y: -80 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
+                exit={{ opacity: 0, transition: { duration: 1.6 } }}
                 whileHover={{
                   textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",
                   transition: { duration: 0.2 }

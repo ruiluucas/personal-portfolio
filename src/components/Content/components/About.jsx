@@ -6,15 +6,25 @@ export default function About() {
         initial={{ opacity: 0, transition: { duration: 2, delay: 1 }}}
         whileInView={{ opacity: 1, transition: { duration: 2 } }}
         exit={{ opacity: 0, transition: { duration: 2, delay: 2 } }}
-        className="pt-32 md:h-min flex items-start"
+        className="pt-20 sm:pt-32 md:h-min flex items-start"
         id="about"
         >
             <div className="mx-auto flex flex-col">
-                <div className="mb-3">
+                <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: 'circInOut' }}
+                className="mb-3"
+                >
                     <h1 className="text-3xl text-green-500 font-bold">Full Stack Developer </h1>
                     <h1 className="text-3xl text-green-500 font-bold">e Data Analist</h1>
-                </div>
-                <p className="font-light max-w-72 [&>span]:transition-all [&>span]:font-semibold">
+                </motion.div>
+                <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: 'circInOut' }}
+                className="font-light max-w-72 [&>span]:transition-all [&>span]:font-semibold"
+                >
                     Tenho mais de <span className="hover:text-green-500">3 anos</span> de experiência no desenvolvimento 
                     <span className="hover:text-green-500"> Full-Stack</span>, utilizando 
                     <span className="hover:text-green-500"> JavaScript</span>, 
@@ -28,7 +38,7 @@ export default function About() {
                     <span className="hover:text-green-500"> análise de dados </span> e 
                     <span className="hover:text-green-500"> web scraping</span>, onde desenvolvo análises quantitativas e soluções de 
                     <span className="hover:text-green-500"> inteligência artificial </span> para prever resultados futuros e gerar conhecimento sobre dados importantes. 
-                </p>
+                </motion.p>
             </div>
         </motion.div>
     )

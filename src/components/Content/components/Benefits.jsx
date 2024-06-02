@@ -1,5 +1,5 @@
 import { Computer, Light, MobileFriendly, Timelapse } from "@mui/icons-material"
-import { motion, AnimatePresence, MotionConfig, delay } from "framer-motion"
+import { motion, AnimatePresence, MotionConfig, delay, easeIn } from "framer-motion"
 
 const benefitsItens = [
     [
@@ -30,16 +30,16 @@ const benefitsItens = [
 
 const benefitsItensVariants = {
     span: {
-        hidden: { opacity: 0, transition: { duration: 1 } },
-        visible: { opacity: 1, transition: { duration: 2 } }
+        hidden: { opacity: 0, y: -10, transition: { duration: 1 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 2 } }
     },
     h4: {
-        hidden: { opacity: 0, transition: { duration: 1 } },
-        visible: { opacity: 1, transition: { duration: 2, delay: 0.2 } }
+        hidden: { opacity: 0,  y: -10, transition: { duration: 1 } },
+        visible: { opacity: 1,  y: 0, transition: { duration: 2, delay: 0.2 } }
     },
     p: {
-        hidden: { opacity: 0, transition: { duration: 1 } },
-        visible: { opacity: 1, transition: { duration: 2, delay: 0.4 } }
+        hidden: { opacity: 0,  y: -10, transition: { duration: 1 } },
+        visible: { opacity: 1,  y: 0, transition: { duration: 2, delay: 0.4 } }
     }
 }
 
@@ -47,22 +47,22 @@ export default function Benefits() {
     return (
         <AnimatePresence>
             <div 
-            className="mt-20 flex flex-col py-28 items-center"
+            className=" flex flex-col py-20 items-center"
             id="benefits"
             >
-            <h1 style={{ textShadow: "0 0 5px #FFF, 0 0 100px #FFF" }} className="text-4xl font-black">Benefícios</h1>
                 <div 
-                className="gap-5 rounded-md flex flex-col md:flex-row text-white p-5 [&>div>div]:mx-5 [&>div>div]:max-w-80 [&>div>div]:h-min md:[&>div>div]:h-80 [&>div>div]:my-5 [&>div>div>h4]:font-semibold [&>div>div>p]:font-extralight [&>div>div>p]:text-base [&>div>div>p]:sm:text-lg [&>div>div>h4]:text-1xl [&>div>div>h4]:sm:text-2xl [&>div>div>h4]:text-green-500"
+                className="gap-5 rounded-md flex flex-col md:flex-row text-whit [&>div>div]:mx-5 [&>div>div]:my-5 [&>div>div>h4]:font-semibold [&>div>div>h4]:text-xl [&>div>div>h4]:text-green-500"
                 >
-                    <div className="flex flex-col gap-10 [&>div>p]:text-center [&>div>h4]:text-center [&>div]:flex [&>div]:flex-col [&>div]:items-center">
+                    <div className="flex flex-col gap-3 md:gap-10 [&>div>p]:text-center [&>div>h4]:text-center [&>div]:flex [&>div]:flex-col [&>div]:items-center">
                         {
                             benefitsItens[0].map((item) => {
                                 return (
-                                    <div className="gap-3 flex flex-col items-center" key={item.title}>
+                                    <div className="gap-3 flex flex-col items-center max-w-80 h-min md:h-48" key={item.title}>
                                         <motion.span 
                                         initial="hidden"
                                         whileInView="visible"
                                         variants={benefitsItensVariants.span}
+                                        className="text-base h-full"
                                         >{item.icon}</motion.span>
                                         <motion.h4 
                                         initial="hidden"
@@ -74,7 +74,7 @@ export default function Benefits() {
                                         initial="hidden"
                                         whileInView="visible"
                                         variants={benefitsItensVariants.p}
-                                        className="text-center"
+                                        className="text-center font-extralight text-sm"
                                         >{item.text}</motion.p>
                                     </div>
                                 )
@@ -85,12 +85,12 @@ export default function Benefits() {
                         {
                             benefitsItens[1].map((item) => {
                                 return (
-                                    <div className="gap-3 flex flex-col items-center" key={item.title}>
+                                    <div className="gap-3 flex flex-col items-center max-w-80 h-min md:h-48" key={item.title}>
                                         <motion.span 
                                         initial="hidden"
                                         whileInView="visible"
                                         variants={benefitsItensVariants.span}
-
+                                        className="text-base h-full"
                                         >{item.icon}</motion.span>
                                         <motion.h4 
                                         initial="hidden"
@@ -102,7 +102,7 @@ export default function Benefits() {
                                         initial="hidden"
                                         whileInView="visible"
                                         variants={benefitsItensVariants.p}
-                                        className="text-center"
+                                        className="text-center font-extralight text-sm"
                                         >{item.text}</motion.p>
                                     </div>
                                 )

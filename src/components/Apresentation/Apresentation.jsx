@@ -17,7 +17,7 @@ export default function Apresentation() {
         onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
         >
             <div 
-            className="flex justify-center items-end sm:items-center"
+            className="flex justify-center items-end"
             onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
             >
                 <div className="flex flex-col leading-3 m-10 mb-20 sm:m-20">
@@ -29,9 +29,9 @@ export default function Apresentation() {
                                     <motion.p 
                                     key="name" 
                                     initial={{ opacity: 0, x: 80 }} 
-                                    animate={{ textShadow: "0 0 10px #FFF, 0 0 100px #FFF", opacity: 1, x: 0, transition: { duration: 2, ease: 'circOut', delay: 0.6 } }} 
+                                    animate={{ opacity: 1, x: 0, transition: { duration: 2, ease: 'circOut', delay: 0.6 } }} 
                                     exit={{ opacity: 0, transition: { duration: 1 } }} 
-                                    className="tracking-tight sm:text-7xl text-4xl cursor-pointer"
+                                    className="tracking-tight sm:text-5xl text-4xl cursor-pointer"
                                     >
                                     Rui Lucas
                                     </motion.p>
@@ -40,9 +40,9 @@ export default function Apresentation() {
                                     <motion.p 
                                     key="title" 
                                     initial={{ opacity: 0, x: 80 }} 
-                                    animate={{ textShadow: "0 0 10px #FFF, 0 0 100px #FFF", opacity: 1, x: 0, transition: { duration: 2.4, ease: 'circOut', delay: 1 } }} 
+                                    animate={{ opacity: 1, x: 0, transition: { duration: 2.4, ease: 'circOut', delay: 1 } }} 
                                     exit={{ opacity: 0, transition: { duration: 0.6 } }}
-                                    className="tracking-tight sm:text-5xl text-1xl cursor-pointer"
+                                    className="tracking-tight sm:text-3xl text-1xl cursor-pointer"
                                     >
                                     Software Developer
                                     </motion.p>

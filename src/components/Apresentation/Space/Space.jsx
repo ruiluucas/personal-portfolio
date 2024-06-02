@@ -19,7 +19,7 @@ export default function Space() {
   const { state } = useContext(GlobalContext)
 
   return (
-    <Canvas flat legacy dpr={0.6} camera={{ position: [0, 0, 20], fov: 50 }}>
+    <Canvas flat legacy dpr={0.7} camera={{ position: [0, 0, 20], fov: 50 }}>
       { /* FX */ }
       <ambientLight intensity={0.01} />
       <Environment preset="city" />

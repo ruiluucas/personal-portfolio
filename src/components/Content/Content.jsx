@@ -1,11 +1,12 @@
 import { motion, AnimatePresence, MotionConfig } from "framer-motion"
-import { useContext, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 import Contact from "./components/Contact"
 import About from "./components/About"
 import Jobs from "./components/Jobs"
 import Benefits from "./components/Benefits"
 import Footer from "./components/Footer"
+import { useFollowPointer } from "../../hooks/useFollowPointer"
 
 export default function Content() {
     const { state } = useContext(GlobalContext)
