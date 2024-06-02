@@ -23,7 +23,7 @@ const jobsData = [
     {
         img: "./webscrapping.png",
         title: "Web Scrapping",
-        text: "aplicação em Python utilizando a biblioteca Pandas para realizar web scraping e análise de sentimento de texto. A aplicação coleta dados de um único site de notícias, organizando várias notícias de diferentes fontes em um DataFrame. Em seguida, processa esses dados utilizando técnicas de processamento de linguagem natural para analisar o sentimento dos textos.",
+        text: "Aplicação em Python utilizando a biblioteca Pandas para realizar web scraping e análise de sentimento de texto. A aplicação coleta dados de um único site de notícias, organizando várias notícias de diferentes fontes em um DataFrame. Em seguida, processa esses dados utilizando técnicas de processamento de linguagem natural para analisar o sentimento dos textos.",
         link: "https://github.com/ElementalDLC37"
     },
     {
@@ -199,7 +199,7 @@ export default function Jobs() {
                     return (
                         <motion.button
                         key={key}
-                        className="text-5xl"
+                        className="text-5xl p-1"
                         onClick={() => { setJob([key, key > job ? 1 : -1]) }}
                         initial={{ opacity: 0 }}
                         whileInView={{
