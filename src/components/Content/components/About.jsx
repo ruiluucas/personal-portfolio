@@ -14,7 +14,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: 'circInOut' }}
-                className="mb-3"
+                className="mb-3 pointer-events-none"
                 >
                     <h1 className="text-3xl text-green-500 font-bold">Full Stack Developer </h1>
                     <h1 className="text-3xl text-green-500 font-bold">e Data Analist</h1>
@@ -23,7 +23,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: 'circInOut' }}
-                className="font-light max-w-72 [&>span]:transition-all [&>span]:font-semibold"
+                className="font-light max-w-72 pointer-events-none [&>span]:pointer-events-auto [&>span]:cursor-default [&>span]:transition-all [&>span]:font-semibold"
                 >
                     Tenho mais de <span className="hover:text-green-500">3 anos</span> de experiência no desenvolvimento 
                     <span className="hover:text-green-500"> Full-Stack</span>, utilizando 

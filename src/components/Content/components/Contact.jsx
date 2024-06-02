@@ -25,7 +25,7 @@ export default function Contact() {
         initial={{ opacity: 0, transition: { duration: 2, delay: 1 }}}
         whileInView={{ opacity: 1, transition: { duration: 2 } }}
         exit={{ opacity: 0, transition: { duration: 2, delay: 2 } }}
-        className="flex pt-32 flex-col sm:h-min"
+        className="flex pt-32 flex-col cursor-default sm:h-min"
         id="contact"
         >
             <motion.span style={{ textShadow: "0 0 5px #FFF, 0 0 100px #FFF" }} className="text-2xl">Entre em contato e faça um</motion.span>
@@ -47,7 +47,7 @@ export default function Contact() {
                                 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: (key + 1) / 2 }}
-                                className="cursor-pointer flex items-center gap-2 text-sm">
+                                className="cursor-pointer pointer-events-auto flex items-center gap-2 text-sm">
                                     {contact.icon}
                                     { ' ' }
                                     {contact.referer}

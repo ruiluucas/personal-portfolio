@@ -5,6 +5,7 @@ import {
   Environment,
   Float,
   Stars,
+  Text3D,
 } from '@react-three/drei'
 import Notebook from './component/Notebook'
 import Electron from './component/Electron'
@@ -27,7 +28,7 @@ export default function Space() {
       
       { /* Swarm */ }
       <Swarm count={100} />
-      
+
       { /* Lights */ }
       <Float
         speed={1}

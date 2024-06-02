@@ -31,7 +31,7 @@ export default function Header() {
       </AnimatePresence>
       <motion.header
       style={{ zIndex: 90 }}
-      className='fixed bg-black bg-opacity-15 w-screen h-20'
+      className='fixed bg-black bg-opacity-15 select-none w-screen h-20'
       >
         <div 
         style={{ 

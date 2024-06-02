@@ -46,9 +46,9 @@ export default function Jobs() {
     };
 
     return (
-        <div id="jobs" className="flex overflow-hidden w-screen flex-col justify-start pt-20">
+        <div id="jobs" className="flex overflow-hidden w-screen flex-col justify-center pt-20">
             <div className="flex h-96 mt-16 mb-8 w-screen max-w-screen-lg mx-auto overflow-hidden justify-center items-center">
-                <div className="absolute w-screen max-w-screen-sm flex justify-between">
+                <div className="absolute select-none w-screen max-w-screen-sm flex justify-between">
                     <motion.span 
                     onClick={() => { setJob([job === 0 ? jobsData.length - 1 : job - 1, -1]) }}
                     style={{ backdropFilter: "blur(5px)" }} 
@@ -168,7 +168,7 @@ export default function Jobs() {
                     </motion.div>  
                 </AnimatePresence>
             </div>
-            <div style={{ zIndex: 100 }} className="flex justify-center items-center mx-auto">
+            <div style={{ zIndex: 100 }} className="flex select-none justify-center items-center mx-auto">
                 {jobsData.map((i, key) => {
                     return (
                         <motion.button

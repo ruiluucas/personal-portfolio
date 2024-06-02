@@ -47,7 +47,7 @@ export default function Benefits() {
     return (
         <AnimatePresence>
             <div 
-            className=" flex flex-col py-20 items-center"
+            className=" flex flex-col py-20 mt-5 items-center cursor-default"
             id="benefits"
             >
                 <div 

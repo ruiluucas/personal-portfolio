@@ -1,6 +1,6 @@
 import Space from "./Space/Space"
 import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion'
-import React, { useContext } from "react"
+import React, { Suspense, useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 
 export default function Apresentation() {
@@ -9,7 +9,9 @@ export default function Apresentation() {
     return (
         <>
         <div className="fixed z-0 h-full w-full">
-            <Space />
+            <Suspense fallback={<div className="h-screen w-screen bg-red-500">babagi</div>}>
+                <Space />
+            </Suspense>
         </div>
         <div 
         style={{ fontFamily: '"Platypi"', fontWeight: 900 }} 
