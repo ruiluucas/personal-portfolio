@@ -6,15 +6,41 @@ const jobsData = [
         img: "./gtavsetup.png",
         title: "GTA 5 Setup",
         text: "Ao recriar a inicialização e o menu do jogo, esta aplicação oferece uma plataforma interativa para explorar conceitos como respeito, responsabilidade e inclusão. Os usuários são convidados a mergulhar em seções educacionais, onde podem encontrar informações, histórias inspiradoras e recursos para promover uma sociedade mais justa e engajada.",
-        link: "https://gtav-setup.vercel.app"
+        link: "https://github.com/ElementalDLC37"
     },
     {
         img: "./hackerbet.png",
-        title: "Plataforma de Apostas",
+        title: "Interface de Apostas",
         text: "A interface oferece uma experiência de apostas online com uma interface elegante e fácil de usar. Destacando-se por seu design moderno e navegação intuitiva, a plataforma permite apostas rápidas e seguras, com destaque para a seção ‘Double’, onde os usuários podem escolher números e símbolos da sorte para realizar suas apostas.",
-        link: "https://gtav-setup.vercel.app"
+        link: "https://github.com/ElementalDLC37"
+    },
+    {
+        img: "./emagrecer.png",
+        title: "Landing de Emagrecimento",
+        text: "Landing page para um curso de emagrecimento. A página apresenta todos os detalhes do curso, inclui depoimentos de alunos e utiliza design atraente e chamadas para ação estratégicas. A interface é amigável e responsiva, garantindo uma experiência de navegação agradável em diversos dispositivos.",
+        link: "https://github.com/ElementalDLC37"
+    },
+    {
+        img: "./webscrapping.png",
+        title: "Web Scrapping",
+        text: "aplicação em Python utilizando a biblioteca Pandas para realizar web scraping e análise de sentimento de texto. A aplicação coleta dados de um único site de notícias, organizando várias notícias de diferentes fontes em um DataFrame. Em seguida, processa esses dados utilizando técnicas de processamento de linguagem natural para analisar o sentimento dos textos.",
+        link: "https://github.com/ElementalDLC37"
+    },
+    {
+        img: "./nlw-spacetime.png",
+        title: "Máquina do Tempo",
+        text: "Projeto desenvolvido no NLW Spacetime da Rocketseat com back-end em Node.js e NextJS, para postagem de lembranças. No back-end, criei uma API segura para gerenciar autenticação e dados. No front-end, foi construído uma interface intuitiva para postar, visualizar e comentar lembranças.",
+        link: "https://github.com/ElementalDLC37"
+    },
+    {
+        img: "./nlw-heat.png",
+        title: "Conversa em tempo real",
+        text: "Projeto desenvolvido no NLW Heat da Rocketseat com back-end em Node.js e React, para postagem mensagens em tempo real e autenticação oAuth pelo GitHub. O usuário pode se logar no aplicativo, gerando uma chave de acesso e poderá mandar mensagens que serão exibidas no mural da página.",
+        link: "https://github.com/ElementalDLC37"
     }
 ]
+
+
 
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset, velocity) => {
@@ -105,16 +131,16 @@ export default function Jobs() {
                         const swipe = swipePower(offset.x, velocity.x);
             
                         if (swipe < -swipeConfidenceThreshold) {
-                            setJob([job === 0 ? jobsData.length - 1 : job - 1, 1]);
+                            setJob([job === (jobsData.length - 1) ? 0 : job + 1, 1])
                         } else if (swipe > swipeConfidenceThreshold) {
-                            setJob([job === (jobsData.length - 1) ? 0 : job + 1, -1])
+                            setJob([job === 0 ? jobsData.length - 1 : job - 1, -1])
                         }
                     }}
                     style={{ background: `url(${jobsData[job].img})` }} 
                     className="flex bg-center mx-auto justify-center flex-wrap gap-5 absolute rounded-xl">
                         <div 
                         style={{ backdropFilter: "blur(5px)" }} 
-                        className="w-80 p-5 transition-all text-white"
+                        className="w-80 p-5 bg-black bg-opacity-60 transition-all text-white"
                         >
                             <motion.img 
                             className="rounded-lg object-contain transition-all" 
@@ -161,7 +187,7 @@ export default function Jobs() {
                                 }}
                                 className="mt-2"
                                 >
-                                    Clique aqui
+                                    Veja mais
                                 </motion.p>
                             </motion.a>
                         </div>

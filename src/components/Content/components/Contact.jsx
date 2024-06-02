@@ -33,13 +33,11 @@ export default function Contact() {
             <div className="flex font-extralight gap-3 [&>p>span]:flex [&>p>span]:items-center [&>p>span]:gap-2 flex-col mt-5">
                 {
                     contacts.map((contact, key) => {
-                        console.log(key)
                         return (
-                            <p className="flex items-center">
+                            <p key={key} className="flex items-center">
                                 <motion.a
                                 href={contact.href}
                                 target="_blank"
-                                key={key}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileHover={{ 
                                     textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",

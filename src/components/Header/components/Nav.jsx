@@ -6,6 +6,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion'
 
 import { MenuOpenOutlined } from '@mui/icons-material';
 
@@ -41,18 +42,55 @@ export default function Nav() {
         onClose={handleClose}
         onClick={handleClose}
       >
-        <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-          <a className=' text-white font-bold text-xl' href="#contact">Contato</a>
-        </MenuItem>
-        <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-          <a className=' text-white font-bold text-xl' href="#about">Sobre</a>
-        </MenuItem>
-        <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-          <a className=' text-white font-bold text-xl' href="#jobs">Trabalhos</a>
-        </MenuItem>
-        <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-          <a className=' text-white font-bold text-xl' href="#benefits">Benefícios</a>
-        </MenuItem>
+        <AnimatePresence>
+          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
+            <motion.a
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: 'circInOut' }}
+            className=' text-white font-bold text-xl' href="#contact"
+            >
+              Contato
+            </motion.a>
+          </MenuItem>
+          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
+            <motion.a 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: 'circInOut' }}
+            className=' text-white font-bold text-xl' 
+            href="#about"
+            >
+              Sobre
+            </motion.a>
+          </MenuItem>
+          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
+            <motion.a
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: 'circInOut' }}
+            className='text-white font-bold text-xl' 
+            href="#jobs"
+            >
+              Trabalhos
+            </motion.a>
+          </MenuItem>
+          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
+            <motion.a
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.4, ease: 'circInOut' }}
+            className=' text-white font-bold text-xl' 
+            href="#benefits"
+            >
+              Benefícios
+            </motion.a>
+          </MenuItem>
+        </AnimatePresence>
       </Menu>
     </>
   );

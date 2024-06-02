@@ -23,7 +23,7 @@ const benefitsItens = [
         {
             icon: <Timelapse fontSize="large" className="text-green-500" />,
             title: "Entrega e suporte",
-            text: "Comprometo-me com prazos rigorosos e entregas pontuais, garantindo que seu projeto seja concluído no tempo acordado. Além disso, ofereço suporte contínuo após a entrega para resolver quaisquer problemas e implementar melhorias conforme necessário."
+            text: "Comprometo-me com prazos rigorosos e entregas pontuais, garantindo que seu projeto seja concluído no tempo acordado. Além disso, ofereço suporte no que desejar após a entrega para resolver quaisquer problemas e implementar melhorias conforme necessário."
         }
     ]
 ]

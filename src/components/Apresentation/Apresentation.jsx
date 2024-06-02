@@ -9,7 +9,11 @@ export default function Apresentation() {
     return (
         <>
         <div className="fixed z-0 h-full w-full">
-            <Suspense fallback={<div className="h-screen w-screen bg-red-500">babagi</div>}>
+            <Suspense fallback={
+            <div style={{ fontFamily: '"Platypi"', fontWeight: 900 }} className="flex justify-center items-center text-green-500 font-extralight text-4xl h-screen w-screen bg-black">
+                <p>Carregando página...</p>
+            </div>
+        }>
                 <Space />
             </Suspense>
         </div>
@@ -52,7 +56,6 @@ export default function Apresentation() {
                             </LayoutGroup>
                         }
                     </AnimatePresence>
-
                 </div>
             </div>
         </div>
