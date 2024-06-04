@@ -1,21 +1,27 @@
 import Space from "./Space/Space"
 import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion'
-import React, { Suspense, useContext } from "react"
+import React, { Suspense, useContext, useEffect } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
+import { useProgress } from "@react-three/drei"
 
 export default function Apresentation() {
     const { state, dispatch } = useContext(GlobalContext)
+    const { progress } = useProgress()
+
+    useEffect(() => { console.log(progress) }, [progress])
 
     return (
         <>
         <div className="fixed z-0 h-full w-full">
-            <Suspense fallback={
-            <div style={{ fontFamily: '"Platypi"', fontWeight: 900 }} className="flex justify-center items-center text-green-500 font-extralight text-4xl h-screen w-screen bg-black">
-                <p>Carregando página...</p>
-            </div>
-        }>
-                <Space />
-            </Suspense>
+            <AnimatePresence>
+                {
+                    progress != 100 && 
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 2 } }} style={{ fontFamily: '"Platypi"', fontWeight: 900, zIndex: 500 }} className="flex fixed top-0 left-0 justify-center items-center text-green-500 font-extralight text-4xl h-screen w-screen bg-black">
+                        <p>Loading...</p>
+                    </motion.div>
+                }
+            </AnimatePresence>
+            <Space />
         </div>
         <div 
         style={{ fontFamily: '"Platypi"', fontWeight: 900 }} 

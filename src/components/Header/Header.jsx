@@ -72,7 +72,9 @@ export default function Header() {
                 state.notebookZoomIn &&
                 <>
                 <motion.a
-                onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+                onClick={() => { 
+                  document.getElementById('contact').scrollIntoView(true);
+                }}
                 className='cursor-pointer font-medium p-1 px-2 rounded-md border-x-2 border-transparent'
                 key="contact"
                 initial={{ opacity: 0, y: -80 }}
@@ -83,10 +85,11 @@ export default function Header() {
                   transition: { duration: 0.2 }
                 }}
                 transition={{ duration: 1.4, ease: 'circOut' }}
-                href='#contact'
                 >Contato</motion.a>
                 <motion.a
-                onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+                onClick={() => { 
+                  document.getElementById('about').scrollIntoView(true);
+                }}
                 className='cursor-pointer font-medium p-1 px-2 rounded-md border-x-2 border-transparent'
                 key="about"
                 initial={{ opacity: 0, y: -80 }}
@@ -97,10 +100,11 @@ export default function Header() {
                   transition: { duration: 0.2 }
                 }}
                 transition={{ duration: 1.6, ease: 'circOut' }}
-                href='#about'
                 >Sobre</motion.a>
                 <motion.a
-                onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+                onClick={() => { 
+                  document.getElementById('jobs').scrollIntoView(true);
+                }}
                 className='cursor-pointer font-medium p-1 px-2 rounded-md border-x-2 border-transparent'
                 key="jobs"
                 initial={{ opacity: 0, y: -80 }}
@@ -111,10 +115,11 @@ export default function Header() {
                   transition: { duration: 0.2 }
                 }}
                 transition={{ duration: 1.8, ease: 'circOut' }}
-                href='#jobs'
                 >Trabalhos</motion.a>
                 <motion.a
-                onClick={() => { dispatch({ type: 'ACTIVE_ZOOM_IN'}) }}
+                onClick={() => { 
+                  document.getElementById('benefits').scrollIntoView(true);
+                }}
                 className='cursor-pointer font-medium p-1 px-2 rounded-md border-x-2 border-transparent'
                 key="benefits"
                 initial={{ opacity: 0, y: -80 }}
@@ -125,7 +130,6 @@ export default function Header() {
                   transition: { duration: 0.2 }
                 }}
                 transition={{ duration: 2, ease: 'circOut' }}
-                href='#benefits'
                 >Benefícios</motion.a>
                 </>
               }

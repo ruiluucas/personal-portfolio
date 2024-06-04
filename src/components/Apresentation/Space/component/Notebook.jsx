@@ -30,6 +30,8 @@ export default function Notebook() {
         easing: easings.easeOutExpo,
       },
     })
+
+    document.addEventListener("load", () => { console.log("opa") })
   
     return (
       <a.group position={position} rotation={rotation}>

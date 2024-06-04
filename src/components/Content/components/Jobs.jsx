@@ -199,7 +199,7 @@ export default function Jobs() {
                     return (
                         <motion.button
                         key={key}
-                        className="text-5xl p-1"
+                        className="text-5xl pb-5"
                         onClick={() => { setJob([key, key > job ? 1 : -1]) }}
                         initial={{ opacity: 0 }}
                         whileInView={{

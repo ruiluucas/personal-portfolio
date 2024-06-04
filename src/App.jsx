@@ -4,7 +4,8 @@ import Apresentation from './components/Apresentation/Apresentation';
 import Content from './components/Content/Content';
 import { useFollowPointer } from './hooks/useFollowPointer';
 import { motion } from "framer-motion"
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'wouter';
 
 export default function App() {
   const ref = useRef(null)
