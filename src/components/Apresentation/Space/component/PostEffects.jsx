@@ -1,15 +1,19 @@
 /* eslint-disable react/no-unknown-property */
-import * as THREE from 'three'
-import { extend, useLoader } from '@react-three/fiber'
-import { FilmPass, WaterPass, UnrealBloomPass, LUTPass, LUTCubeLoader } from 'three-stdlib'
+import * as THREE from "three";
+import { extend, useLoader } from "@react-three/fiber";
 import {
-  Effects,
-} from '@react-three/drei'
+  FilmPass,
+  WaterPass,
+  UnrealBloomPass,
+  LUTPass,
+  LUTCubeLoader,
+} from "three-stdlib";
+import { Effects } from "@react-three/drei";
 
-extend({ WaterPass, UnrealBloomPass, FilmPass, LUTPass })
+extend({ WaterPass, UnrealBloomPass, FilmPass, LUTPass });
 
 export default function PostEffects() {
-  const data = useLoader(LUTCubeLoader, '/cubicle.CUBE')
+  const data = useLoader(LUTCubeLoader, "/3d-assets/cubicle.CUBE");
 
   return (
     <Effects disableGamma>
@@ -17,5 +21,5 @@ export default function PostEffects() {
       <filmPass args={[0.2, 1, 15, false]} />
       <lUTPass lut={data.texture} intensity={0.75} />
     </Effects>
-  )
+  );
 }

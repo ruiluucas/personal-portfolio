@@ -24,6 +24,7 @@
     "autoprefixer": "^10.4.19",
     "fingerpose": "^0.1.0",
     "framer-motion": "^11.1.9",
+    "programmer-job": "file:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pro-sidebar": "^1.1.0",
