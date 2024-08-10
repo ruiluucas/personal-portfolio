@@ -1,6 +1,12 @@
 const myWorks = [
   {
     img: "./my-works/images/smartfit-test.png",
+    title: "Projeto de ecommerce",
+    text: "Projeto bem estruturado e responsivo para ecommerce utilizando Angular",
+    link: "https://github.com/ElementalDLC37/ecommerce-project",
+  },
+  {
+    img: "./my-works/images/smartfit-test.png",
     title: "FIltros de busca",
     text: "Projeto desenvolvido para um antigo teste técnico da Smart-Fit em tempos de pandemia, no qual era necessário criar uma página web que busque unidades através do arquivo json, filtrar unidades abertas ou fechadas, período de funcionamento e disponibilidade aos finais de semana.",
     link: "https://github.com/ElementalDLC37/smartfit-test",
