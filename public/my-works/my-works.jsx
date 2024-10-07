@@ -2,8 +2,8 @@ const myWorks = [
   {
     img: "./my-works/images/ecommerce.png",
     title: "Projeto de ecommerce",
-    text: "Projeto bem estruturado e responsivo para ecommerce utilizando Angular",
-    link: "https://github.com/ElementalDLC37/ecommerce-project",
+    text: "Projeto bem estruturado e responsivo para ecommerce utilizando Angular.",
+    link: "https://github.com/ElementalDLC37/ecommerce",
   },
   {
     img: "./my-works/images/smartfit-test.png",

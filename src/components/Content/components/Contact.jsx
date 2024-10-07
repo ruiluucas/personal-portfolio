@@ -7,9 +7,14 @@ import {
   Telegram,
   WhatsApp,
 } from "@mui/icons-material";
-import { motion, AnimatePresence, MotionConfig } from "framer-motion";
+import { motion } from "framer-motion";
 
 const contacts = [
+  {
+    icon: <WhatsApp />,
+    referer: "WhatsApp",
+    href: "https://w.app/iBEqv",
+  },
   {
     icon: <GitHub />,
     referer: "Github",
