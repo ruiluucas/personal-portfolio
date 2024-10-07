@@ -37,7 +37,7 @@ export default function Apresentation() {
       </div>
       <div
         style={{ fontFamily: '"Platypi"', fontWeight: 900 }}
-        className="fixed z-30 flex h-full w-full text-white"
+        className="fixed cursor-pointer z-30 flex h-full w-full text-white"
         onClick={() => {
           dispatch({ type: "ACTIVE_ZOOM_IN" });
         }}

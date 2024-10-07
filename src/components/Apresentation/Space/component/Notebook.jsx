@@ -36,10 +36,6 @@ export default function Notebook() {
     },
   });
 
-  document.addEventListener("load", () => {
-    console.log("opa");
-  });
-
   return (
     <a.group position={position} rotation={rotation}>
       <group rotation-x={-0.425} position={[0, -0.04, 0.41]}>

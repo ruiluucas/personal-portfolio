@@ -1,35 +1,30 @@
 /* eslint-disable react/no-unknown-property */
-import * as THREE from 'three'
-import { Canvas } from '@react-three/fiber'
-import {
-  Environment,
-  Float,
-  Stars,
-  Text3D,
-} from '@react-three/drei'
-import Notebook from './component/Notebook'
-import Electron from './component/Electron'
-import Swarm from './component/Swarm'
-import PostEffects from './component/PostEffects'
-import useScreenSize from '../../../hooks/useScreenSize'
-import { useContext } from 'react'
-import { GlobalContext } from '../../../context/GlobalContext'
+import * as THREE from "three";
+import { Canvas } from "@react-three/fiber";
+import { Environment, Float, Stars, Text3D } from "@react-three/drei";
+import Notebook from "./component/Notebook";
+import Electron from "./component/Electron";
+import Swarm from "./component/Swarm";
+import PostEffects from "./component/PostEffects";
+import useScreenSize from "../../../hooks/useScreenSize";
+import { useContext } from "react";
+import { GlobalContext } from "../../../context/GlobalContext";
 
 export default function Space() {
-  const { width, height } = useScreenSize()
-  const { state } = useContext(GlobalContext)
+  const { width, height } = useScreenSize();
+  const { state } = useContext(GlobalContext);
 
   return (
     <Canvas flat legacy dpr={0.7} camera={{ position: [0, 0, 20], fov: 50 }}>
-      { /* FX */ }
+      {/* FX */}
       <ambientLight intensity={0.01} />
       <Environment preset="city" />
       <PostEffects />
-      
-      { /* Swarm */ }
+
+      {/* Swarm */}
       <Swarm count={100} />
 
-      { /* Lights */ }
+      {/* Lights */}
       <Float
         speed={1}
         rotationIntensity={5}
@@ -37,11 +32,16 @@ export default function Space() {
         position={[5, 0, 0]}
       >
         <pointLight distance={60} intensity={4} color="lightblue" />
-        <spotLight intensity={1.5} position={[0, 0, 2000]} penumbra={1} color="green" />
+        <spotLight
+          intensity={1.5}
+          position={[0, 0, 2000]}
+          penumbra={1}
+          color="green"
+        />
         <pointLight position={[10, 10, 10]} intensity={1.5} />
       </Float>
 
-      { /* Stars */ }
+      {/* Stars */}
       <Float
         speed={1}
         rotationIntensity={1}
@@ -51,20 +51,28 @@ export default function Space() {
         <Stars />
       </Float>
 
-      { /* Notebook and Particles */ }
+      {/* Notebook and Particles */}
       <Float
         speed={1}
         rotationIntensity={state.notebookZoomIn ? 0 : 0.5}
         floatIntensity={state.notebookZoomIn ? 0 : 1}
-        position={[-(width / height) + (width < 768 ? 1.5 : width / 350), (height / width) - (width < 768 ? 3 : 1), (height / width) - (width < 768 ? 12 : 2)]}
+        position={[
+          -(width / height) + (width < 768 ? 1.5 : width / 350),
+          height / width - (width < 768 ? 3 : 1),
+          height / width - (width < 768 ? 12 : 2),
+        ]}
       >
         <Notebook />
         <>
-          <Electron position={[0, 0, 0.5]} rotation={[3.14 / 1.5 - 0.2, 0, 0]} speed={1.8} />
+          <Electron
+            position={[0, 0, 0.5]}
+            rotation={[3.14 / 1.5 - 0.2, 0, 0]}
+            speed={1.8}
+          />
           <Electron position={[0, 0, 0.5]} rotation={[0, 2, -3]} speed={2} />
           <Electron position={[0, 0, 0.5]} rotation={[0, 0, 0]} speed={1.6} />
         </>
       </Float>
     </Canvas>
-  )
+  );
 }
