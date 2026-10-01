@@ -1,4 +1,11 @@
-import { motion, AnimatePresence, MotionConfig } from "framer-motion";
+import { motion } from "framer-motion";
+
+const highlights = [
+  { label: "Web", value: "React · Next.js · Vite" },
+  { label: "Back-end", value: "Node · Bun · Python · PHP" },
+  { label: "Dados & IA", value: "TensorFlow · YOLO · B3" },
+  { label: "Infra", value: "Docker · Linux · CI/CD" },
+];
 
 export default function About() {
   return (
@@ -17,9 +24,11 @@ export default function About() {
           className="mb-3 pointer-events-none"
         >
           <h1 className="text-3xl text-green-500 font-bold">
-            Full Stack Developer{" "}
+            Engenheiro de Software
           </h1>
-          <h1 className="text-3xl text-green-500 font-bold">e Data Analist</h1>
+          <p className="text-lg font-light text-white/70">
+            Web · IA aplicada · Dados · Infraestrutura
+          </p>
         </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -27,33 +36,39 @@ export default function About() {
           transition={{ duration: 1.2, ease: "circInOut" }}
           className="font-light max-w-md pointer-events-none [&>span]:pointer-events-auto [&>span]:cursor-default [&>span]:transition-all [&>span]:font-semibold"
         >
-          Apaixonado por <span>tecnologia</span> e <span>inovação</span>, com
-          experiência em desenvolvimento web, automação, redes, inteligência
-          artificial, etc. Tenho conhecimento avançado em frameworks modernos
-          como <span className="text-green-500">Angular</span> e{" "}
-          <span className="text-green-500">Next.js</span>, além de habilidades
-          avançadas em design responsivo utilizando{" "}
-          <span className="text-green-500">Tailwind CSS</span>. Minha trajetória
-          também inclui projetos em{" "}
+          Construo software de ponta a ponta: da interface em{" "}
+          <span className="text-green-500">React</span> e{" "}
+          <span className="text-green-500">Next.js</span> às APIs em{" "}
+          <span className="text-green-500">Node</span>,{" "}
+          <span className="text-green-500">Bun</span>,{" "}
           <span className="text-green-500">Python</span> e{" "}
-          <span className="text-green-500">Flask</span>, abordando desde APIs
-          interativas até o uso de computação em nuvem utilizando{" "}
-          <span className="text-green-500">Firebase</span>,{" "}
-          <span className="text-green-500"></span>Supabase e{" "}
-          <span className="text-green-500"></span>AWS, Possuo conhecimento
-          prático em sistemas distribuídos, incluindo configuração e
-          gerenciamento de clusters com{" "}
-          <span className="text-green-500">Docker Swarm</span>,{" "}
-          <span className="text-green-500">Proxmox</span> e{" "}
-          <span className="text-green-500">pfSense</span>, aplicados tanto em
-          redes locais quanto em servidores. Além disso, já implementei soluções
-          de machine learning e visão computacional com frameworks como{" "}
-          <span className="text-green-500">PyTorch</span>,{" "}
-          <span className="text-green-500">YOLO</span>,{" "}
-          <span className="text-green-500">TensorFlow</span> e{" "}
-          <span className="text-green-500">OpenCV</span>, aplicando algoritmos
-          em projetos de análise de imagens e backtesting financeiro.
+          <span className="text-green-500">PHP</span>, com bancos relacionais,
+          Redis e <span className="text-green-500">Docker</span> no meio. Aplico{" "}
+          <span className="text-green-500">machine learning</span> em problemas
+          reais — visão computacional com{" "}
+          <span className="text-green-500">YOLO</span> e{" "}
+          <span className="text-green-500">TensorFlow</span>, modelos rodando em
+          ESP32 e no navegador — e também em dados de mercado, com backtesting e
+          modelagem sobre a <span className="text-green-500">B3</span>. Publico{" "}
+          <span className="text-green-500">bibliotecas open source</span> para
+          React Native e escrevo sobre engenharia, infraestrutura e inteligência
+          artificial.
         </motion.p>
+        <motion.ul
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4, ease: "circInOut" }}
+          className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 max-w-md pointer-events-none"
+        >
+          {highlights.map((item) => (
+            <li key={item.label} className="flex flex-col">
+              <span className="text-[11px] uppercase tracking-widest text-green-500/80">
+                {item.label}
+              </span>
+              <span className="text-sm font-light">{item.value}</span>
+            </li>
+          ))}
+        </motion.ul>
       </div>
     </motion.div>
   );

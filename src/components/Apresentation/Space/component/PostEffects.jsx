@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unknown-property */
-import * as THREE from "three";
 import { extend, useLoader } from "@react-three/fiber";
 import {
   FilmPass,

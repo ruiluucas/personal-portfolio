@@ -4,37 +4,31 @@ import {
   MobileFriendly,
   Timelapse,
 } from "@mui/icons-material";
-import {
-  motion,
-  AnimatePresence,
-  MotionConfig,
-  delay,
-  easeIn,
-} from "framer-motion";
+import { motion, AnimatePresence } from 'framer-motion'
 
 const benefitsItens = [
   [
     {
       icon: <Light fontSize="large" className="text-green-500" />,
-      title: "Alinhamento sólido",
-      text: "Trabalho em estreita colaboração com você para entender suas necessidades e objetivos, garantindo que cada projeto reflete fielmente suas ideias e expectativas. A comunicação constante e clara é a chave para o sucesso do nosso trabalho conjunto.",
+      title: "Produto de ponta a ponta",
+      text: "Do layout ao deploy: interface, API, banco e infraestrutura na mesma mão. Isso encurta o caminho entre a ideia e algo funcionando em produção, sem repassar problema de uma equipe para outra.",
     },
     {
       icon: <MobileFriendly fontSize="large" className="text-green-500" />,
-      title: "Aplicações adequadas",
-      text: "Crio aplicações que oferecem uma experiência de usuário excepcional em qualquer dispositivo, desde desktops até smartphones. A responsividade é um componente crucial, garantindo que seu projeto seja acessível e visualmente atraente em todas as plataformas.",
+      title: "Experiência em qualquer tela",
+      text: "Interfaces responsivas e acessíveis, testadas de verdade em desktop e celular — incluindo apps mobile em React Native e painéis em React com dados em tempo real.",
     },
   ],
   [
     {
       icon: <Computer fontSize="large" className="text-green-500" />,
-      title: "Engenharia de software",
-      text: "Desenvolvo soluções robustas e escaláveis utilizando as melhores práticas de engenharia de software, garantindo um código limpo, eficiente e fácil de manter. Cada projeto é cuidadosamente planejado e executado para assegurar a máxima qualidade e desempenho.",
+      title: "IA que roda de verdade",
+      text: "Modelos de visão computacional e machine learning aplicados a problemas concretos: inferência local, no navegador e em hardware embarcado, com pipeline de dados versionado e reprodutível.",
     },
     {
       icon: <Timelapse fontSize="large" className="text-green-500" />,
-      title: "Entrega e suporte",
-      text: "Comprometo-me com prazos rigorosos e entregas pontuais, garantindo que seu projeto seja concluído no tempo acordado. Além disso, ofereço suporte no que desejar após a entrega para resolver quaisquer problemas e implementar melhorias conforme necessário.",
+      title: "Código e prazo combinados",
+      text: "Escopo e entregas alinhados antes de começar, repositório versionado, documentação junto do código e suporte após a entrega para ajustar o que aparecer no uso real.",
     },
   ],
 ];
@@ -61,7 +55,7 @@ export default function Benefits() {
         className=" flex flex-col py-20 mt-5 items-center cursor-default"
         id="benefits"
       >
-        <div className="gap-5 rounded-md flex flex-col md:flex-row text-whit [&>div>div]:mx-5 [&>div>div]:my-5 [&>div>div>h4]:font-semibold [&>div>div>h4]:text-xl [&>div>div>h4]:text-green-500">
+        <div className="gap-5 rounded-md flex flex-col md:flex-row text-white [&>div>div]:mx-5 [&>div>div]:my-5 [&>div>div>h4]:font-semibold [&>div>div>h4]:text-xl [&>div>div>h4]:text-green-500">
           <div className="flex flex-col gap-3 md:gap-10 [&>div>p]:text-center [&>div>h4]:text-center [&>div]:flex [&>div]:flex-col [&>div]:items-center">
             {benefitsItens[0].map((item) => {
               return (

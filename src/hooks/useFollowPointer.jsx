@@ -1,30 +1,26 @@
-import { useState, RefObject, useEffect } from "react";
-import { useMotionValue, useSpring, frame } from "framer-motion";
-
-const spring = { damping: 100, stiffness: 100, restDelta: 0.001 };
+import { useEffect } from "react";
+import { useMotionValue, frame } from "framer-motion";
 
 export function useFollowPointer(ref) {
-  const xPoint = useMotionValue(0);
-  const yPoint = useMotionValue(0);
-  const x = xPoint
-  const y = yPoint
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   useEffect(() => {
-    if (!ref.current) return
+    if (!ref.current) return;
+
+    const element = ref.current;
 
     const handlePointerMove = ({ clientX, clientY }) => {
-      const element = ref.current
-
       frame.read(() => {
-        xPoint.set(clientX - element.offsetLeft - element.offsetWidth / 2);
-        yPoint.set(clientY - element.offsetTop - element.offsetHeight / 2);
+        x.set(clientX - element.offsetLeft - element.offsetWidth / 2);
+        y.set(clientY - element.offsetTop - element.offsetHeight / 2);
       });
     };
 
     window.addEventListener("pointermove", handlePointerMove);
 
     return () => window.removeEventListener("pointermove", handlePointerMove);
-  }, []);
+  }, [ref, x, y]);
 
   return { x, y };
 }

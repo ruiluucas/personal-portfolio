@@ -1,5 +1,5 @@
-import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion'
-import { useContext, useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useContext, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Nav from './components/Nav'
 
@@ -31,7 +31,7 @@ export default function Header() {
       </AnimatePresence>
       <motion.header
       style={{ zIndex: 90 }}
-      className='fixed bg-black bg-opacity-15 select-none w-screen h-20'
+      className='fixed bg-black/15 select-none w-screen h-20'
       >
         <div 
         style={{ 
@@ -116,6 +116,21 @@ export default function Header() {
                 }}
                 transition={{ duration: 1.8, ease: 'circOut' }}
                 >Trabalhos</motion.a>
+                <motion.a
+                onClick={() => { 
+                  document.getElementById('experience').scrollIntoView(true);
+                }}
+                className='cursor-pointer font-medium p-1 px-2 rounded-md border-x-2 border-transparent'
+                key="experience"
+                initial={{ opacity: 0, y: -80 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, transition: { duration: 1.3 } }}
+                whileHover={{
+                  textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",
+                  transition: { duration: 0.2 }
+                }}
+                transition={{ duration: 1.7, ease: 'circOut' }}
+                >Trajetória</motion.a>
                 <motion.a
                 onClick={() => { 
                   document.getElementById('benefits').scrollIntoView(true);

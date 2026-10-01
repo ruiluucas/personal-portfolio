@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-white: #fffff3;
+    --color-green-500: #00d9c0;
+}
 
 * {
     scroll-behavior: smooth;

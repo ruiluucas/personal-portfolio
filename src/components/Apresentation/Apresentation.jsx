@@ -5,7 +5,7 @@ import {
   MotionConfig,
   LayoutGroup,
 } from "framer-motion";
-import React, { Suspense, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useProgress } from "@react-three/drei";
 
@@ -85,9 +85,9 @@ export default function Apresentation() {
                         },
                       }}
                       exit={{ opacity: 0, transition: { duration: 0.6 } }}
-                      className="tracking-tight sm:text-3xl text-1xl cursor-pointer"
+                      className="tracking-tight sm:text-3xl text-xl cursor-pointer"
                     >
-                      Software Developer
+                      Engenheiro de Software
                     </motion.p>
                   </MotionConfig>
                   <MotionConfig>

@@ -1,9 +1,10 @@
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Jobs from "./components/Jobs";
+import Experience from "./components/Experience";
 import Benefits from "./components/Benefits";
 import Footer from "./components/Footer";
 
@@ -11,11 +12,29 @@ export default function Content() {
   const { state } = useContext(GlobalContext);
   const [scrolled, setScrolled] = useState(false);
 
-  addEventListener("scroll", () => {
-    if (state.notebookZoomIn) {
-      setScrolled(true);
+  useEffect(() => {
+    const onScroll = () => {
+      if (state.notebookZoomIn) {
+        setScrolled(true);
+      }
+    };
+
+    addEventListener("scroll", onScroll);
+    return () => removeEventListener("scroll", onScroll);
+  }, [state.notebookZoomIn]);
+
+  useEffect(() => {
+    if (!state.notebookZoomIn) return;
+
+    const id = window.location.hash.replace("#", "");
+    if (!id) return;
+
+    const target = document.getElementById(id);
+    if (target) {
+      const timer = setTimeout(() => target.scrollIntoView(), 1200);
+      return () => clearTimeout(timer);
     }
-  });
+  }, [state.notebookZoomIn]);
 
   return (
     <>
@@ -43,7 +62,7 @@ export default function Content() {
                   src="./content-backgrounds/profile.jpg"
                   className="h-screen pointer-events-none select-none w-screen object-cover absolute opacity-40"
                 />
-                <div className="absolute overflow-visible bg-black bg-opacity-40 w-screen">
+                <div className="absolute overflow-visible bg-black/40 w-screen">
                   <div
                     id="content"
                     style={{ zIndex: 70, fontFamily: '"Platypi"' }}
@@ -54,6 +73,7 @@ export default function Content() {
                       <About />
                     </div>
                     <Jobs />
+                    <Experience />
                     <Benefits />
                     <Footer />
                   </div>

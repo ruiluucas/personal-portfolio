@@ -3,7 +3,9 @@ import { createContext, useReducer } from "react";
 export const GlobalContext = createContext()
 
 const initialState = {
-    notebookZoomIn: false
+    // Abre direto no conteúdo quando a URL traz uma âncora (ex.: /#trabalhos)
+    notebookZoomIn:
+        typeof window !== "undefined" && Boolean(window.location.hash)
 }
   
 const reducer = (state, action) => {

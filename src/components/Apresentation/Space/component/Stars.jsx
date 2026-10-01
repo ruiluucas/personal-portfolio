@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unknown-property */
-import * as THREE from 'three'
 import { easings } from '@react-spring/core'
 import { a, useSpring } from '@react-spring/three'
 import {

@@ -2,7 +2,7 @@
 import { easings } from "@react-spring/core";
 import { a, useSpring } from "@react-spring/three";
 import { useGLTF, MeshReflectorMaterial } from "@react-three/drei";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "../../../../context/GlobalContext";
 import useScreenSize from "../../../../hooks/useScreenSize";
 

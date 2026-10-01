@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import myWorks from "../../../../public/my-works/my-works";
+import myWorks from "../../../data/myWorks";
 
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset, velocity) => {
@@ -9,6 +9,13 @@ const swipePower = (offset, velocity) => {
 
 export default function Jobs() {
   const [[job, direction], setJob] = useState([0, 0]);
+  const work = myWorks[job];
+
+  const go = (index) => {
+    const total = myWorks.length;
+    const next = ((index % total) + total) % total;
+    setJob([next, next > job ? 1 : -1]);
+  };
 
   const variants = {
     enter: (direction) => {
@@ -38,10 +45,10 @@ export default function Jobs() {
     >
       <div className="flex h-96 mt-16 mb-8 w-screen max-w-screen-lg mx-auto overflow-hidden justify-center items-center">
         <div className="absolute select-none w-screen max-w-screen-sm flex justify-between">
-          <motion.span
-            onClick={() => {
-              setJob([job === 0 ? myWorks.length - 1 : job - 1, -1]);
-            }}
+          <motion.button
+            type="button"
+            aria-label="Trabalho anterior"
+            onClick={() => go(job - 1)}
             style={{ backdropFilter: "blur(5px)" }}
             className="text-xl z-50 left-0 p-3 m-2 rounded-full cursor-pointer"
             initial={{ opacity: 0, x: 10 }}
@@ -59,11 +66,11 @@ export default function Jobs() {
             }}
           >
             {"<"}
-          </motion.span>
-          <motion.span
-            onClick={() => {
-              setJob([job === myWorks.length - 1 ? 0 : job + 1, 1]);
-            }}
+          </motion.button>
+          <motion.button
+            type="button"
+            aria-label="Próximo trabalho"
+            onClick={() => go(job + 1)}
             style={{ backdropFilter: "blur(5px)" }}
             className="text-xl z-50 right-0 p-3 m-2 rounded-full cursor-pointer"
             initial={{ opacity: 0, x: -10 }}
@@ -81,7 +88,7 @@ export default function Jobs() {
             }}
           >
             {">"}
-          </motion.span>
+          </motion.button>
         </div>
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -98,21 +105,22 @@ export default function Jobs() {
               const swipe = swipePower(offset.x, velocity.x);
 
               if (swipe < -swipeConfidenceThreshold) {
-                setJob([job === myWorks.length - 1 ? 0 : job + 1, 1]);
+                go(job + 1);
               } else if (swipe > swipeConfidenceThreshold) {
-                setJob([job === 0 ? myWorks.length - 1 : job - 1, -1]);
+                go(job - 1);
               }
             }}
-            style={{ background: `url(${myWorks[job].img})` }}
+            style={{ background: `url(${work.img})` }}
             className="flex bg-center mx-auto justify-center flex-wrap gap-5 absolute rounded-xl"
           >
             <div
               style={{ backdropFilter: "blur(5px)" }}
-              className="w-80 p-5 bg-black bg-opacity-60 transition-all text-white"
+              className="w-80 p-5 bg-black/60 transition-all text-white"
             >
               <motion.img
                 className="rounded-lg object-contain transition-all"
-                src={myWorks[job].img}
+                src={work.img}
+                alt={work.title}
                 initial={{ opacity: 0 }}
                 whileInView={{
                   opacity: 1,
@@ -128,7 +136,7 @@ export default function Jobs() {
                 }}
                 className="font-bold my-2 text-xl"
               >
-                {myWorks[job].title}
+                {work.title}
               </motion.h3>
               <motion.p
                 className="leading-5 text-sm font-extralight"
@@ -139,25 +147,43 @@ export default function Jobs() {
                   transition: { duration: 1.2, ease: "circInOut" },
                 }}
               >
-                {myWorks[job].text}
+                {work.text}
               </motion.p>
-              <motion.a
-                target="_blank"
-                className="text-green-500 text-sm cursor-pointer"
-                href={myWorks[job].link}
-              >
-                <motion.p
+              {work.tags?.length > 0 && (
+                <motion.ul
+                  className="flex flex-wrap gap-2 mt-3"
+                  initial={{ opacity: 0 }}
+                  whileInView={{
+                    opacity: 1,
+                    transition: { duration: 1.3, ease: "circInOut" },
+                  }}
+                >
+                  {work.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="text-[11px] font-light px-2 py-1 rounded-full border border-green-500/60 text-green-500"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+              {work.link && (
+                <motion.a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-green-500 text-sm cursor-pointer inline-block"
+                  href={work.link}
                   initial={{ opacity: 0, y: 5 }}
                   whileInView={{
                     opacity: 1,
                     y: 0,
                     transition: { duration: 1.4, ease: "circInOut" },
                   }}
-                  className="mt-2"
                 >
-                  Veja mais
-                </motion.p>
-              </motion.a>
+                  <motion.p className="mt-3">Ver mais</motion.p>
+                </motion.a>
+              )}
             </div>
           </motion.div>
         </AnimatePresence>
@@ -166,14 +192,14 @@ export default function Jobs() {
         style={{ zIndex: 100 }}
         className="flex select-none justify-center items-center mx-auto"
       >
-        {myWorks.map((i, key) => {
+        {myWorks.map((item, key) => {
           return (
             <motion.button
-              key={key}
+              type="button"
+              key={item.title}
+              aria-label={`Ver trabalho: ${item.title}`}
               className="text-5xl pb-5"
-              onClick={() => {
-                setJob([key, key > job ? 1 : -1]);
-              }}
+              onClick={() => setJob([key, key > job ? 1 : -1])}
               initial={{ opacity: 0 }}
               whileInView={{
                 opacity: 1,

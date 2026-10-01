@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unknown-property */
-import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-import { Environment, Float, Stars, Text3D } from "@react-three/drei";
+import { Environment, Float, Lightformer, Stars } from "@react-three/drei";
 import Notebook from "./component/Notebook";
 import Electron from "./component/Electron";
 import Swarm from "./component/Swarm";
@@ -15,10 +14,24 @@ export default function Space() {
   const { state } = useContext(GlobalContext);
 
   return (
-    <Canvas flat legacy dpr={0.7} camera={{ position: [0, 0, 20], fov: 50 }}>
+    <Canvas dpr={0.7} camera={{ position: [0, 0, 20], fov: 50 }}>
       {/* FX */}
       <ambientLight intensity={0.01} />
-      <Environment preset="city" />
+      <Environment resolution={256}>
+        <Lightformer intensity={2} position={[0, 5, -9]} scale={[10, 10, 1]} />
+        <Lightformer
+          intensity={1}
+          position={[-5, 1, -1]}
+          scale={[10, 2, 1]}
+          color="lightblue"
+        />
+        <Lightformer
+          intensity={1}
+          position={[5, -1, -1]}
+          scale={[10, 2, 1]}
+          color="green"
+        />
+      </Environment>
       <PostEffects />
 
       {/* Swarm */}

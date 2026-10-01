@@ -1,12 +1,11 @@
 import React from 'react';
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { MenuOpenOutlined } from '@mui/icons-material';
 
@@ -76,6 +75,18 @@ export default function Nav() {
             href="#jobs"
             >
               Trabalhos
+            </motion.a>
+          </MenuItem>
+          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
+            <motion.a
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.3, ease: 'circInOut' }}
+            className=' text-white font-bold text-xl' 
+            href="#experience"
+            >
+              Trajetória
             </motion.a>
           </MenuItem>
           <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
