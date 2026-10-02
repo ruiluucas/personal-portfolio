@@ -5,9 +5,18 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import { MenuOpenOutlined } from '@mui/icons-material';
+
+const menuItems = [
+  { label: 'Contato', href: '#contact', duration: 0.8 },
+  { label: 'Sobre', href: '#about', duration: 1 },
+  { label: 'Trabalhos', href: '#jobs', duration: 1.2 },
+  { label: 'Trajetória', href: '#experience', duration: 1.3 },
+  { label: 'Extras', href: '#extras', duration: 1.35 },
+  { label: 'Benefícios', href: '#benefits', duration: 1.4 },
+];
 
 export default function Nav() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -41,79 +50,24 @@ export default function Nav() {
         onClose={handleClose}
         onClick={handleClose}
       >
-        <AnimatePresence>
-          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
+        {menuItems.map((item) => (
+          <MenuItem
+            key={item.href}
+            style={{ fontFamily: '"Instrument Serif", sans-serif' }}
+            onClick={handleClose}
+          >
             <motion.a
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: 'circInOut' }}
-            className=' text-white font-bold text-xl' href="#contact"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: item.duration, ease: 'circInOut' }}
+              className=" text-white font-bold text-xl"
+              href={item.href}
             >
-              Contato
+              {item.label}
             </motion.a>
           </MenuItem>
-          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-            <motion.a 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: 'circInOut' }}
-            className=' text-white font-bold text-xl' 
-            href="#about"
-            >
-              Sobre
-            </motion.a>
-          </MenuItem>
-          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-            <motion.a
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: 'circInOut' }}
-            className='text-white font-bold text-xl' 
-            href="#jobs"
-            >
-              Trabalhos
-            </motion.a>
-          </MenuItem>
-          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-            <motion.a
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.3, ease: 'circInOut' }}
-            className=' text-white font-bold text-xl' 
-            href="#experience"
-            >
-              Trajetória
-            </motion.a>
-          </MenuItem>
-          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-            <motion.a
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.35, ease: 'circInOut' }}
-            className=' text-white font-bold text-xl' 
-            href="#extras"
-            >
-              Extras
-            </motion.a>
-          </MenuItem>
-          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
-            <motion.a
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.4, ease: 'circInOut' }}
-            className=' text-white font-bold text-xl' 
-            href="#benefits"
-            >
-              Benefícios
-            </motion.a>
-          </MenuItem>
-        </AnimatePresence>
+        ))}
       </Menu>
     </>
   );

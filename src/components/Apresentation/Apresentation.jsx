@@ -5,13 +5,25 @@ import {
   MotionConfig,
   LayoutGroup,
 } from "framer-motion";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useProgress } from "@react-three/drei";
+import ErrorBoundary from "../ErrorBoundary";
 
 export default function Apresentation() {
   const { state, dispatch } = useContext(GlobalContext);
-  const { progress } = useProgress();
+  const { progress, errors } = useProgress();
+  const [loadingTimedOut, setLoadingTimedOut] = useState(false);
+
+  // A tela de loading nao pode segurar o site para sempre: se os assets nao
+  // chegarem (rede, CDN, WebGL indisponivel), libera o conteudo mesmo assim.
+  useEffect(() => {
+    const timer = setTimeout(() => setLoadingTimedOut(true), 15000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const isLoading =
+    progress !== 100 && errors.length === 0 && !loadingTimedOut;
 
   useEffect(() => {
     console.log(progress);
@@ -21,7 +33,7 @@ export default function Apresentation() {
     <>
       <div className="fixed z-0 h-full w-full">
         <AnimatePresence>
-          {progress != 100 && (
+          {isLoading && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -33,7 +45,9 @@ export default function Apresentation() {
             </motion.div>
           )}
         </AnimatePresence>
-        <Space />
+        <ErrorBoundary fallback={<div className="fixed inset-0 -z-10 bg-black" />}>
+          <Space />
+        </ErrorBoundary>
       </div>
       <div
         style={{ fontFamily: '"Platypi"', fontWeight: 900 }}

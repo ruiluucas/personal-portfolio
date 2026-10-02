@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Nav from './components/Nav'
 
@@ -7,13 +7,15 @@ export default function Header() {
   const { state, dispatch } = useContext(GlobalContext)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  addEventListener("scroll", () => {
-    if(window.scrollY > 0 && state.notebookZoomIn) {
-      setIsScrolled(true)
-    } else {
-      setIsScrolled(false)
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 0 && state.notebookZoomIn)
     }
-  })
+
+    onScroll()
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [state.notebookZoomIn])
 
   return (
     <>
