@@ -135,6 +135,21 @@ export default function Header() {
                 >Trajetória</motion.a>
                 <motion.a
                 onClick={() => { 
+                  document.getElementById('extras').scrollIntoView(true);
+                }}
+                className='cursor-pointer font-medium p-1 px-2 rounded-md border-x-2 border-transparent'
+                key="extras"
+                initial={{ opacity: 0, y: -80 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, transition: { duration: 1.35 } }}
+                whileHover={{
+                  textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",
+                  transition: { duration: 0.2 }
+                }}
+                transition={{ duration: 1.8, ease: 'circOut' }}
+                >Extras</motion.a>
+                <motion.a
+                onClick={() => { 
                   document.getElementById('benefits').scrollIntoView(true);
                 }}
                 className='cursor-pointer font-medium p-1 px-2 rounded-md border-x-2 border-transparent'

@@ -69,7 +69,7 @@ export default function Content() {
                     style={{ zIndex: 70, fontFamily: '"Platypi"' }}
                     className="transition-all items-center flex flex-col overflow-y-visible text-white w-full"
                   >
-                    <div className="flex sm:gap-32 sm:h-screen mx-10 sm:mx-16 flex-col sm:gap-14 md:gap-28 md:flex-row-reverse">
+                    <div className="flex sm:gap-32 mx-10 sm:mx-16 flex-col sm:gap-14 md:gap-28 md:flex-row-reverse sm:pb-6">
                       <Contact />
                       <About />
                     </div>

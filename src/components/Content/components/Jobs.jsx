@@ -41,9 +41,9 @@ export default function Jobs() {
   return (
     <div
       id="jobs"
-      className="flex overflow-hidden w-screen flex-col justify-center pt-20"
+      className="flex overflow-hidden w-screen flex-col justify-center pt-4"
     >
-      <div className="flex h-96 mt-16 mb-8 w-screen max-w-screen-lg mx-auto overflow-hidden justify-center items-center">
+      <div className="flex h-96 mt-2 mb-6 w-screen max-w-screen-lg mx-auto overflow-hidden justify-center items-center">
         <div className="absolute select-none w-screen max-w-screen-sm flex justify-between">
           <motion.button
             type="button"
