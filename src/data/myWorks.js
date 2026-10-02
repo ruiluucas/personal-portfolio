@@ -1,12 +1,21 @@
 // Projetos exibidos na seção "Trabalhos".
 // Regra: só entra o que tem evidência (repositório, publicação ou site no ar).
+// Ordem: mais recente primeiro.
 const myWorks = [
+  {
+    img: "./my-works/images/youtube-video-creator.jpg",
+    title: "YouTube Video Creator — canal automatizado",
+    year: "2026",
+    text: "Pipeline que produz vídeos narrados de ponta a ponta: roteiro em timeline narrativa por IA, narração TTS, imagem por segmento, render no Remotion e upload privado pela API do YouTube — com travas de licença de asset, QA do render e revisão humana antes de publicar. É o que roda o canal @contosdoglobo.",
+    tags: ["Remotion", "TypeScript", "IA", "Automação"],
+    link: "https://www.youtube.com/@contosdoglobo",
+  },
   {
     img: "./my-works/images/aurah.png",
     title: "Aurah — plataforma de profissionais",
     year: "2026",
-    text: "Plataforma com recomendação por IA para conectar profissionais e clientes. Monorepo com API em Laravel 12 (PHP 8.4 + PostgreSQL 17), serviço de recomendação em FastAPI + Qdrant, chat e mídia em Node, e app mobile em Expo/React Native — tudo em Docker.",
-    tags: ["Laravel", "FastAPI", "Qdrant", "Expo", "Docker"],
+    text: "Plataforma que conecta profissionais e clientes com recomendação por IA. Produto próprio, do app mobile ao back-end, desenvolvido e mantido ponta a ponta — no ar em useaurah.com.",
+    tags: ["Produto", "IA", "Mobile"],
     link: "https://useaurah.com",
   },
   {
@@ -18,6 +27,30 @@ const myWorks = [
     link: "",
   },
   {
+    img: "./my-works/images/meta-publisher.png",
+    title: "Publicação automática de posts",
+    year: "2026",
+    text: "Automação que publica os posts institucionais do Polo UAB de Cruzeiro do Oeste na Página do Facebook e no Instagram profissional via Graph API, a partir de um repositório de conteúdo versionado.",
+    tags: ["Node.js", "Meta Graph API", "Automação"],
+    link: "",
+  },
+  {
+    img: "./my-works/images/chromecluster.png",
+    title: "ChromeCluster",
+    year: "2026",
+    text: "Reaproveitamento de Chromebooks descartados como nós de um cluster Docker Swarm para laboratório e ensino — firmware destravado, provisionamento dos nós e a base de conhecimento do projeto.",
+    tags: ["Docker Swarm", "Linux", "Infraestrutura"],
+    link: "https://github.com/Inovatech-LTDA/ChromeCluster",
+  },
+  {
+    img: "./my-works/images/quant.png",
+    title: "Análise quantitativa de mercado",
+    year: "2026",
+    text: "Modelagem e backtesting em Python sobre dados da B3: superfície de volatilidade, proventos, open interest e séries macro. Ponte própria levando MetaTrader 5 (rodando em Wine) para Python via RPC, com relatórios do Strategy Tester.",
+    tags: ["Python", "pandas", "Polars", "B3", "MetaTrader 5"],
+    link: "",
+  },
+  {
     img: "./my-works/images/sticky-tab.png",
     title: "react-native-profile-sticky-tab",
     year: "2026",
@@ -26,11 +59,11 @@ const myWorks = [
     link: "https://www.npmjs.com/package/react-native-profile-sticky-tab",
   },
   {
-    img: "./my-works/images/quant.png",
-    title: "Análise quantitativa de mercado",
-    year: "2026",
-    text: "Modelagem e backtesting em Python sobre dados da B3: superfície de volatilidade, proventos, open interest e séries macro. Ponte própria levando MetaTrader 5 (rodando em Wine) para Python via RPC, com relatórios do Strategy Tester.",
-    tags: ["Python", "pandas", "Polars", "B3", "MetaTrader 5"],
+    img: "./my-works/images/kawslab.jpg",
+    title: "Hackathon KAWS.LAB — 2º lugar",
+    year: "2025",
+    text: "Maratona de inovação do KAWS.LAB em Umuarama (13/12/2025): projeto desenvolvido em equipe durante o evento, que rendeu o 2º lugar e premiação de R$ 1.500,00.",
+    tags: ["Hackathon", "Inovação", "Trabalho em equipe"],
     link: "",
   },
   {
@@ -48,22 +81,6 @@ const myWorks = [
     text: "Robô capaz de jogar truco 1v1: detecta as cartas pela webcam em tempo real com YOLOv8 e gerencia o estado do jogo sozinho. Versão anterior rodava em C++ com Arduino.",
     tags: ["Python", "YOLOv8", "OpenCV", "Arduino"],
     link: "https://github.com/ruiluucas/truco-ia-machine",
-  },
-  {
-    img: "./my-works/images/chromecluster.png",
-    title: "ChromeCluster",
-    year: "2024",
-    text: "Reaproveitamento de Chromebooks descartados como nós de um cluster Docker Swarm para laboratório e ensino — incluindo scripts de provisionamento e a base de conhecimento do projeto.",
-    tags: ["Docker Swarm", "Linux", "Infraestrutura"],
-    link: "https://github.com/Inovatech-LTDA/ChromeCluster",
-  },
-  {
-    img: "./my-works/images/meta-publisher.png",
-    title: "Publicação automática de posts",
-    year: "2026",
-    text: "Automação que publica os posts institucionais do Polo UAB de Cruzeiro do Oeste na Página do Facebook e no Instagram profissional via Graph API, a partir de um repositório de conteúdo versionado.",
-    tags: ["Node.js", "Meta Graph API", "Automação"],
-    link: "",
   },
   {
     img: "./my-works/images/ecommerce.png",

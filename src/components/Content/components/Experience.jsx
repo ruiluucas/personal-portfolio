@@ -2,22 +2,16 @@ import { motion } from "framer-motion";
 
 const timeline = [
   {
+    period: "2026",
+    title: "Oficina \"Enxergando sem Câmeras\" · UNIPAR",
+    text: "Do sinal de rádio à rede neural: extração de CSI de um ESP32, tratamento e rotulagem de dados e treino do modelo, com demonstração ao vivo do FlashView.",
+    tags: ["ESP32", "CSI", "TensorFlow"],
+  },
+  {
     period: "2025 — atual",
     title: "Estágio em TI · Prefeitura Municipal de Cruzeiro do Oeste",
     text: "Suporte à supervisão dos computadores e aos projetos de software municipais. Responsável também pela automação da divulgação institucional do Polo UAB de Cruzeiro do Oeste, publicando posts na Página do Facebook e no Instagram via API.",
     tags: ["Infraestrutura", "Automação", "Meta Graph API"],
-  },
-  {
-    period: "2024 — atual",
-    title: "Desenvolvedor de software · Autônomo",
-    text: "Projetos web, mobile e APIs para clientes e uso próprio: landing pages, sistemas full stack, aplicativos em React Native/Expo e integrações. É dessa frente que saem o Aurah, as bibliotecas open source e as ferramentas de dados.",
-    tags: ["React", "React Native", "Laravel", "Python"],
-  },
-  {
-    period: "2024",
-    title: "Estágio em Sistemas de Informação · InovaTech / Unipar",
-    text: "Desenvolvimento de inovações tecnológicas e estudo de programação, redes e sistemas operacionais. Saíram desse período o robô de truco com visão computacional (YOLOv8), o ChromeCluster (Chromebooks reativados como nós de Docker Swarm) e a documentação de infraestrutura enterprise do GigaClusterLab.",
-    tags: ["YOLOv8", "Docker Swarm", "Redes"],
   },
   {
     period: "2025",
@@ -26,16 +20,22 @@ const timeline = [
     tags: ["Machine Learning", "Docência", "CTF"],
   },
   {
-    period: "2026",
-    title: "Oficina \"Enxergando sem Câmeras\" · UNIPAR",
-    text: "Do sinal de rádio à rede neural: extração de CSI de um ESP32, tratamento e rotulagem de dados e treino do modelo, com demonstração ao vivo do FlashView.",
-    tags: ["ESP32", "CSI", "TensorFlow"],
+    period: "2024",
+    title: "Estágio em Sistemas de Informação · InovaTech / Unipar",
+    text: "Desenvolvimento de inovações tecnológicas e estudo de programação, redes, sistemas operacionais e banco de dados. Na prática: servidores com Docker/Docker Swarm e Proxmox, APIs em Java, visão computacional com YOLOv8 e robótica com Arduino. Saíram desse período o robô de truco com visão computacional e a documentação de infraestrutura enterprise do GigaClusterLab.",
+    tags: ["Docker Swarm", "Proxmox", "Java", "Arduino", "Redes"],
   },
   {
     period: "2024 — 2027",
     title: "Bacharelado em Gestão de Sistemas de Informação · Unipar",
     text: "Formação em andamento, com foco em desenvolvimento, banco de dados, redes e gestão de projetos de software.",
     tags: ["Graduação"],
+  },
+  {
+    period: "2023 — atual",
+    title: "Desenvolvedor de software · Autônomo",
+    text: "Projetos web, mobile e APIs para clientes e uso próprio: landing pages, sistemas full stack, aplicativos em React Native/Expo e integrações. É dessa frente que saem o Aurah, as bibliotecas open source e as ferramentas de dados.",
+    tags: ["React", "React Native", "Laravel", "Python"],
   },
 ];
 

@@ -94,6 +94,18 @@ export default function Nav() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 1.35, ease: 'circInOut' }}
+            className=' text-white font-bold text-xl' 
+            href="#extras"
+            >
+              Extras
+            </motion.a>
+          </MenuItem>
+          <MenuItem style={{ fontFamily: '"Instrument Serif", sans-serif' }} onClick={handleClose}>
+            <motion.a
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 1.4, ease: 'circInOut' }}
             className=' text-white font-bold text-xl' 
             href="#benefits"

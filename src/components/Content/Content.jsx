@@ -5,6 +5,7 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Jobs from "./components/Jobs";
 import Experience from "./components/Experience";
+import Extras from "./components/Extras";
 import Benefits from "./components/Benefits";
 import Footer from "./components/Footer";
 
@@ -74,6 +75,7 @@ export default function Content() {
                     </div>
                     <Jobs />
                     <Experience />
+                    <Extras />
                     <Benefits />
                     <Footer />
                   </div>
