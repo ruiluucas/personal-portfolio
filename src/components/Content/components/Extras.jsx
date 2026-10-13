@@ -106,7 +106,7 @@ export default function Extras() {
   return (
     <motion.div
       id="extras"
-      className="flex flex-col w-screen max-w-screen-lg mx-auto px-6 py-24 items-start"
+      className="flex flex-col w-screen max-w-screen-lg mx-auto px-6 py-24 items-start scroll-mt-24"
     >
       <motion.h2
         initial={{ opacity: 0, y: 10 }}

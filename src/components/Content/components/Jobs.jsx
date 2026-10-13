@@ -41,16 +41,22 @@ export default function Jobs() {
   return (
     <div
       id="jobs"
-      className="flex overflow-hidden w-screen flex-col justify-center pt-4"
+      className="flex overflow-hidden w-screen flex-col justify-center pt-4 scroll-mt-24"
     >
-      <div className="flex h-96 mt-2 mb-6 w-screen max-w-screen-lg mx-auto overflow-hidden justify-center items-center">
-        <div className="absolute select-none w-screen max-w-screen-sm flex justify-between">
+      {/*
+        Nao usar altura fixa (h-96): o card varia de altura com o texto de cada
+        trabalho e, com overflow-hidden, o excesso era cortado em cima e embaixo.
+        Grid com os slides empilhados na mesma celula (grid-area: 1/1) faz a
+        altura acompanhar o slide mais alto, mantendo o corte so na horizontal.
+      */}
+      <div className="relative grid place-items-center mt-2 mb-6 w-screen max-w-screen-lg mx-auto overflow-hidden px-14 sm:px-16">
+        <div className="absolute top-1/2 -translate-y-1/2 select-none w-full max-w-screen-sm flex justify-between pointer-events-none">
           <motion.button
             type="button"
             aria-label="Trabalho anterior"
             onClick={() => go(job - 1)}
             style={{ backdropFilter: "blur(5px)" }}
-            className="text-xl z-50 left-0 p-3 m-2 rounded-full cursor-pointer"
+            className="text-xl z-50 left-0 p-3 m-2 rounded-full cursor-pointer pointer-events-auto"
             initial={{ opacity: 0, x: 10 }}
             whileHover={{
               textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",
@@ -72,7 +78,7 @@ export default function Jobs() {
             aria-label="Próximo trabalho"
             onClick={() => go(job + 1)}
             style={{ backdropFilter: "blur(5px)" }}
-            className="text-xl z-50 right-0 p-3 m-2 rounded-full cursor-pointer"
+            className="text-xl z-50 right-0 p-3 m-2 rounded-full cursor-pointer pointer-events-auto"
             initial={{ opacity: 0, x: -10 }}
             whileHover={{
               textShadow: "0 0 5px #FFF, 0 0 15px #FFF, 0 0 30px #FFF",
@@ -110,12 +116,12 @@ export default function Jobs() {
                 go(job - 1);
               }
             }}
-            style={{ background: `url(${work.img})` }}
-            className="flex bg-center mx-auto justify-center flex-wrap gap-5 absolute rounded-xl"
+            style={{ gridArea: "1/1", background: `url(${work.img})` }}
+            className="flex bg-center bg-cover justify-center flex-wrap gap-5 rounded-xl"
           >
             <div
               style={{ backdropFilter: "blur(5px)" }}
-              className="w-80 p-5 bg-black/60 transition-all text-white"
+              className="w-80 max-w-full p-5 bg-black/60 transition-all text-white"
             >
               <motion.img
                 className="rounded-lg object-contain transition-all"

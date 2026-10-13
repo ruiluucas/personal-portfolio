@@ -52,7 +52,7 @@ export default function Benefits() {
   return (
     <AnimatePresence>
       <div
-        className=" flex flex-col py-20 mt-5 items-center cursor-default"
+        className=" flex flex-col py-20 mt-5 items-center cursor-default scroll-mt-24"
         id="benefits"
       >
         <div className="gap-5 rounded-md flex flex-col md:flex-row text-white [&>div>div]:mx-5 [&>div>div]:my-5 [&>div>div>h4]:font-semibold [&>div>div>h4]:text-xl [&>div>div>h4]:text-green-500">

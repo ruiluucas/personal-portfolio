@@ -11,31 +11,26 @@ const contacts = [
   {
     icon: <Email />,
     label: "E-mail",
-    value: "lucasantony815@gmail.com",
     href: "mailto:lucasantony815@gmail.com",
   },
   {
     icon: <LinkedIn />,
     label: "LinkedIn",
-    value: "/in/rui-lucas-a-gomes",
     href: "https://www.linkedin.com/in/rui-lucas-a-gomes/",
   },
   {
     icon: <GitHub />,
     label: "GitHub",
-    value: "/ruiluucas",
     href: "https://github.com/ruiluucas",
   },
   {
     icon: <WhatsApp />,
     label: "WhatsApp",
-    value: "conversa direta",
     href: "https://wa.me/5544997483524",
   },
   {
     icon: <Instagram />,
     label: "Instagram",
-    value: "@rui_luucas",
     href: "https://www.instagram.com/rui_luucas/",
   },
 ];
@@ -46,7 +41,7 @@ export default function Contact() {
       initial={{ opacity: 0, transition: { duration: 2, delay: 1 } }}
       whileInView={{ opacity: 1, transition: { duration: 2 } }}
       exit={{ opacity: 0, transition: { duration: 2, delay: 2 } }}
-      className="flex pt-16 flex-col cursor-default sm:h-min"
+      className="flex flex-col cursor-default sm:h-min scroll-mt-24"
       id="contact"
     >
       <motion.span
@@ -79,28 +74,25 @@ export default function Contact() {
         <span className="text-white/90">escolhe um canal e me chama</span>.
       </motion.p>
 
-      <div className="mt-6 flex flex-col border-y border-white/10">
+      <div className="mt-5 flex flex-wrap gap-2">
         {contacts.map((contact, key) => (
           <motion.a
             key={contact.label}
             href={contact.href}
             target="_blank"
             rel="noreferrer"
+            aria-label={contact.label}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ x: 4 }}
+            whileHover={{ y: -2 }}
             transition={{ duration: 0.6 + key * 0.08 }}
-            className="group flex cursor-pointer items-center gap-3 border-b border-white/10 py-2.5 text-sm last:border-b-0 pointer-events-auto"
+            className="group flex cursor-pointer items-center gap-2 rounded-md border border-white/10 bg-white/[0.03] px-3 py-2 transition-colors hover:border-green-500/60 pointer-events-auto"
           >
-            <span className="text-green-500">{contact.icon}</span>
-            <span className="w-20 text-[10px] uppercase tracking-widest text-white/40">
+            <span className="text-green-500 text-lg leading-none">
+              {contact.icon}
+            </span>
+            <span className="text-[10px] uppercase tracking-widest text-white/50 transition-colors group-hover:text-white/90">
               {contact.label}
-            </span>
-            <span className="font-light text-white/85 transition-colors group-hover:text-green-500">
-              {contact.value}
-            </span>
-            <span className="ml-auto text-white/25 transition-all group-hover:translate-x-0.5 group-hover:text-green-500">
-              ↗
             </span>
           </motion.a>
         ))}

@@ -13,7 +13,7 @@ export default function About() {
       initial={{ opacity: 0, transition: { duration: 2, delay: 1 } }}
       whileInView={{ opacity: 1, transition: { duration: 2 } }}
       exit={{ opacity: 0, transition: { duration: 2, delay: 2 } }}
-      className="pt-16 sm:pt-24 md:h-min flex items-start"
+      className="md:h-min flex items-start scroll-mt-24"
       id="about"
     >
       <div className="mx-auto flex flex-col">
