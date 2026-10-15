@@ -10,7 +10,7 @@ const timeline = [
   {
     period: "2025 — atual",
     title: "Estágio em TI · Prefeitura Municipal de Cruzeiro do Oeste",
-    text: "Suporte à supervisão dos computadores e aos projetos de software municipais. Responsável também pela automação da divulgação institucional do Polo UAB de Cruzeiro do Oeste, publicando posts na Página do Facebook e no Instagram via API.",
+    text: "Suporte à supervisão de 20 computadores e aos projetos de software municipais. Responsável também pela automação da divulgação institucional do Polo UAB de Cruzeiro do Oeste, publicando cerca de 5 posts por dia na Página do Facebook e no Instagram via API.",
     tags: ["Infraestrutura", "Automação", "Meta Graph API"],
   },
   {
@@ -22,17 +22,17 @@ const timeline = [
   {
     period: "2024",
     title: "Estágio em Sistemas de Informação · InovaTech / Unipar",
-    text: "Desenvolvimento de inovações tecnológicas e estudo de programação, redes, sistemas operacionais e banco de dados. Na prática: servidores com Docker/Docker Swarm e Proxmox, APIs em Java, visão computacional com YOLOv8 e robótica com Arduino. Saíram desse período o robô de truco com visão computacional e a documentação de infraestrutura enterprise do GigaClusterLab.",
+    text: "Desenvolvimento de inovações tecnológicas e estudo de programação, redes, sistemas operacionais e banco de dados. Na prática: servidores com Docker e Docker Swarm sobre cerca de 80 Chromebooks reaproveitados e Proxmox para as VMs, APIs em Java, visão computacional com YOLOv8 e robótica com Arduino. Saíram desse período o robô de truco com visão computacional e a documentação de infraestrutura enterprise do GigaClusterLab.",
     tags: ["Docker Swarm", "Proxmox", "Java", "Arduino", "Redes"],
   },
   {
     period: "2024 — 2027",
-    title: "Bacharelado em Gestão de Sistemas de Informação · Unipar",
+    title: "Bacharelado em Sistemas de Informação · Unipar",
     text: "Formação em andamento, com foco em desenvolvimento, banco de dados, redes e gestão de projetos de software.",
     tags: ["Graduação"],
   },
   {
-    period: "2023 — atual",
+    period: "2022 — atual",
     title: "Desenvolvedor de software · Autônomo",
     text: "Projetos web, mobile e APIs para clientes e uso próprio: landing pages, sistemas full stack, aplicativos em React Native/Expo e integrações. É dessa frente que saem o Aurah, as bibliotecas open source e as ferramentas de dados.",
     tags: ["React", "React Native", "Laravel", "Python"],
